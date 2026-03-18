@@ -59,7 +59,7 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="py-24 md:py-32 bg-[#0a0a14] relative overflow-hidden"
+      className="py-16 md:py-20 bg-[#0a0a14] relative overflow-hidden"
     >
       {/* Decorative background */}
       <div className="absolute inset-0 pointer-events-none">

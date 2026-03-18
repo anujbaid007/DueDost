@@ -33,14 +33,14 @@ const sections: TextSection[] = [
     leave: 0.6,
     label: "003 / The Solution",
     heading: "Save Up To 70% On Your Dues",
-    body: "Our expert legal team has helped 10,000+ Indians reclaim their financial freedom. You could be next.",
+    body: "Our experts have settled 10,000+ cases nationwide, negotiating directly with banks and NBFCs so you pay only a fraction of what you owe.",
   },
   {
     enter: 0.6,
     leave: 0.8,
     label: "004 / Your Future",
     heading: "Debt-Free. Worry-Free.",
-    body: "One call. One consultation. A lifetime of peace. Let Due Dost be your friend in settling dues.",
+    body: "No more sleepless nights, no more recovery calls. One free consultation is all it takes to start your journey to a completely debt-free life.",
   },
   {
     enter: 0.8,
@@ -219,15 +219,22 @@ export function ScrollVideo() {
 
       {/* Sticky viewport */}
       <div className="sticky top-0 w-full h-screen flex items-center justify-center bg-[#0a0a0a]">
-        <div className="flex w-full max-w-[1400px] mx-auto h-[75vh] rounded-2xl overflow-hidden border border-white/[0.06] shadow-2xl shadow-black/40">
+        {/* Glassmorphism background orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-duedost-blue/20 rounded-full blur-[140px]" />
+          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-duedost-green/15 rounded-full blur-[120px]" />
+          <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-duedost-blue/10 rounded-full blur-[100px]" />
+        </div>
+
+        <div className="flex w-full h-full relative">
           {/* Left 1/3 — Video */}
           <div className="relative w-full lg:w-[35%] h-full bg-[#0a0a0a] overflow-hidden">
             <canvas
               ref={canvasRef}
               className="w-full h-full"
             />
-            {/* Subtle gradient overlay on right edge to blend */}
-            <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent" />
+            {/* Subtle gradient overlay on right edge to blend into glass panel */}
+            <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/60 to-transparent" />
 
             {/* Mobile text overlays — shown below lg */}
             <div className="lg:hidden absolute inset-0 pointer-events-none">
@@ -235,13 +242,16 @@ export function ScrollVideo() {
             </div>
           </div>
 
-          {/* Right 2/3 — Text panel (desktop only) */}
-          <div className="hidden lg:flex w-[65%] h-full bg-[#0a0a0a] flex-col justify-center px-12 xl:px-20 relative">
+          {/* Right 2/3 — Glass text panel (desktop only) */}
+          <div className="hidden lg:flex w-[65%] h-full backdrop-blur-2xl bg-white/[0.04] border-l border-white/[0.08] flex-col justify-center px-12 xl:px-20 relative">
             {/* Decorative vertical line */}
-            <div className="absolute left-0 top-[15%] bottom-[15%] w-px bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+            <div className="absolute left-0 top-[15%] bottom-[15%] w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
 
-            {/* Progress indicator dots */}
-            <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+            {/* Inner glass glow reflection at top */}
+            <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+            {/* Progress indicator dots — glassy pill */}
+            <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col gap-4 px-2 py-3 rounded-full backdrop-blur-sm bg-white/[0.04] border border-white/[0.08]">
               {sections.map((_, i) => (
                 <div
                   key={i}
@@ -250,9 +260,9 @@ export function ScrollVideo() {
                   <div
                     className={`w-2 h-2 rounded-full transition-all duration-500 ${
                       i === activeIdx
-                        ? "bg-duedost-green scale-125 shadow-[0_0_10px_rgba(59,170,53,0.5)]"
+                        ? "bg-duedost-green scale-125 shadow-[0_0_10px_rgba(59,170,53,0.6)]"
                         : i < activeIdx
-                        ? "bg-white/30"
+                        ? "bg-white/40"
                         : "bg-white/10"
                     }`}
                   />
@@ -292,7 +302,7 @@ export function ScrollVideo() {
                     }}
                   >
                     {section.label && (
-                      <span className="text-xs font-semibold uppercase tracking-[0.25em] text-duedost-green/80 mb-5 block">
+                      <span className="inline-flex items-center w-fit px-3 py-1 mb-5 rounded-full backdrop-blur-sm bg-duedost-green/10 border border-duedost-green/25 text-xs font-semibold uppercase tracking-[0.25em] text-duedost-green">
                         {section.label}
                       </span>
                     )}
@@ -305,7 +315,7 @@ export function ScrollVideo() {
                     </h2>
 
                     {section.body && (
-                      <p className="mt-5 text-white/50 text-base xl:text-lg leading-relaxed max-w-sm">
+                      <p className="mt-5 text-white/55 text-base xl:text-lg leading-relaxed max-w-sm">
                         {section.body}
                       </p>
                     )}
@@ -319,11 +329,11 @@ export function ScrollVideo() {
                       </a>
                     )}
 
-                    {/* Progress bar for active section */}
+                    {/* Glass progress bar for active section */}
                     {isActive && !section.isCTA && (
-                      <div className="mt-8 w-32 h-px bg-white/10 rounded-full overflow-hidden">
+                      <div className="mt-8 w-32 h-[3px] bg-white/[0.08] backdrop-blur-sm rounded-full overflow-hidden border border-white/[0.06]">
                         <div
-                          className="h-full bg-gradient-to-r from-duedost-blue to-duedost-green transition-all duration-100"
+                          className="h-full bg-gradient-to-r from-duedost-blue to-duedost-green transition-all duration-100 rounded-full"
                           style={{ width: `${localProgress * 100}%` }}
                         />
                       </div>
@@ -350,14 +360,17 @@ function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
         const visible =
           scrollProgress >= section.enter + 0.04 &&
           scrollProgress < section.leave - 0.04;
+        // Last section (CTA) never fades out — there's no further scroll to trigger it
+        const isLast = section.leave >= 1.0;
         const fadeOut =
+          !isLast &&
           scrollProgress >= section.leave - 0.04 &&
           scrollProgress < section.leave;
-        const show = fadeIn || visible || fadeOut;
+        const show = fadeIn || visible || fadeOut || (isLast && scrollProgress >= section.enter + 0.04);
 
         let opacity = 0;
         if (fadeIn) opacity = (scrollProgress - section.enter) / 0.04;
-        else if (visible) opacity = 1;
+        else if (visible || (isLast && scrollProgress >= section.enter + 0.04)) opacity = 1;
         else if (fadeOut)
           opacity = 1 - (scrollProgress - (section.leave - 0.04)) / 0.04;
 
@@ -366,26 +379,32 @@ function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
         return (
           <div
             key={idx}
-            className="absolute inset-x-0 bottom-0 p-6 pb-10 bg-gradient-to-t from-black/90 via-black/60 to-transparent"
+            className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent"
             style={{
+              paddingTop: "7rem",
               opacity: show ? opacity : 0,
               transform: `translateY(${translateY}px)`,
               pointerEvents: show ? "auto" : "none",
             }}
           >
+            <div className="px-6 pb-10">
             {section.label && (
-              <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-duedost-green mb-3 block">
+              <span className="inline-flex items-center px-2.5 py-0.5 mb-3 rounded-full bg-duedost-green/15 border border-duedost-green/30 text-[10px] font-semibold uppercase tracking-[0.25em] text-duedost-green block w-fit">
                 {section.label}
               </span>
             )}
             <h2
               className="text-2xl md:text-3xl font-bold text-white leading-tight"
-              style={{ fontFamily: "var(--font-display)" }}
+              style={{
+                fontFamily: "var(--font-display)",
+                textShadow: "0 2px 12px rgba(0,0,0,0.8)",
+              }}
             >
               {section.heading}
             </h2>
             {section.body && (
-              <p className="mt-2 text-white/60 text-sm leading-relaxed max-w-xs">
+              <p className="mt-2 text-white/75 text-sm leading-relaxed max-w-xs"
+                style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
                 {section.body}
               </p>
             )}
@@ -397,6 +416,7 @@ function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
                 Start Your Free Consultation
               </a>
             )}
+            </div>
           </div>
         );
       })}

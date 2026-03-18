@@ -7,7 +7,7 @@ export function CTASection() {
   return (
     <section
       id="contact"
-      className="py-24 md:py-32 relative overflow-hidden"
+      className="py-16 md:py-20 relative overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-duedost-blue via-duedost-blue to-duedost-green opacity-95" />

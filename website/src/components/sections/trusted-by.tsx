@@ -11,7 +11,6 @@ type Logo = {
   className?: string; // our custom scaling property
 };
 
-type LogoCloudProps = React.ComponentProps<"div">;
 
 const partners: Logo[] = [
   { alt: "HDFC Bank", src: "/logos/hdfc.svg" },
@@ -81,7 +80,7 @@ export function TrustedBySection() {
   const scaleEffect = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
 
   return (
-    <section ref={containerRef} className="relative py-24 w-full place-content-center overflow-hidden">
+    <section ref={containerRef} className="relative pt-16 pb-16 md:pt-32 md:pb-20 w-full place-content-center overflow-hidden">
       <motion.div 
         style={{ opacity: fadeOpacity, scale: scaleEffect }} 
         className="relative mx-auto grid max-w-6xl px-4 z-10"

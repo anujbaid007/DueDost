@@ -37,7 +37,7 @@ const reasons = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-24 md:py-32 relative bg-muted/20">
+    <section className="py-16 md:py-20 relative bg-muted/20">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -80,14 +80,14 @@ export function WhyChooseUsSection() {
             >
               <div className="border border-border/50 rounded-2xl flex flex-col md:flex-row items-start overflow-hidden bg-background hover:border-border transition-colors duration-300">
                 {/* Evervault interactive area */}
-                <div className="w-full md:w-48 h-48 md:h-auto md:min-h-[14rem] flex-shrink-0 border-b md:border-b-0 md:border-r border-border/30 relative">
+                <div className="w-full md:w-48 h-48 md:h-auto md:min-h-[14rem] flex-shrink-0 border-b md:border-b-0 md:border-r border-border/30 relative flex items-center justify-center">
                   <Icon className="absolute h-6 w-6 -top-3 -left-3 text-foreground/20 z-10" />
                   <Icon className="absolute h-6 w-6 -bottom-3 -right-3 text-foreground/20 z-10" />
                   <EvervaultCard text={reason.evervaultText} />
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 p-6 flex flex-col justify-center">
+                <div className="flex-1 p-6 pt-5 flex flex-col justify-start">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-fit rounded-lg border border-border bg-muted p-2 text-duedost-blue dark:text-duedost-green">
                       {reason.icon}
@@ -96,7 +96,7 @@ export function WhyChooseUsSection() {
                       {reason.title}
                     </h3>
                   </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed mt-4">
                     {reason.description}
                   </p>
                 </div>

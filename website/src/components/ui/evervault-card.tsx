@@ -1,7 +1,7 @@
 "use client";
 
 import { useMotionValue, useMotionTemplate, motion } from "motion/react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export const EvervaultCard = ({
@@ -13,25 +13,66 @@ export const EvervaultCard = ({
 }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isHoveredRef = useRef(false);
+  const rafRef = useRef<number>(0);
 
   const [randomString, setRandomString] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    const str = generateRandomString(1500);
-    setRandomString(str);
+    setRandomString(generateRandomString(1500));
   }, []);
 
+  // Continuous slow orbital drift for ambient glow
+  useEffect(() => {
+    let angle = Math.random() * Math.PI * 2;
+    const speed = 0.006 + Math.random() * 0.004; // each card drifts at slightly different speed
+
+    const drift = () => {
+      if (!isHoveredRef.current && cardRef.current) {
+        const { width, height } = cardRef.current.getBoundingClientRect();
+        angle += speed;
+        mouseX.set(width / 2 + Math.cos(angle) * width * 0.32);
+        mouseY.set(height / 2 + Math.sin(angle * 0.65) * height * 0.32);
+      }
+      rafRef.current = requestAnimationFrame(drift);
+    };
+
+    rafRef.current = requestAnimationFrame(drift);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [mouseX, mouseY]);
+
+  // Slow character refresh for ambient shimmer
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setRandomString(generateRandomString(1500));
+    }, 300);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
   function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    isHoveredRef.current = true;
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
+    setRandomString(generateRandomString(1500));
+  }
 
-    const str = generateRandomString(1500);
-    setRandomString(str);
+  function onMouseEnter() {
+    isHoveredRef.current = true;
+    setIsHovered(true);
+  }
+
+  function onMouseLeave() {
+    isHoveredRef.current = false;
+    setIsHovered(false);
   }
 
   return (
     <div
+      ref={cardRef}
       className={cn(
         "p-0.5 bg-transparent aspect-square flex items-center justify-center w-full h-full relative",
         className
@@ -39,12 +80,15 @@ export const EvervaultCard = ({
     >
       <div
         onMouseMove={onMouseMove}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         className="group/card rounded-3xl w-full relative overflow-hidden bg-transparent flex items-center justify-center h-full"
       >
         <CardPattern
           mouseX={mouseX}
           mouseY={mouseY}
           randomString={randomString}
+          isHovered={isHovered}
         />
         <div className="relative z-10 flex items-center justify-center">
           <div className="relative h-44 w-44 rounded-full flex items-center justify-center text-white font-bold text-4xl">
@@ -57,26 +101,40 @@ export const EvervaultCard = ({
   );
 };
 
-export function CardPattern({ mouseX, mouseY, randomString }: {
+export function CardPattern({
+  mouseX,
+  mouseY,
+  randomString,
+  isHovered,
+}: {
   mouseX: ReturnType<typeof useMotionValue<number>>;
   mouseY: ReturnType<typeof useMotionValue<number>>;
   randomString: string;
+  isHovered: boolean;
 }) {
   const maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
   const style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
     <div className="pointer-events-none">
-      <div className="absolute inset-0 rounded-2xl [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50" />
+      <div className="absolute inset-0 rounded-2xl [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50 opacity-0" />
+
+      {/* Ambient dim glow — always drifting at low opacity */}
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-duedost-green to-duedost-blue opacity-0 group-hover/card:opacity-100 backdrop-blur-xl transition duration-500"
-        style={style}
+        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-duedost-green to-duedost-blue backdrop-blur-xl transition-opacity duration-700"
+        style={{
+          ...style,
+          opacity: isHovered ? 1 : 0.33,
+        }}
       />
       <motion.div
-        className="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay group-hover/card:opacity-100"
-        style={style}
+        className="absolute inset-0 rounded-2xl mix-blend-overlay transition-opacity duration-700"
+        style={{
+          ...style,
+          opacity: isHovered ? 1 : 0.33,
+        }}
       >
-        <p className="absolute inset-x-0 text-xs h-full break-words whitespace-pre-wrap text-white font-mono font-bold transition duration-500">
+        <p className="absolute inset-x-0 text-xs h-full break-words whitespace-pre-wrap text-white font-mono font-bold">
           {randomString}
         </p>
       </motion.div>

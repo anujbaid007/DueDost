@@ -52,7 +52,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="py-24 md:py-32 relative">
+    <section id="services" className="py-16 md:py-20 relative">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

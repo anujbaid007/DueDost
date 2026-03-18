@@ -53,7 +53,7 @@ function AnimatedCounter({
 
 export function StatsSection() {
   return (
-    <section className="py-20 md:py-28 relative overflow-hidden">
+    <section className="py-10 md:py-14 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-duedost-blue/5 via-transparent to-duedost-green/5" />
 
