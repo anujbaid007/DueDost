@@ -1,0 +1,59 @@
+[    1751ms] [WARNING] %c%s%c ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[    2718ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+        <Home params={Promise} searchParams={Promise}>
+          <main className="relative o...">
+            <Navbar>
+            <HeroSection>
+            <ScrollVideoSection>
+            <TrustedBySection>
+            <ServicesSection>
+            <WhyChooseUsSection>
+            <HowItWorksSection>
+            <StatsSection>
+            <CoverageSection>
+              <section className="py-24 md:p...">
+                <div className="max-w-6xl ...">
+                  <motion.div>
+                  <motion.div initial={{opacity:0, ...}} whileInView={{opacity:1,scale:1}} transition={{duration:1, ...}} ...>
+                    <div className="rounded-2x..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+                      <WorldMap dots={[...]} lineColor="#1B5DAA">
+                        <div className="w-full asp...">
+                          <img
+                            alt="world map"
+                            draggable={false}
+                            fetchPriority={undefined}
+                            loading={undefined}
+                            width={1056}
+                            height={495}
+                            decoding="async"
+                            data-nimg="1"
+                            className="h-full w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white..."
+                            style={{color:"transparent"}}
+                            sizes={undefined}
+                            srcSet={undefined}
++                           src="data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%20198%20100%22%20xmlns%3D%22http%..."
+-                           src="data:image/svg+xml;utf8,%3Csvg%20viewBox%3D%220%200%20198%20100%22%20xmlns%3D%22http%..."
+                            ref={function}
+                            onLoad={function onLoad}
+                            onError={function onError}
+                          >
+                          ...
+                  ...
+            ...
+    ...
+ @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
