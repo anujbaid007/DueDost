@@ -8,43 +8,43 @@ import { useState } from "react";
 const partners = [
   {
     name: "HDFC Bank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/28/HDFC_Bank_Logo.svg",
+    logo: "https://cdn.simpleicons.org/hdfcbank",
   },
   {
     name: "ICICI Bank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/ICICI_Bank_Logo.svg",
+    logo: "https://cdn.simpleicons.org/icicibank",
   },
   {
     name: "SBI",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2e/State_Bank_of_India.svg",
+    logo: "https://cdn.simpleicons.org/sbi",
   },
   {
     name: "Axis Bank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Axis_Bank_logo.svg",
+    logo: "https://cdn.simpleicons.org/axisbank",
   },
   {
     name: "Kotak Mahindra",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/1/15/Kotak_Mahindra_Group_logo.svg",
+    logo: "https://cdn.simpleicons.org/kotakbank",
   },
   {
     name: "IndusInd Bank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/IndusInd_Bank_SVG_Logo.svg",
+    logo: "https://www.vectorlogo.zone/logos/indusind/indusind-ar21.svg",
   },
   {
     name: "RBL Bank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7a/RBL_Bank_SVG_Logo.svg",
+    logo: "https://www.vectorlogo.zone/logos/rblbank/rblbank-ar21.svg",
   },
   {
     name: "Yes Bank",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/84/Yes_Bank_SVG_Logo.svg",
+    logo: "https://www.vectorlogo.zone/logos/yesbank/yesbank-ar21.svg",
   },
   {
     name: "Bajaj Finserv",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Bajaj_Finserv_Logo.svg",
+    logo: "https://www.vectorlogo.zone/logos/bajaj_finserv/bajaj_finserv-ar21.svg",
   },
   {
     name: "Tata Capital",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg",
+    logo: "https://cdn.simpleicons.org/tata",
   },
 ];
 
@@ -71,14 +71,14 @@ function LogoCard({
           src={partner.logo}
           alt={`${partner.name} logo`}
           className={cn(
-            "pointer-events-none select-none h-5 md:h-7 w-auto max-w-[130px] md:max-w-[180px] object-contain transition-all duration-300",
+            "pointer-events-none select-none h-6 md:h-8 w-auto max-w-[130px] md:max-w-[180px] object-contain transition-all duration-300",
             "grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100",
             "dark:brightness-0 dark:invert dark:opacity-50 dark:group-hover:opacity-100"
           )}
           onError={() => setImgError(true)}
         />
       ) : (
-        <span className="text-[10px] md:text-sm font-bold tracking-tight text-foreground/30 select-none text-center leading-tight uppercase">
+        <span className="text-[10px] md:text-xs font-bold tracking-tight text-foreground/30 select-none text-center leading-tight uppercase">
           {partner.name}
         </span>
       )}
@@ -105,7 +105,7 @@ export function TrustedBySection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="relative grid grid-cols-2 md:grid-cols-5 border-x border-border/40"
+          className="relative group grid grid-cols-2 md:grid-cols-5 border-x border-border/40"
         >
           {/* Full-width top border */}
           <div className="-translate-x-1/2 -top-px pointer-events-none absolute left-1/2 w-[200vw] border-t border-border/40" />
