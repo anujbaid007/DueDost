@@ -1,0 +1,135 @@
+"use client";
+
+import Image from "next/image";
+import { Phone, Mail, MapPin } from "lucide-react";
+
+const services = [
+  "Credit Card Settlement",
+  "Personal Loan Settlement",
+  "App Loan Settlement",
+  "Anti-Harassment Service",
+  "Loan Consolidation",
+  "Debt Closure & NOC",
+];
+
+const legal = [
+  "Terms & Conditions",
+  "Privacy Policy",
+  "Refund Policy",
+  "Disclaimer",
+];
+
+export function Footer() {
+  return (
+    <footer className="bg-muted/50 border-t border-border/50">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <Image
+              src="/logo.webp"
+              alt="Due Dost"
+              width={160}
+              height={48}
+              className="h-10 w-auto mb-4"
+            />
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              India&apos;s most trusted debt settlement partner. We help you
+              negotiate and settle loans with expert legal support.
+            </p>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="w-2 h-2 rounded-full bg-duedost-green animate-pulse" />
+              <span>RBI Compliant Services</span>
+            </div>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-semibold text-sm tracking-wide uppercase mb-4">
+              Services
+            </h4>
+            <ul className="space-y-2.5">
+              {services.map((service) => (
+                <li key={service}>
+                  <a
+                    href="#services"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {service}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="font-semibold text-sm tracking-wide uppercase mb-4">
+              Legal
+            </h4>
+            <ul className="space-y-2.5">
+              {legal.map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-semibold text-sm tracking-wide uppercase mb-4">
+              Contact
+            </h4>
+            <div className="space-y-4">
+              <a
+                href="tel:+919601443663"
+                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Phone className="h-4 w-4 text-duedost-green flex-shrink-0" />
+                +91 96014 43663
+              </a>
+              <a
+                href="tel:01204894731"
+                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Phone className="h-4 w-4 text-duedost-blue flex-shrink-0" />
+                0120-4894731
+              </a>
+              <a
+                href="mailto:support@duedost.com"
+                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Mail className="h-4 w-4 text-duedost-green flex-shrink-0" />
+                support@duedost.com
+              </a>
+              <div className="flex items-start gap-3 text-sm text-muted-foreground">
+                <MapPin className="h-4 w-4 text-duedost-blue flex-shrink-0 mt-0.5" />
+                <span>
+                  Sector 2, Noida,
+                  <br />
+                  Uttar Pradesh 201301
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-16 pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted-foreground">
+            &copy; {new Date().getFullYear()} Due Dost. All rights reserved.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Aapke Dues Ka Dost
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
