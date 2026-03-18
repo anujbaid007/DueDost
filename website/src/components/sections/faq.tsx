@@ -43,7 +43,7 @@ const faqs = [
   {
     question: "How much does Due Dost charge?",
     answer:
-      "Our fees are transparent and success-based. We charge a percentage of the amount we save you — so you only pay when we deliver results. The exact fee depends on your case complexity. Get a free consultation to know the exact terms.",
+      "Our fees are transparent and success-based. We charge a percentage of the amount we save you — so you only pay a fraction to save a huge amount on your dues. The exact fee depends on your case complexity. Get a free consultation to know the exact terms.",
   },
 ];
 
