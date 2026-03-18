@@ -80,7 +80,7 @@ export function IndiaMap() {
   // Generate a high-resolution grid of dots for the mask
   const dotsInGrid = useMemo(() => {
     const dots = [];
-    const step = 10; // Density of the dots
+    const step = 7; // Density of the dots
     for (let x = 0; x <= SVG_W; x += step) {
       for (let y = VIEWPORT_TOP; y <= SVG_H; y += step) {
         dots.push(
@@ -88,7 +88,7 @@ export function IndiaMap() {
             key={`${x}-${y}`}
             cx={x}
             cy={y}
-            r="1.5"
+            r="1.8"
             fill="currentColor"
           />
         );
@@ -102,7 +102,7 @@ export function IndiaMap() {
       {/* Structural Dotted Map via SVG Mask */}
       <svg
         viewBox={`0 ${VIEWPORT_TOP} ${SVG_W} ${SVG_H - VIEWPORT_TOP}`}
-        className="w-full h-full text-black/20 dark:text-white/20"
+        className="w-full h-full text-black/50 dark:text-white/20"
       >
         <defs>
           <mask id="india-mask">
@@ -222,7 +222,7 @@ export function IndiaMap() {
               <text
                 x={pt.x + 10}
                 y={pt.y - 10}
-                fill={isDark ? "white" : "black"}
+                fill="currentColor"
                 className="text-[12px] font-medium opacity-70 select-none pointer-events-none"
                 style={{ fontFamily: "Inter, sans-serif" }}
               >

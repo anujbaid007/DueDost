@@ -6,13 +6,13 @@ import { TestimonialsColumn } from "@/components/ui/testimonials-columns";
 const testimonials = [
   {
     text: "Due Dost settled my 4.5 lakh credit card bill for just 1.8 lakh. I was drowning in EMIs and they threw me a lifeline. Forever grateful.",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "/testimonials/rajesh-sharma.png",
     name: "Rajesh Sharma",
     role: "Business Owner, Delhi",
   },
   {
     text: "Recovery agents were calling 10 times a day. Due Dost's anti-harassment service stopped them within 48 hours. Pure relief.",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcR-svSeHIfCFoGoJAHaBz63ioeV7TXd8oqg&s",
     name: "Priya Mehta",
     role: "Teacher, Mumbai",
   },
@@ -24,7 +24,7 @@ const testimonials = [
   },
   {
     text: "My CIBIL score was ruined after defaulting. Due Dost not only settled my loan but guided me on rebuilding my credit. True dost indeed.",
-    image: "https://randomuser.me/api/portraits/women/28.jpg",
+    image: "/testimonials/sneha-gupta.png",
     name: "Sneha Gupta",
     role: "Homemaker, Noida",
   },
@@ -36,7 +36,7 @@ const testimonials = [
   },
   {
     text: "Settled my personal loan of 8 lakh for just 3.2 lakh. The legal team was thorough and kept me updated throughout. 5-star service.",
-    image: "https://randomuser.me/api/portraits/women/65.jpg",
+    image: "https://thumbs.dreamstime.com/b/positive-indian-medical-assistant-woman-scrubs-posing-portrait-beautiful-young-uniform-profile-clinic-exam-room-looking-400001424.jpg",
     name: "Anita Devi",
     role: "Nurse, Lucknow",
   },
@@ -48,13 +48,13 @@ const testimonials = [
   },
   {
     text: "App loan sharks were harassing my family. Due Dost stepped in, sent legal notices, and got them to back off. Life-saving service.",
-    image: "https://randomuser.me/api/portraits/women/52.jpg",
+    image: "https://i.pinimg.com/736x/06/86/12/068612a0af04a1c237cf04cce0842e1a.jpg",
     name: "Kavita Reddy",
     role: "Freelancer, Chennai",
   },
   {
     text: "From the first call to the settlement letter — everything was transparent. No hidden charges. Due Dost earns your trust completely.",
-    image: "https://randomuser.me/api/portraits/men/55.jpg",
+    image: "https://us.123rf.com/450wm/mnsanthoshkumar/mnsanthoshkumar1210/mnsanthoshkumar121000011/15632492-handsome-and-happy-middle-aged-mature-indian-adult-business-man-looking-with-satisfaction-and-happin.jpg",
     name: "Suresh Kumar",
     role: "Retired, Jaipur",
   },
