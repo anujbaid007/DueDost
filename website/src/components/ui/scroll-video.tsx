@@ -44,7 +44,7 @@ const sections: TextSection[] = [
   },
   {
     enter: 0.8,
-    leave: 1.0,
+    leave: 1.01,
     label: "",
     heading: "Aapke Dues Ka Dost",
     body: "",
