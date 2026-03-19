@@ -45,7 +45,7 @@ export function CoverageSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="relative mt-8"
+          className="relative mt-2 md:mt-8"
         >
           <IndiaMap />
         </motion.div>

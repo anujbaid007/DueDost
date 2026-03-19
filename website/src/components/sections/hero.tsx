@@ -38,7 +38,7 @@ export function HeroSection() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/60 backdrop-blur-sm mb-8"
         >
           <Shield className="h-4 w-4 text-duedost-green" />
-          <span className="text-sm font-medium text-foreground/80">
+          <span className="text-xs sm:text-sm font-medium text-foreground/80 whitespace-nowrap">
             India&apos;s Most Trusted Debt Settlement Partner
           </span>
         </motion.div>
