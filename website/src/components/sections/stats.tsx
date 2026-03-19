@@ -4,9 +4,9 @@ import { motion, useInView } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { value: 10000, suffix: "+", label: "Cases Settled", decimals: 0 },
-  { value: 70, suffix: "%", label: "Max Savings", decimals: 0 },
-  { value: 500, suffix: "Cr+", label: "Debt Resolved", decimals: 0 },
+  { value: 1000, suffix: "+", label: "Cases Settled", decimals: 0 },
+  { value: 75, suffix: "%*", label: "Max Savings", decimals: 0 },
+  { value: 50, suffix: "Cr+", label: "Debt Resolved", decimals: 0 },
   { value: 4.9, suffix: "/5", label: "Client Rating", decimals: 1 },
 ];
 
