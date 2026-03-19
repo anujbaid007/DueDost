@@ -1,23 +1,157 @@
 "use client";
 
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Phone } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  ChevronDown,
+  CreditCard,
+  Landmark,
+  ShieldCheck,
+  Layers,
+  FileCheck,
+  Smartphone,
+} from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import Image from "next/image";
+import Link from "next/link";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "Contact", href: "/#contact" },
 ];
 
+const servicesMenu = [
+  {
+    icon: CreditCard,
+    label: "Credit Card Settlement",
+    desc: "Settle dues at 40–70% less",
+    href: "/credit-card-settlement",
+  },
+  {
+    icon: Landmark,
+    label: "Personal Loan Settlement",
+    desc: "Reduce outstanding by up to 60%",
+    href: "/personal-loan-settlement",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Anti-Harassment Service",
+    desc: "Stop aggressive recovery calls",
+    href: "/recovery-agent-harassment",
+  },
+  {
+    icon: Smartphone,
+    label: "App Loan Settlement",
+    desc: "Digital lending dues resolved",
+    href: "/#contact",
+  },
+  {
+    icon: Layers,
+    label: "Loan Consolidation",
+    desc: "One EMI for all your loans",
+    href: "/#contact",
+  },
+  {
+    icon: FileCheck,
+    label: "Debt Closure & NOC",
+    desc: "Complete closure with official NOC",
+    href: "/#contact",
+  },
+];
+
+function ServicesDropdown() {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <button
+        className="flex items-center gap-1 text-sm text-foreground/70 hover:text-foreground transition-colors font-medium px-3 py-2 rounded-lg hover:bg-muted"
+      >
+        Services
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <ChevronDown className="h-3.5 w-3.5" />
+        </motion.span>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: 8, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 6, scale: 0.97 }}
+            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 rounded-2xl border border-border/60 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/10 dark:shadow-black/40 p-2 z-50"
+          >
+            {/* small triangle pointer */}
+            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 bg-background border-l border-t border-border/60" />
+
+            {servicesMenu.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-muted transition-colors group"
+                >
+                  <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-duedost-blue dark:text-duedost-green group-hover:bg-duedost-blue/10 transition-colors">
+                    <Icon className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-foreground leading-tight">
+                      {item.label}
+                    </p>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {item.desc}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
+
+            <div className="mt-1 pt-2 border-t border-border/50 px-3 pb-1">
+              <Link
+                href="/#services"
+                onClick={() => setOpen(false)}
+                className="text-xs font-medium text-duedost-blue dark:text-duedost-green hover:underline"
+              >
+                View all services →
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -25,7 +159,10 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    setMobileServicesOpen(false);
+  };
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-center w-full py-4 px-4">
@@ -50,8 +187,20 @@ export function Navbar() {
           />
         </a>
 
+        {/* Desktop nav */}
         <nav className="hidden lg:flex items-center space-x-1">
-          {navItems.map((item) => (
+          <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+            <a
+              href="/"
+              className="text-sm text-foreground/70 hover:text-foreground transition-colors font-medium px-3 py-2 rounded-lg hover:bg-muted"
+            >
+              Home
+            </a>
+          </motion.div>
+
+          <ServicesDropdown />
+
+          {navItems.slice(1).map((item) => (
             <motion.div
               key={item.label}
               whileHover={{ scale: 1.02 }}
@@ -90,10 +239,11 @@ export function Navbar() {
         </div>
       </motion.div>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-background z-50 pt-24 px-6 lg:hidden"
+            className="fixed inset-0 bg-background z-50 pt-24 px-6 lg:hidden overflow-y-auto"
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
@@ -109,13 +259,85 @@ export function Navbar() {
             >
               <X className="h-6 w-6 text-foreground" />
             </motion.button>
-            <div className="flex flex-col space-y-2">
-              {navItems.map((item, i) => (
+
+            <div className="flex flex-col space-y-1">
+              {/* Home */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 }}
+                exit={{ opacity: 0, x: 20 }}
+              >
+                <a
+                  href="/"
+                  className="text-lg text-foreground font-medium block py-3 px-4 rounded-xl hover:bg-muted transition-colors"
+                  onClick={toggleMenu}
+                >
+                  Home
+                </a>
+              </motion.div>
+
+              {/* Services (expandable) */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.15 }}
+                exit={{ opacity: 0, x: 20 }}
+              >
+                <button
+                  className="flex items-center justify-between w-full text-lg text-foreground font-medium py-3 px-4 rounded-xl hover:bg-muted transition-colors"
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                >
+                  Services
+                  <motion.span
+                    animate={{ rotate: mobileServicesOpen ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronDown className="h-5 w-5 text-muted-foreground" />
+                  </motion.span>
+                </button>
+
+                <AnimatePresence>
+                  {mobileServicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="ml-4 mt-1 flex flex-col gap-1 pb-2">
+                        {servicesMenu.map((item) => {
+                          const Icon = item.icon;
+                          return (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              onClick={toggleMenu}
+                              className="flex items-center gap-3 py-2.5 px-3 rounded-xl hover:bg-muted transition-colors"
+                            >
+                              <div className="w-7 h-7 rounded-lg bg-muted flex items-center justify-center text-duedost-blue dark:text-duedost-green flex-shrink-0">
+                                <Icon className="h-3.5 w-3.5" />
+                              </div>
+                              <span className="text-sm font-medium text-foreground">
+                                {item.label}
+                              </span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+
+              {/* Remaining nav items */}
+              {navItems.slice(1).map((item, i) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 + 0.1 }}
+                  transition={{ delay: (i + 2) * 0.1 + 0.1 }}
                   exit={{ opacity: 0, x: 20 }}
                 >
                   <a
@@ -127,6 +349,7 @@ export function Navbar() {
                   </a>
                 </motion.div>
               ))}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
