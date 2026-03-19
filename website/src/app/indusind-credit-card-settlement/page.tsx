@@ -414,6 +414,97 @@ export default function IndusIndCreditCardSettlementPage() {
         </div>
       </section>
 
+      {/* Other Bank Settlement Guides */}
+      <section className="py-14 bg-muted/30">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-2"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Settle Credit Card Dues With Other Banks
+          </h2>
+          <p className="mt-2 mb-8 text-muted-foreground">
+            We negotiate settlements with all major Indian banks and NBFCs — not just IndusInd Bank.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { label: "HDFC Credit Card Settlement", href: "/hdfc-credit-card-settlement" },
+              { label: "ICICI Credit Card Settlement", href: "/icici-credit-card-settlement" },
+              { label: "SBI Credit Card Settlement", href: "/sbi-credit-card-settlement" },
+              { label: "Axis Bank Credit Card Settlement", href: "/axis-bank-credit-card-settlement" },
+              { label: "Kotak Credit Card Settlement", href: "/kotak-credit-card-settlement" },
+              { label: "RBL Credit Card Settlement", href: "/rbl-credit-card-settlement" },
+              { label: "Yes Bank Credit Card Settlement", href: "/yes-bank-credit-card-settlement" },
+              { label: "Bajaj Finserv Settlement", href: "/bajaj-finserv-credit-card-settlement" },
+              { label: "Tata Neu Credit Card Settlement", href: "/tata-neu-credit-card-settlement" },
+            ].map((bank) => (
+              <Link
+                key={bank.href}
+                href={bank.href}
+                className="inline-flex items-center px-4 py-2 rounded-full border border-border/60 bg-background text-sm font-medium text-duedost-blue hover:border-duedost-blue hover:bg-blue-50/50 dark:hover:bg-blue-950/20 transition-colors duration-200"
+              >
+                {bank.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6">
+            <Link
+              href="/credit-card-settlement"
+              className="text-sm text-duedost-blue hover:underline font-medium"
+            >
+              View all credit card settlement services →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-14">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-6"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Related Debt Resolution Services
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Link
+              href="/personal-loan-settlement"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Personal Loan Settlement
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Settle personal loan outstanding at up to 60% less with expert legal negotiation.
+              </p>
+            </Link>
+            <Link
+              href="/recovery-agent-harassment"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Anti-Harassment Service
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Stop aggressive recovery agent calls and protect your rights under RBI guidelines.
+              </p>
+            </Link>
+            <Link
+              href="/credit-card-settlement"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Credit Card Settlement Guide
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Learn how credit card settlement works in India and what to expect.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

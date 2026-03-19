@@ -222,30 +222,29 @@ function StepCard({
   );
 }
 
-function BankChip({ name }: { name: string }) {
-  return (
-    <span className="inline-flex items-center px-4 py-2 rounded-full border border-border/60 bg-background text-sm font-medium text-foreground/80 hover:border-duedost-blue hover:text-duedost-blue transition-colors duration-200">
-      {name}
-    </span>
-  );
+function BankChip({ name, href }: { name: string; href?: string }) {
+  const classes = "inline-flex items-center px-4 py-2 rounded-full border border-border/60 bg-background text-sm font-medium text-foreground/80 hover:border-duedost-blue hover:text-duedost-blue transition-colors duration-200";
+  if (href) return <Link href={href} className={classes}>{name}</Link>;
+  return <span className={classes}>{name}</span>;
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function CreditCardSettlementPage() {
-  const banks = [
-    "HDFC Bank",
-    "ICICI Bank",
-    "SBI",
-    "Axis Bank",
-    "Kotak Mahindra",
-    "IndusInd Bank",
-    "RBL Bank",
-    "Yes Bank",
-    "Bajaj Finserv",
-    "IDFC First Bank",
-    "AU Small Finance Bank",
-    "All Major NBFCs",
+  const banks: { name: string; href?: string }[] = [
+    { name: "HDFC Bank", href: "/hdfc-credit-card-settlement" },
+    { name: "ICICI Bank", href: "/icici-credit-card-settlement" },
+    { name: "SBI", href: "/sbi-credit-card-settlement" },
+    { name: "Axis Bank", href: "/axis-bank-credit-card-settlement" },
+    { name: "Kotak Mahindra Bank", href: "/kotak-credit-card-settlement" },
+    { name: "IndusInd Bank", href: "/indusind-credit-card-settlement" },
+    { name: "RBL Bank", href: "/rbl-credit-card-settlement" },
+    { name: "Yes Bank", href: "/yes-bank-credit-card-settlement" },
+    { name: "Bajaj Finserv", href: "/bajaj-finserv-credit-card-settlement" },
+    { name: "Tata Neu Credit Card", href: "/tata-neu-credit-card-settlement" },
+    { name: "IDFC First Bank" },
+    { name: "AU Small Finance Bank" },
+    { name: "All Major NBFCs" },
   ];
 
   const faqs = [
@@ -618,7 +617,7 @@ export default function CreditCardSettlementPage() {
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               {banks.map((bank) => (
-                <BankChip key={bank} name={bank} />
+                <BankChip key={bank.name} name={bank.name} href={bank.href} />
               ))}
             </div>
 
@@ -639,30 +638,26 @@ export default function CreditCardSettlementPage() {
                 Bank-Specific Settlement Guides
               </p>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                <Link
-                  href="/hdfc-credit-card-settlement"
-                  className="inline-flex items-center px-4 py-2 rounded-full border border-border/60 bg-background text-sm font-medium text-duedost-blue hover:border-duedost-blue hover:bg-blue-50/50 dark:hover:bg-blue-950/20 transition-colors duration-200"
-                >
-                  HDFC Credit Card Settlement
-                </Link>
-                <Link
-                  href="/icici-credit-card-settlement"
-                  className="inline-flex items-center px-4 py-2 rounded-full border border-border/60 bg-background text-sm font-medium text-duedost-blue hover:border-duedost-blue hover:bg-blue-50/50 dark:hover:bg-blue-950/20 transition-colors duration-200"
-                >
-                  ICICI Credit Card Settlement
-                </Link>
-                <Link
-                  href="/sbi-credit-card-settlement"
-                  className="inline-flex items-center px-4 py-2 rounded-full border border-border/60 bg-background text-sm font-medium text-duedost-blue hover:border-duedost-blue hover:bg-blue-50/50 dark:hover:bg-blue-950/20 transition-colors duration-200"
-                >
-                  SBI Credit Card Settlement
-                </Link>
-                <Link
-                  href="/axis-bank-credit-card-settlement"
-                  className="inline-flex items-center px-4 py-2 rounded-full border border-border/60 bg-background text-sm font-medium text-duedost-blue hover:border-duedost-blue hover:bg-blue-50/50 dark:hover:bg-blue-950/20 transition-colors duration-200"
-                >
-                  Axis Bank Credit Card Settlement
-                </Link>
+                {[
+                  { label: "HDFC Credit Card Settlement", href: "/hdfc-credit-card-settlement" },
+                  { label: "ICICI Credit Card Settlement", href: "/icici-credit-card-settlement" },
+                  { label: "SBI Credit Card Settlement", href: "/sbi-credit-card-settlement" },
+                  { label: "Axis Bank Credit Card Settlement", href: "/axis-bank-credit-card-settlement" },
+                  { label: "Kotak Credit Card Settlement", href: "/kotak-credit-card-settlement" },
+                  { label: "IndusInd Credit Card Settlement", href: "/indusind-credit-card-settlement" },
+                  { label: "RBL Credit Card Settlement", href: "/rbl-credit-card-settlement" },
+                  { label: "Yes Bank Credit Card Settlement", href: "/yes-bank-credit-card-settlement" },
+                  { label: "Bajaj Finserv Settlement", href: "/bajaj-finserv-credit-card-settlement" },
+                  { label: "Tata Neu Credit Card Settlement", href: "/tata-neu-credit-card-settlement" },
+                ].map((bank) => (
+                  <Link
+                    key={bank.href}
+                    href={bank.href}
+                    className="inline-flex items-center px-4 py-2 rounded-full border border-border/60 bg-background text-sm font-medium text-duedost-blue hover:border-duedost-blue hover:bg-blue-50/50 dark:hover:bg-blue-950/20 transition-colors duration-200"
+                  >
+                    {bank.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

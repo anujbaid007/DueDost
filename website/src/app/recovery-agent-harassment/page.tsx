@@ -633,7 +633,21 @@ export default function RecoveryAgentHarassmentPage() {
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 We don&apos;t just give advice — we take direct legal action.
                 Our approach combines immediate intervention with permanent
-                resolution of the underlying debt.
+                resolution of the underlying debt — whether it&apos;s a{" "}
+                <Link
+                  href="/personal-loan-settlement"
+                  className="text-duedost-blue hover:underline font-medium"
+                >
+                  personal loan
+                </Link>{" "}
+                or{" "}
+                <Link
+                  href="/credit-card-settlement"
+                  className="text-duedost-blue hover:underline font-medium"
+                >
+                  credit card outstanding
+                </Link>
+                .
               </p>
             </div>
 
@@ -934,6 +948,53 @@ export default function RecoveryAgentHarassmentPage() {
             </div>
           </div>
         </section>
+
+      {/* Related Services */}
+      <section className="py-14 bg-muted/30">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-6"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Related Debt Resolution Services
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Link
+              href="/credit-card-settlement"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Credit Card Settlement
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Resolve your credit card dues permanently at 40–70% less so the calls stop for good.
+              </p>
+            </Link>
+            <Link
+              href="/personal-loan-settlement"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Personal Loan Settlement
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Settle personal loan outstanding at up to 60% less and end recovery pressure permanently.
+              </p>
+            </Link>
+            <Link
+              href="/hdfc-credit-card-settlement"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Bank-Specific Settlement Guides
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Detailed settlement guides for HDFC, ICICI, SBI, Axis, Kotak, and all major lenders.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
 
         <Footer />
       </main>

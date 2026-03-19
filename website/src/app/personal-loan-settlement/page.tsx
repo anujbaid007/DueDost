@@ -681,7 +681,15 @@ export default function PersonalLoanSettlementPage() {
               If you are currently in financial distress and your account is
               overdue or in NPA status, settlement is the fastest and most
               practical path to becoming debt-free. We will advise you based on
-              your unique case in the free consultation.
+              your unique case in the free consultation. If you also have
+              outstanding{" "}
+              <Link
+                href="/credit-card-settlement"
+                className="text-duedost-blue hover:underline font-medium"
+              >
+                credit card dues
+              </Link>
+              , we can settle those simultaneously.
             </p>
           </div>
         </section>
@@ -790,6 +798,61 @@ export default function PersonalLoanSettlementPage() {
             </p>
           </div>
         </section>
+
+      {/* Related Services */}
+      <section className="py-14 bg-muted/30">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2
+            className="text-2xl md:text-3xl font-bold mb-6"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Related Debt Resolution Services
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Link
+              href="/credit-card-settlement"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Credit Card Settlement
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Settle credit card outstanding dues at 40–70% less. Expert negotiation with all major banks.
+              </p>
+            </Link>
+            <Link
+              href="/recovery-agent-harassment"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Anti-Harassment Service
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Stop aggressive recovery agent calls and protect your rights under RBI and Supreme Court guidelines.
+              </p>
+            </Link>
+            <Link
+              href="/hdfc-credit-card-settlement"
+              className="group flex flex-col gap-2 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue hover:shadow-sm transition-all duration-200"
+            >
+              <h3 className="font-semibold text-foreground group-hover:text-duedost-blue transition-colors">
+                Bank-Specific Settlement Guides
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Dedicated settlement guides for HDFC, ICICI, SBI, Axis, Kotak, and more.
+              </p>
+            </Link>
+          </div>
+          <div className="mt-6">
+            <Link
+              href="/credit-card-settlement"
+              className="text-sm text-duedost-blue hover:underline font-medium"
+            >
+              View credit card settlement services →
+            </Link>
+          </div>
+        </div>
+      </section>
 
         <Footer />
       </main>
