@@ -46,7 +46,7 @@ export function WhyChooseUsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-duedost-green">
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-duedost-blue dark:text-duedost-green">
             Why Due Dost
           </span>
           <h2

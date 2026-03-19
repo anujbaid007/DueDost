@@ -167,17 +167,6 @@ export function IndiaMap() {
           </filter>
         </defs>
 
-        {/* Glowing border — desktop only, loaded async */}
-        {isDesktop && borderPath && (
-          <path
-            d={borderPath}
-            fill="none"
-            stroke={lineColor}
-            strokeWidth="1.5"
-            className="opacity-20 dark:opacity-40"
-            filter="url(#hq-glow)"
-          />
-        )}
 
         {/* Animated connection lines */}
         {connections.map((conn, i) => {
