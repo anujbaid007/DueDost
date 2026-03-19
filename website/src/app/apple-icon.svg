@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <defs>
+    <clipPath id="shield">
+      <path d="M90 12L162 42V104C162 146 130 168 90 176C50 168 18 146 18 104V42L90 12Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background rounded rect (iOS adds its own rounding, but SVG looks better with a base) -->
+  <rect width="180" height="180" fill="white" rx="38"/>
+
+  <!-- Blue left half -->
+  <rect x="0" y="0" width="90" height="180" fill="#1B5DAA" clip-path="url(#shield)"/>
+
+  <!-- Green right half -->
+  <rect x="90" y="0" width="90" height="180" fill="#3BAA35" clip-path="url(#shield)"/>
+
+  <!-- Subtle divider -->
+  <line x1="90" y1="12" x2="90" y2="176" stroke="rgba(255,255,255,0.35)" stroke-width="4" clip-path="url(#shield)"/>
+
+  <!-- Shield outline -->
+  <path d="M90 12L162 42V104C162 146 130 168 90 176C50 168 18 146 18 104V42L90 12Z"
+        stroke="rgba(255,255,255,0.5)" stroke-width="6"/>
+
+  <!-- White checkmark -->
+  <path d="M56 98L80 122L128 72"
+        stroke="white" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
