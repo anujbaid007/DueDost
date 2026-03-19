@@ -237,7 +237,7 @@ export function IndiaMap() {
               <text
                 x={pt.x + 10} y={pt.y - 10}
                 fill="currentColor"
-                stroke={isDark ? "#0d0d14" : "#ffffff"}
+                stroke="var(--map-label-halo)"
                 strokeWidth="5"
                 strokeLinejoin="round"
                 className="text-[12px] font-medium select-none pointer-events-none"

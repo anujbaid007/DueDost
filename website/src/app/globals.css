@@ -53,6 +53,7 @@
 }
 
 :root {
+  --map-label-halo: #ffffff;
   --background: oklch(0.985 0.002 247);
   --foreground: oklch(0.145 0.015 255);
   --card: oklch(1 0 0);
@@ -88,6 +89,7 @@
 }
 
 .dark {
+  --map-label-halo: #0d0d14;
   --background: oklch(0.13 0.015 255);
   --foreground: oklch(0.94 0.005 247);
   --card: oklch(0.17 0.015 255);
