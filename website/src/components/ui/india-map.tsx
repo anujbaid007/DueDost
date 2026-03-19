@@ -84,7 +84,7 @@ export function IndiaMap() {
         ctx.translate(0, -VIEWPORT_TOP);
         ctx.clip(p2d);
         const step = 14;
-        ctx.fillStyle = isDark ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.50)";
+        ctx.fillStyle = isDark ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.80)";
         for (let x = 0; x <= SVG_W; x += step) {
           for (let y = VIEWPORT_TOP; y <= SVG_H; y += step) {
             ctx.beginPath();
