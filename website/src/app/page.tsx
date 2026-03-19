@@ -1,5 +1,3 @@
-"use client";
-
 import { Navbar } from "@/components/ui/navbar";
 import { HeroSection } from "@/components/sections/hero";
 import { ScrollVideoSection } from "@/components/sections/scroll-video-section";

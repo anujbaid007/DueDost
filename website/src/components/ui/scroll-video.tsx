@@ -351,25 +351,40 @@ export function ScrollVideo() {
 
 /** Mobile: text overlay on top of canvas */
 function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
-  // Snap to the nearest section — no blank gaps between sections on mobile
-  const activeIdx = Math.min(
-    Math.floor(scrollProgress * sections.length),
-    sections.length - 1
-  );
-
   return (
     <>
       {sections.map((section, idx) => {
-        const isActive = idx === activeIdx;
+        const fadeIn =
+          scrollProgress >= section.enter &&
+          scrollProgress < section.enter + 0.04;
+        const visible =
+          scrollProgress >= section.enter + 0.04 &&
+          scrollProgress < section.leave - 0.04;
+        // Last section (CTA) never fades out — there's no further scroll to trigger it
+        const isLast = section.leave >= 1.0;
+        const fadeOut =
+          !isLast &&
+          scrollProgress >= section.leave - 0.04 &&
+          scrollProgress < section.leave;
+        const show = fadeIn || visible || fadeOut || (isLast && scrollProgress >= section.enter + 0.04);
+
+        let opacity = 0;
+        if (fadeIn) opacity = (scrollProgress - section.enter) / 0.04;
+        else if (visible || (isLast && scrollProgress >= section.enter + 0.04)) opacity = 1;
+        else if (fadeOut)
+          opacity = 1 - (scrollProgress - (section.leave - 0.04)) / 0.04;
+
+        const translateY = fadeIn ? (1 - opacity) * 30 : 0;
 
         return (
           <div
             key={idx}
-            className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent transition-opacity duration-150"
+            className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/95 to-transparent"
             style={{
               paddingTop: "7rem",
-              opacity: isActive ? 1 : 0,
-              pointerEvents: isActive ? "auto" : "none",
+              opacity: show ? opacity : 0,
+              transform: `translateY(${translateY}px)`,
+              pointerEvents: show ? "auto" : "none",
             }}
           >
             <div className="px-6 pb-10">
