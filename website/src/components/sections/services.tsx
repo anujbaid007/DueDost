@@ -136,7 +136,7 @@ function ServiceCard({ service, i }: { service: typeof services[0]; i: number })
                 <h3 className="text-xl font-semibold tracking-tight text-foreground">
                   {service.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2">
                   {service.description}
                 </p>
               </div>
