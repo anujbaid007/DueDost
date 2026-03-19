@@ -190,14 +190,27 @@ export function IndiaMap() {
               strokeWidth="2"
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: [0, 1, 1, 0] }}
-              transition={{
-                duration: 2.5,
-                delay: 0.5 + i * 0.3,
-                ease: "easeInOut",
-                repeat: Infinity,
-                repeatDelay: 1,
-              }}
+              // Mobile: animate once and stay visible; Desktop: loop slowly
+              animate={
+                isDesktop
+                  ? { pathLength: 1, opacity: [0, 1, 1, 0] }
+                  : { pathLength: 1, opacity: [0, 1, 1, 1] }
+              }
+              transition={
+                isDesktop
+                  ? {
+                      duration: 4,
+                      delay: 0.5 + i * 0.4,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatDelay: 2,
+                    }
+                  : {
+                      duration: 2.5,
+                      delay: 0.3 + i * 0.25,
+                      ease: "easeInOut",
+                    }
+              }
             />
           );
         })}
