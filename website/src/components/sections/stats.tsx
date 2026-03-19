@@ -77,7 +77,7 @@ export function StatsSection() {
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {stat.prefix && (
-                  <span className="block text-xs font-medium text-muted-foreground tracking-widest uppercase mb-0.5">
+                  <span className="text-sm font-medium text-muted-foreground tracking-widest uppercase mr-1 align-middle">
                     {stat.prefix}
                   </span>
                 )}
