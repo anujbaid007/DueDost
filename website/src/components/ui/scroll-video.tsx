@@ -58,6 +58,7 @@ export function ScrollVideo() {
   const framesRef = useRef<HTMLImageElement[]>([]);
   const currentFrameRef = useRef(0);
   const [loaded, setLoaded] = useState(false);
+  const [firstFrameReady, setFirstFrameReady] = useState(false);
   const [progress, setProgress] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -90,23 +91,35 @@ export function ScrollVideo() {
     ctx.restore();
   }, []);
 
-  // Load frames
+  // Load frames — frame 1 loads first so the canvas shows immediately,
+  // remaining frames load in the background without blocking the page.
   useEffect(() => {
     let loadedCount = 0;
-    const images: HTMLImageElement[] = [];
+    const images: HTMLImageElement[] = new Array(TOTAL_FRAMES);
 
-    for (let i = 1; i <= TOTAL_FRAMES; i++) {
+    const loadFrame = (i: number) => {
       const img = new window.Image();
       img.src = `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
       img.onload = () => {
+        images[i - 1] = img;
         loadedCount++;
         setProgress(Math.floor((loadedCount / TOTAL_FRAMES) * 100));
+        if (i === 1) {
+          // Show first frame immediately — unblocks the canvas
+          framesRef.current = images;
+          setFirstFrameReady(true);
+        }
         if (loadedCount === TOTAL_FRAMES) {
           framesRef.current = images;
           setLoaded(true);
         }
       };
-      images.push(img);
+    };
+
+    // Load frame 1 first, then the rest
+    loadFrame(1);
+    for (let i = 2; i <= TOTAL_FRAMES; i++) {
+      loadFrame(i);
     }
   }, []);
 
@@ -124,22 +137,22 @@ export function ScrollVideo() {
       canvas.height = rect.height * dpr;
       canvas.style.width = `${rect.width}px`;
       canvas.style.height = `${rect.height}px`;
-      if (loaded) drawFrame(currentFrameRef.current);
+      if (firstFrameReady) drawFrame(currentFrameRef.current);
     };
 
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [loaded, drawFrame]);
+  }, [firstFrameReady, drawFrame]);
 
-  // Draw first frame when loaded
+  // Draw first frame as soon as it's ready
   useEffect(() => {
-    if (loaded) drawFrame(0);
-  }, [loaded, drawFrame]);
+    if (firstFrameReady) drawFrame(0);
+  }, [firstFrameReady, drawFrame]);
 
-  // Scroll handler
+  // Scroll handler — works as soon as first frame is ready
   useEffect(() => {
-    if (!loaded) return;
+    if (!firstFrameReady) return;
 
     const handleScroll = () => {
       const container = containerRef.current;
@@ -168,7 +181,7 @@ export function ScrollVideo() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [loaded, drawFrame]);
+  }, [firstFrameReady, drawFrame]);
 
   // Active section index
   const activeIdx = sections.findIndex(
@@ -177,29 +190,13 @@ export function ScrollVideo() {
 
   return (
     <div ref={containerRef} className="relative" style={{ height: "400vh" }}>
-      {/* Loading overlay */}
-      {!loaded && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a]">
-          <div className="relative w-16 h-16 mb-6">
+      {/* Local loading indicator — only covers this section, never blocks the page */}
+      {!firstFrameReady && (
+        <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center bg-[#0a0a0a] z-10">
+          <div className="relative w-12 h-12 mb-4">
             <svg className="w-full h-full animate-spin" viewBox="0 0 64 64">
-              <circle
-                cx="32"
-                cy="32"
-                r="28"
-                fill="none"
-                stroke="rgba(255,255,255,0.1)"
-                strokeWidth="4"
-              />
-              <circle
-                cx="32"
-                cy="32"
-                r="28"
-                fill="none"
-                stroke="url(#loader-grad)"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeDasharray={`${progress * 1.76} 176`}
-              />
+              <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="4" />
+              <circle cx="32" cy="32" r="28" fill="none" stroke="url(#loader-grad)" strokeWidth="4" strokeLinecap="round" strokeDasharray={`${progress * 1.76} 176`} />
               <defs>
                 <linearGradient id="loader-grad" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stopColor="#1B5DAA" />
@@ -211,9 +208,7 @@ export function ScrollVideo() {
               {progress}%
             </span>
           </div>
-          <p className="text-white/40 text-xs tracking-[0.3em] uppercase">
-            Loading Experience
-          </p>
+          <p className="text-white/40 text-xs tracking-[0.3em] uppercase">Loading Experience</p>
         </div>
       )}
 
