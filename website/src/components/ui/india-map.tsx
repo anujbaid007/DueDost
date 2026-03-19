@@ -9,17 +9,19 @@ interface CityMarker {
   lat: number;
   lng: number;
   isHQ?: boolean;
+  labelSide?: "left" | "right"; // default "right"
+  labelDy?: number;             // extra vertical offset from the default -10
 }
 
 const cities: CityMarker[] = [
   { name: "Delhi NCR", lat: 28.6139, lng: 77.209,  isHQ: true },
-  { name: "Mumbai",    lat: 19.076,  lng: 72.8777 },
-  { name: "Bangalore", lat: 12.9716, lng: 77.5946 },
+  { name: "Mumbai",    lat: 19.076,  lng: 72.8777, labelSide: "left" },
+  { name: "Bangalore", lat: 12.9716, lng: 77.5946, labelSide: "left" },
   { name: "Chennai",   lat: 13.0827, lng: 80.2707 },
   { name: "Hyderabad", lat: 17.385,  lng: 78.4867 },
   { name: "Kolkata",   lat: 22.5726, lng: 88.3639 },
   { name: "Ahmedabad", lat: 23.0225, lng: 72.5714 },
-  { name: "Pune",      lat: 18.5204, lng: 73.8567 },
+  { name: "Pune",      lat: 18.5204, lng: 73.8567, labelDy: 22 },
   { name: "Jaipur",    lat: 26.9124, lng: 75.7873 },
   { name: "Lucknow",   lat: 26.8467, lng: 80.9462 },
 ];
@@ -235,7 +237,9 @@ export function IndiaMap() {
                 <animate attributeName="opacity" from="0.4" to="0"  dur="2s" begin={`${i * 0.2}s`} repeatCount="indefinite" />
               </circle>
               <text
-                x={pt.x + 10} y={pt.y - 10}
+                x={city.labelSide === "left" ? pt.x - 10 : pt.x + 10}
+                y={pt.y - 10 + (city.labelDy ?? 0)}
+                textAnchor={city.labelSide === "left" ? "end" : "start"}
                 fill="currentColor"
                 stroke="var(--map-label-halo)"
                 strokeWidth="5"
