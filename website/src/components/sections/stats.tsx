@@ -4,10 +4,10 @@ import { motion, useInView } from "motion/react";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { value: 1000, suffix: "+", label: "Cases Settled", decimals: 0 },
-  { value: 75, suffix: "%*", label: "Max Savings", decimals: 0 },
-  { value: 50, suffix: "Cr+", label: "Debt Resolved", decimals: 0 },
-  { value: 4.9, suffix: "/5", label: "Client Rating", decimals: 1 },
+  { value: 1000, suffix: "+", label: "Cases Settled", decimals: 0, prefix: "" },
+  { value: 75, suffix: "%", label: "Max Savings", decimals: 0, prefix: "upto" },
+  { value: 50, suffix: "Cr+", label: "Debt Resolved", decimals: 0, prefix: "" },
+  { value: 4.9, suffix: "/5", label: "Client Rating", decimals: 1, prefix: "" },
 ];
 
 function AnimatedCounter({
@@ -76,6 +76,11 @@ export function StatsSection() {
                 className="text-4xl md:text-5xl lg:text-6xl font-black bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-transparent"
                 style={{ fontFamily: "var(--font-display)" }}
               >
+                {stat.prefix && (
+                  <span className="block text-xs font-medium text-muted-foreground tracking-widest uppercase mb-0.5">
+                    {stat.prefix}
+                  </span>
+                )}
                 <AnimatedCounter
                   target={stat.value}
                   decimals={stat.decimals}
