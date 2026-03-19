@@ -449,11 +449,6 @@ export default function RecoveryAgentHarassmentPage() {
               We&apos;ll stop them.
             </p>
 
-            {/* Hindi */}
-            <p className="text-base md:text-lg text-muted-foreground font-medium mb-10">
-              रिकवरी एजेंट से परेशान हैं?{" "}
-              <span className="text-duedost-blue">हम आपकी मदद करेंगे।</span>
-            </p>
 
             {/* Alert bar */}
             <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/40 mb-10">

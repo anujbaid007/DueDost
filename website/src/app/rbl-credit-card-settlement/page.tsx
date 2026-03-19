@@ -7,31 +7,31 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "SBI Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "RBL Credit Card Settlement | Settle at 35-70% Less | Due Dost",
   description:
-    "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation with State Bank of India. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your RBL Bank credit card outstanding dues at 35-70% less. Expert negotiation with RBL collections team. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
-    "SBI credit card settlement",
-    "SBI card settlement",
-    "State Bank of India credit card dues",
-    "SBI OTS",
-    "SBI credit card settlement process",
+    "RBL credit card settlement",
+    "RBL Bank settlement India",
+    "RBL credit card dues",
+    "RBL OTS",
+    "RBL Bank credit card defaulter",
+    "Ratnakar Bank settlement",
     "credit card settlement India",
     "debt settlement company India",
-    "credit card defaulter India",
   ],
   alternates: {
-    canonical: `${SITE_URL}/sbi-credit-card-settlement`,
+    canonical: `${SITE_URL}/rbl-credit-card-settlement`,
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: `${SITE_URL}/sbi-credit-card-settlement`,
+    url: `${SITE_URL}/rbl-credit-card-settlement`,
     siteName: "Due Dost",
-    title: "SBI Credit Card Settlement | Due Dost",
+    title: "RBL Credit Card Settlement | Due Dost",
     description:
-      "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost SBI Credit Card Settlement" }],
+      "Settle your RBL Bank credit card outstanding dues at 35-70% less. Expert negotiation. Free consultation.",
+    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost RBL Credit Card Settlement" }],
   },
   robots: { index: true, follow: true },
 };
@@ -41,7 +41,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      name: "SBI Credit Card Settlement",
+      name: "RBL Credit Card Settlement",
       provider: {
         "@type": "FinancialService",
         name: "Due Dost",
@@ -57,16 +57,16 @@ const jsonLd = {
         },
       },
       description:
-        "Expert SBI credit card settlement service. Negotiate outstanding dues at 40-70% less.",
+        "Expert RBL Bank credit card settlement service. Negotiate outstanding dues at 35-70% less.",
       areaServed: { "@type": "Country", name: "India" },
-      url: `${SITE_URL}/sbi-credit-card-settlement`,
+      url: `${SITE_URL}/rbl-credit-card-settlement`,
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
         { "@type": "ListItem", position: 2, name: "Credit Card Settlement", item: `${SITE_URL}/credit-card-settlement` },
-        { "@type": "ListItem", position: 3, name: "SBI Credit Card Settlement", item: `${SITE_URL}/sbi-credit-card-settlement` },
+        { "@type": "ListItem", position: 3, name: "RBL Bank Settlement", item: `${SITE_URL}/rbl-credit-card-settlement` },
       ],
     },
     {
@@ -74,42 +74,42 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "How do I know if my SBI account is eligible for settlement?",
+          name: "How do I know if my RBL Bank account is eligible for settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every RBL account individually, from early missed payments to long-standing defaults. Our legal team knows exactly how to handle RBL collections.",
           },
         },
         {
           "@type": "Question",
-          name: "What percentage does SBI settle credit card debt for?",
+          name: "RBL Bank's collections team is very aggressive — can Due Dost help?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+            text: "Yes. RBL Bank's collections department is known for its aggressive follow-up — including frequent calls, legal notices, and field visits. When you engage Due Dost, all collections communication is redirected to our legal team. We handle every interaction professionally, stopping harassment while we negotiate your settlement.",
           },
         },
         {
           "@type": "Question",
-          name: "How long does SBI credit card settlement take?",
+          name: "What percentage does RBL Bank settle credit card debt for?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+            text: "RBL Bank typically settles credit card accounts at 30-65% of the total outstanding, waiving significant interest, penalties, and fees. RBL's NPA challenges in recent years have made them particularly motivated to resolve cases through OTS rather than litigation.",
           },
         },
         {
           "@type": "Question",
-          name: "Does SBI credit card settlement affect my CIBIL score?",
+          name: "How long does RBL credit card settlement take?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+            text: "RBL credit card settlements typically take 30-90 days once we initiate the OTS process. Accounts that have been delinquent for longer or are under legal proceedings may take up to 4-6 months. Our team keeps you updated throughout.",
           },
         },
         {
           "@type": "Question",
-          name: "What is the minimum settlement amount SBI accepts?",
+          name: "Does RBL credit card settlement affect my CIBIL score?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+            text: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your RBL account is already in default or NPA status, your score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit profile. Most clients see improvement within 12–18 months of settlement.",
           },
         },
       ],
@@ -117,7 +117,7 @@ const jsonLd = {
   ],
 };
 
-export default function SBICreditCardSettlementPage() {
+export default function RBLCreditCardSettlementPage() {
   return (
     <main className="relative overflow-x-clip">
       <script
@@ -140,7 +140,7 @@ export default function SBICreditCardSettlementPage() {
             Credit Card Settlement
           </Link>
           <span>/</span>
-          <span className="text-foreground font-medium">SBI Settlement</span>
+          <span className="text-foreground font-medium">RBL Bank Settlement</span>
         </nav>
       </div>
 
@@ -148,7 +148,7 @@ export default function SBICreditCardSettlementPage() {
       <section className="py-20 md:py-28 bg-gradient-to-b from-blue-50/50 to-background dark:from-blue-950/20">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-semibold tracking-widest uppercase text-duedost-blue dark:text-duedost-green mb-4">
-            SBI Credit Card Settlement
+            RBL Bank Credit Card Settlement
           </p>
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
@@ -156,13 +156,14 @@ export default function SBICreditCardSettlementPage() {
           >
             Settle Your{" "}
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
-              SBI Credit Card
+              RBL Credit Card
             </span>{" "}
             Dues at Up to 70% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
-            Struggling with SBI credit card outstanding? Our expert legal team has helped thousands
-            negotiate settlements directly with State Bank of India&apos;s collections department.
+            Struggling with RBL Bank credit card outstanding? Our expert legal team has helped
+            thousands negotiate settlements directly with RBL&apos;s collections department — and
+            stop the aggressive follow-ups for good.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
@@ -186,32 +187,35 @@ export default function SBICreditCardSettlementPage() {
         </div>
       </section>
 
-      {/* Why SBI Settlement Is Possible */}
+      {/* Why RBL Settlement Is Possible */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-6">
           <h2
             className="text-3xl md:text-4xl font-bold mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Why SBI Credit Card Settlement is Possible
+            Why RBL Bank Credit Card Settlement is Possible
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground space-y-4">
             <p>
-              State Bank of India (SBI), as a public sector bank, is subject to strict RBI
-              guidelines on NPA resolution. SBI Credit Cards — operated through SBI Cards and
-              Payment Services — classify overdue accounts as Non-Performing Assets (NPAs) after 90
-              days of default.
+              RBL Bank (formerly Ratnakar Bank) aggressively expanded its credit card business
+              across India, issuing popular products like the Shoprite, Platinum Maxima, World
+              Safari, and Icon cards. However, between 2021 and 2023, the bank faced significant
+              Non-Performing Asset (NPA) pressures in its credit card portfolio — a situation that
+              continues to shape how RBL approaches overdue accounts today.
             </p>
             <p>
-              The RBI actively mandates public sector banks like SBI to pursue settlement of NPAs
-              to clean up their books. SBI has a formal OTS (One Time Settlement) policy that is
-              periodically reviewed and allows eligible borrowers to settle for a fraction of the
-              total outstanding by waiving accumulated interest and penalties.
+              RBI guidelines encourage banks to resolve NPAs through negotiated One Time Settlements
+              (OTS) rather than prolonged litigation. RBL Bank actively pursues OTS arrangements,
+              especially for accounts that are 90 or more days overdue. Their internal settlement
+              program is designed to recover a portion of outstanding dues while closing the NPA —
+              which means there is genuine room to negotiate significant reductions.
             </p>
             <p>
-              Due Dost has navigated the SBI OTS process for numerous clients. We understand SBI
-              Cards&apos; approval process, documentation requirements, and negotiation timelines
-              — giving you the best chance of a maximum waiver.
+              Due Dost has direct experience navigating RBL Bank&apos;s collections hierarchy.
+              We know the right channels, the correct documentation, and how to frame an OTS
+              proposal that RBL will take seriously. We handle all communication on your behalf
+              so you can stop fielding aggressive collection calls immediately.
             </p>
           </div>
         </div>
@@ -224,29 +228,29 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Our SBI Settlement Process
+            Our RBL Bank Settlement Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 step: "01",
                 title: "Free Case Review",
-                desc: "We analyze your SBI credit card account status, outstanding amount, and NPA classification to build your settlement strategy.",
+                desc: "We analyze your RBL credit card account status, outstanding balance, and NPA classification to build a tailored settlement strategy.",
               },
               {
                 step: "02",
-                title: "Contact SBI Collections",
-                desc: "We initiate an OTS (One Time Settlement) request directly with SBI Cards&apos; collections department using established channels.",
+                title: "Initiate OTS with RBL",
+                desc: "We submit a formal One Time Settlement (OTS) request directly to RBL Bank's collections or recovery department through established legal channels.",
               },
               {
                 step: "03",
                 title: "Negotiate Settlement Amount",
-                desc: "Our experts work to minimize the lump-sum amount SBI accepts — typically 30-70% less than the total outstanding.",
+                desc: "Our experts negotiate hard to reduce the lump-sum amount RBL accepts — targeting 30-65% less than the total outstanding including interest and penalties.",
               },
               {
                 step: "04",
                 title: "Settlement Letter & NOC",
-                desc: "Once agreed, you pay the negotiated amount once and SBI issues a settlement letter and No Objection Certificate (NOC). Debt closed.",
+                desc: "Once agreed, you pay the negotiated amount once and RBL Bank issues a settlement letter and No Objection Certificate (NOC). Your debt is closed.",
               },
             ].map((item) => (
               <div
@@ -258,10 +262,7 @@ export default function SBICreditCardSettlementPage() {
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p
-                    className="text-muted-foreground text-sm"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -280,9 +281,9 @@ export default function SBICreditCardSettlementPage() {
           </h2>
           <ul className="space-y-4">
             {[
-              "Last SBI credit card statement showing outstanding balance",
+              "Last RBL Bank credit card statement showing outstanding balance",
               "Outstanding amount details (principal, interest, penalties)",
-              "Any communication from SBI collections team or legal notices",
+              "Any communication from RBL collections team or legal notices",
               "Your ID proof (Aadhaar / PAN card)",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -315,29 +316,29 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            SBI Credit Card Settlement — FAQs
+            RBL Credit Card Settlement — FAQs
           </h2>
           <div className="space-y-6">
             {[
               {
-                q: "How do I know if my SBI account is eligible for settlement?",
-                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+                q: "How do I know if my RBL Bank account is eligible for settlement?",
+                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every RBL account individually, from early missed payments to long-standing defaults. Our legal team knows exactly how to handle RBL collections.",
               },
               {
-                q: "Will SBI settle for less than the outstanding?",
-                a: "Yes. SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+                q: "RBL Bank's collections team is very aggressive — can Due Dost help?",
+                a: "Yes. RBL Bank's collections department is known for its aggressive follow-up — including frequent calls, legal notices, and field visits. When you engage Due Dost, all collections communication is redirected to our legal team. We handle every interaction professionally, stopping harassment while we negotiate your settlement.",
               },
               {
-                q: "How long does SBI credit card settlement take?",
-                a: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+                q: "What percentage does RBL Bank settle credit card debt for?",
+                a: "RBL Bank typically settles credit card accounts at 30-65% of the total outstanding, waiving significant interest, penalties, and fees. RBL's NPA challenges in recent years have made them particularly motivated to resolve cases through OTS rather than litigation.",
               },
               {
-                q: "What is the minimum settlement amount SBI accepts?",
-                a: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+                q: "How long does RBL credit card settlement take?",
+                a: "RBL credit card settlements typically take 30-90 days once we initiate the OTS process. Accounts that have been delinquent for longer or are under legal proceedings may take up to 4-6 months. Our team keeps you updated throughout.",
               },
               {
-                q: "Does SBI credit card settlement affect my CIBIL score?",
-                a: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+                q: "Does RBL credit card settlement affect my CIBIL score?",
+                a: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your RBL account is already in default or NPA status, your score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit profile. Most clients see improvement within 12–18 months of settlement.",
               },
             ].map((faq) => (
               <div key={faq.q} className="bg-background rounded-2xl p-6 border border-border">
@@ -357,11 +358,11 @@ export default function SBICreditCardSettlementPage() {
               className="text-3xl md:text-4xl font-bold mb-4"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Ready to Settle Your SBI Credit Card Dues?
+              Ready to Settle Your RBL Credit Card Dues?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Get a free, no-obligation consultation. Our experts will review your SBI account and
-              tell you exactly how much you can save.
+              Get a free, no-obligation consultation. Our experts will review your RBL Bank account
+              and tell you exactly how much you can save — and stop the collection calls today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

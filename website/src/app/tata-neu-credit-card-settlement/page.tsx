@@ -7,31 +7,31 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "SBI Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "Tata Neu Credit Card Settlement | Settle at 40-70% Less | Due Dost",
   description:
-    "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation with State Bank of India. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your Tata Neu HDFC or Tata Neu SBI credit card outstanding dues at 40-70% less. Expert negotiation with HDFC Bank and SBI Card collections teams. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
-    "SBI credit card settlement",
-    "SBI card settlement",
-    "State Bank of India credit card dues",
-    "SBI OTS",
-    "SBI credit card settlement process",
+    "Tata Neu credit card settlement",
+    "Tata Neu HDFC credit card settlement",
+    "Tata Neu SBI credit card settlement",
+    "Tata Neu credit card OTS",
+    "Tata credit card defaulter India",
+    "Tata Neu card dues",
     "credit card settlement India",
     "debt settlement company India",
-    "credit card defaulter India",
   ],
   alternates: {
-    canonical: `${SITE_URL}/sbi-credit-card-settlement`,
+    canonical: `${SITE_URL}/tata-neu-credit-card-settlement`,
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: `${SITE_URL}/sbi-credit-card-settlement`,
+    url: `${SITE_URL}/tata-neu-credit-card-settlement`,
     siteName: "Due Dost",
-    title: "SBI Credit Card Settlement | Due Dost",
+    title: "Tata Neu Credit Card Settlement | Due Dost",
     description:
-      "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost SBI Credit Card Settlement" }],
+      "Settle your Tata Neu credit card outstanding dues at 40-70% less. Expert negotiation with HDFC Bank or SBI Card. Free consultation.",
+    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost Tata Neu Credit Card Settlement" }],
   },
   robots: { index: true, follow: true },
 };
@@ -41,7 +41,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      name: "SBI Credit Card Settlement",
+      name: "Tata Neu Credit Card Settlement",
       provider: {
         "@type": "FinancialService",
         name: "Due Dost",
@@ -57,16 +57,16 @@ const jsonLd = {
         },
       },
       description:
-        "Expert SBI credit card settlement service. Negotiate outstanding dues at 40-70% less.",
+        "Expert Tata Neu credit card settlement service. Negotiate outstanding dues with HDFC Bank or SBI Card at 40-70% less.",
       areaServed: { "@type": "Country", name: "India" },
-      url: `${SITE_URL}/sbi-credit-card-settlement`,
+      url: `${SITE_URL}/tata-neu-credit-card-settlement`,
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
         { "@type": "ListItem", position: 2, name: "Credit Card Settlement", item: `${SITE_URL}/credit-card-settlement` },
-        { "@type": "ListItem", position: 3, name: "SBI Credit Card Settlement", item: `${SITE_URL}/sbi-credit-card-settlement` },
+        { "@type": "ListItem", position: 3, name: "Tata Neu Credit Card Settlement", item: `${SITE_URL}/tata-neu-credit-card-settlement` },
       ],
     },
     {
@@ -74,42 +74,42 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "How do I know if my SBI account is eligible for settlement?",
+          name: "Who is the actual issuer of the Tata Neu credit card — is it Tata or a bank?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+            text: "Tata Neu does not issue credit cards directly. The Tata Neu credit card is a co-branded product issued in partnership with either HDFC Bank (Tata Neu HDFC Bank Credit Card) or SBI Card (Tata Neu SBI Card). This means your settlement is negotiated with the underlying bank — either HDFC Bank or SBI Card — not with Tata. Due Dost works directly with whichever bank issued your specific card.",
           },
         },
         {
           "@type": "Question",
-          name: "What percentage does SBI settle credit card debt for?",
+          name: "How do I know if my Tata Neu credit card account is eligible for settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We work directly with the issuing bank (HDFC Bank or SBI Card) to negotiate the best settlement for your Tata Neu credit card outstanding.",
           },
         },
         {
           "@type": "Question",
-          name: "How long does SBI credit card settlement take?",
+          name: "What percentage does HDFC Bank or SBI Card settle Tata Neu credit card debt for?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+            text: "Both HDFC Bank and SBI Card have structured OTS programs for delinquent credit card accounts. Settlements are typically reached at 30-70% of the total outstanding, with significant waivers on accumulated interest and late payment charges. The exact reduction depends on the account age, outstanding balance, and the negotiation conducted by our experts.",
           },
         },
         {
           "@type": "Question",
-          name: "Does SBI credit card settlement affect my CIBIL score?",
+          name: "How long does a Tata Neu credit card settlement take?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+            text: "Tata Neu credit card settlement follows the OTS timelines of the issuing bank — typically 30 to 90 days for HDFC Bank and SBI Card once the formal settlement process is initiated. Accounts in early NPA stages settle faster; those with extended delinquency or pending legal notices may take up to 4-6 months. Our team actively follows up to avoid delays.",
           },
         },
         {
           "@type": "Question",
-          name: "What is the minimum settlement amount SBI accepts?",
+          name: "Does settling my Tata Neu credit card affect my CIBIL score?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+            text: "Yes, the account will be reported as 'Settled' rather than 'Closed' on your CIBIL report — a distinction that HDFC Bank or SBI Card reports to the credit bureaus. However, if your Tata Neu card account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further deterioration and allows you to begin rebuilding your credit. Most clients see meaningful CIBIL improvement within 12–18 months of completing the settlement.",
           },
         },
       ],
@@ -117,7 +117,7 @@ const jsonLd = {
   ],
 };
 
-export default function SBICreditCardSettlementPage() {
+export default function TataNeuCreditCardSettlementPage() {
   return (
     <main className="relative overflow-x-clip">
       <script
@@ -140,7 +140,7 @@ export default function SBICreditCardSettlementPage() {
             Credit Card Settlement
           </Link>
           <span>/</span>
-          <span className="text-foreground font-medium">SBI Settlement</span>
+          <span className="text-foreground font-medium">Tata Neu Credit Card Settlement</span>
         </nav>
       </div>
 
@@ -148,7 +148,7 @@ export default function SBICreditCardSettlementPage() {
       <section className="py-20 md:py-28 bg-gradient-to-b from-blue-50/50 to-background dark:from-blue-950/20">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-semibold tracking-widest uppercase text-duedost-blue dark:text-duedost-green mb-4">
-            SBI Credit Card Settlement
+            Tata Neu Credit Card Settlement
           </p>
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
@@ -156,13 +156,14 @@ export default function SBICreditCardSettlementPage() {
           >
             Settle Your{" "}
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
-              SBI Credit Card
+              Tata Neu Credit Card
             </span>{" "}
             Dues at Up to 70% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
-            Struggling with SBI credit card outstanding? Our expert legal team has helped thousands
-            negotiate settlements directly with State Bank of India&apos;s collections department.
+            Struggling with Tata Neu credit card outstanding? Whether your card is issued by HDFC
+            Bank or SBI Card, our expert team negotiates directly with the issuing bank to settle
+            your dues at the lowest possible amount.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
@@ -186,32 +187,37 @@ export default function SBICreditCardSettlementPage() {
         </div>
       </section>
 
-      {/* Why SBI Settlement Is Possible */}
+      {/* Why Tata Neu Credit Card Settlement Is Possible */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-6">
           <h2
             className="text-3xl md:text-4xl font-bold mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Why SBI Credit Card Settlement is Possible
+            Why Tata Neu Credit Card Settlement is Possible
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground space-y-4">
             <p>
-              State Bank of India (SBI), as a public sector bank, is subject to strict RBI
-              guidelines on NPA resolution. SBI Credit Cards — operated through SBI Cards and
-              Payment Services — classify overdue accounts as Non-Performing Assets (NPAs) after 90
-              days of default.
+              The Tata Neu credit card is a co-branded card offered under Tata Group&apos;s
+              super-app ecosystem. However, Tata itself is not the card issuer — the card is
+              issued in partnership with either HDFC Bank (Tata Neu HDFC Bank Credit Card) or SBI
+              Card (Tata Neu SBI Card). This distinction matters enormously when it comes to
+              settlement: your dues are owed to the underlying bank, and your settlement is
+              negotiated with that bank&apos;s collections and NPA resolution team.
             </p>
             <p>
-              The RBI actively mandates public sector banks like SBI to pursue settlement of NPAs
-              to clean up their books. SBI has a formal OTS (One Time Settlement) policy that is
-              periodically reviewed and allows eligible borrowers to settle for a fraction of the
-              total outstanding by waiving accumulated interest and penalties.
+              Both HDFC Bank and SBI Card are two of India&apos;s largest credit card issuers and
+              both maintain structured One Time Settlement (OTS) programs for delinquent accounts,
+              in line with RBI guidelines that encourage banks to resolve NPAs rather than pursue
+              prolonged legal recovery. When a Tata Neu card account goes into default, it enters
+              the same OTS process as any other HDFC or SBI credit card — with the same waiver
+              potential on accumulated interest, late payment charges, and over-limit fees.
             </p>
             <p>
-              Due Dost has navigated the SBI OTS process for numerous clients. We understand SBI
-              Cards&apos; approval process, documentation requirements, and negotiation timelines
-              — giving you the best chance of a maximum waiver.
+              Due Dost has extensive experience handling settlements with both HDFC Bank and SBI
+              Card. We identify which bank holds your Tata Neu account, engage the right
+              collections team, and navigate their OTS process to secure the maximum possible
+              reduction in your outstanding dues.
             </p>
           </div>
         </div>
@@ -224,29 +230,29 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Our SBI Settlement Process
+            Our Tata Neu Settlement Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 step: "01",
                 title: "Free Case Review",
-                desc: "We analyze your SBI credit card account status, outstanding amount, and NPA classification to build your settlement strategy.",
+                desc: "We identify whether your Tata Neu card is issued by HDFC Bank or SBI Card, then review the account status, outstanding amount, and NPA classification to build the right settlement strategy.",
               },
               {
                 step: "02",
-                title: "Contact SBI Collections",
-                desc: "We initiate an OTS (One Time Settlement) request directly with SBI Cards&apos; collections department using established channels.",
+                title: "Contact the Issuing Bank",
+                desc: "We initiate an OTS (One Time Settlement) request directly with HDFC Bank or SBI Card's collections team — whichever bank issued your Tata Neu card — using established channels.",
               },
               {
                 step: "03",
                 title: "Negotiate Settlement Amount",
-                desc: "Our experts work to minimize the lump-sum amount SBI accepts — typically 30-70% less than the total outstanding.",
+                desc: "Our experts work to minimise the lump-sum the bank accepts — typically 30-70% less than the total outstanding — by pushing for maximum waivers on interest and late payment penalties.",
               },
               {
                 step: "04",
                 title: "Settlement Letter & NOC",
-                desc: "Once agreed, you pay the negotiated amount once and SBI issues a settlement letter and No Objection Certificate (NOC). Debt closed.",
+                desc: "Once agreed, you pay the negotiated amount in one payment. The issuing bank (HDFC Bank or SBI Card) issues an official settlement letter and No Objection Certificate (NOC). Debt closed.",
               },
             ].map((item) => (
               <div
@@ -258,10 +264,7 @@ export default function SBICreditCardSettlementPage() {
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p
-                    className="text-muted-foreground text-sm"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -280,9 +283,10 @@ export default function SBICreditCardSettlementPage() {
           </h2>
           <ul className="space-y-4">
             {[
-              "Last SBI credit card statement showing outstanding balance",
+              "Last Tata Neu credit card statement showing outstanding balance",
+              "Card variant details (Tata Neu HDFC Bank or Tata Neu SBI Card)",
               "Outstanding amount details (principal, interest, penalties)",
-              "Any communication from SBI collections team or legal notices",
+              "Any communication from the collections team or legal notices",
               "Your ID proof (Aadhaar / PAN card)",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -315,29 +319,29 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            SBI Credit Card Settlement — FAQs
+            Tata Neu Credit Card Settlement — FAQs
           </h2>
           <div className="space-y-6">
             {[
               {
-                q: "How do I know if my SBI account is eligible for settlement?",
-                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+                q: "Who is the actual issuer of the Tata Neu credit card — is it Tata or a bank?",
+                a: "Tata Neu does not issue credit cards directly. The Tata Neu credit card is a co-branded product issued in partnership with either HDFC Bank (Tata Neu HDFC Bank Credit Card) or SBI Card (Tata Neu SBI Card). This means your settlement is negotiated with the underlying bank — either HDFC Bank or SBI Card — not with Tata. Due Dost works directly with whichever bank issued your specific card.",
               },
               {
-                q: "Will SBI settle for less than the outstanding?",
-                a: "Yes. SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+                q: "How do I know if my Tata Neu credit card account is eligible for settlement?",
+                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We work directly with the issuing bank (HDFC Bank or SBI Card) to negotiate the best settlement for your Tata Neu credit card outstanding.",
               },
               {
-                q: "How long does SBI credit card settlement take?",
-                a: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+                q: "What percentage does HDFC Bank or SBI Card settle Tata Neu credit card debt for?",
+                a: "Both HDFC Bank and SBI Card have structured OTS programs for delinquent credit card accounts. Settlements are typically reached at 30-70% of the total outstanding, with significant waivers on accumulated interest and late payment charges. The exact reduction depends on the account age, outstanding balance, and the negotiation conducted by our experts.",
               },
               {
-                q: "What is the minimum settlement amount SBI accepts?",
-                a: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+                q: "How long does a Tata Neu credit card settlement take?",
+                a: "Tata Neu credit card settlement follows the OTS timelines of the issuing bank — typically 30 to 90 days for HDFC Bank and SBI Card once the formal settlement process is initiated. Accounts in early NPA stages settle faster; those with extended delinquency or pending legal notices may take up to 4-6 months. Our team actively follows up to avoid delays.",
               },
               {
-                q: "Does SBI credit card settlement affect my CIBIL score?",
-                a: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+                q: "Does settling my Tata Neu credit card affect my CIBIL score?",
+                a: "Yes, the account will be reported as 'Settled' rather than 'Closed' on your CIBIL report — a distinction that HDFC Bank or SBI Card reports to the credit bureaus. However, if your Tata Neu card account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further deterioration and allows you to begin rebuilding your credit. Most clients see meaningful CIBIL improvement within 12–18 months of completing the settlement.",
               },
             ].map((faq) => (
               <div key={faq.q} className="bg-background rounded-2xl p-6 border border-border">
@@ -357,11 +361,11 @@ export default function SBICreditCardSettlementPage() {
               className="text-3xl md:text-4xl font-bold mb-4"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Ready to Settle Your SBI Credit Card Dues?
+              Ready to Settle Your Tata Neu Credit Card Dues?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Get a free, no-obligation consultation. Our experts will review your SBI account and
-              tell you exactly how much you can save.
+              Get a free, no-obligation consultation. Our experts will identify your issuing bank,
+              review your account, and tell you exactly how much you can save.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

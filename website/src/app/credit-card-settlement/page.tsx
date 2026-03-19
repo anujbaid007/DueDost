@@ -404,11 +404,6 @@ export default function CreditCardSettlementPage() {
               and fast.
             </p>
 
-            {/* Hindi callout */}
-            <p className="mt-3 text-base font-medium text-duedost-green">
-              क्रेडिट कार्ड सेटलमेंट के लिए आज ही संपर्क करें — कर्ज माफी नहीं, कानूनी समाधान।
-            </p>
-
             {/* CTA Buttons */}
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -478,7 +473,7 @@ export default function CreditCardSettlementPage() {
                 <p>
                   Credit card settlement — also known as{" "}
                   <strong className="text-foreground">
-                    एक मुश्त समाधान (One Time Settlement or OTS)
+                    One Time Settlement (OTS)
                   </strong>{" "}
                   — is a legally recognised process where your credit card
                   issuer agrees to accept a reduced lump-sum payment to
@@ -512,7 +507,7 @@ export default function CreditCardSettlementPage() {
                   {
                     icon: "✓",
                     title: "Applicable for overdue accounts",
-                    desc: "Accounts that are 90+ days past due or classified as NPA are eligible for OTS negotiation.",
+                    desc: "Even if you've missed just one EMI, we can help. We assess every case individually — from a single missed payment to long-standing defaults.",
                   },
                   {
                     icon: "✓",

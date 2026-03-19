@@ -77,7 +77,7 @@ const jsonLd = {
           name: "How do I know if my ICICI account is eligible for settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "ICICI accounts that are 90+ days overdue (classified as NPA) are generally eligible for OTS. Even accounts referred to collections agencies or with legal notices can often be settled. Our free consultation will assess your eligibility immediately.",
+            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every ICICI account individually, from early missed payments to accounts referred to collection agencies or facing legal notices. Our free consultation will assess your situation immediately.",
           },
         },
         {
@@ -320,7 +320,7 @@ export default function ICICICreditCardSettlementPage() {
             {[
               {
                 q: "How do I know if my ICICI account is eligible for settlement?",
-                a: "ICICI accounts that are 90+ days overdue (classified as NPA) are generally eligible for OTS. Even accounts referred to collections agencies or with legal notices can often be settled. Our free consultation will assess your eligibility immediately.",
+                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every ICICI account individually, from early missed payments to accounts referred to collection agencies or facing legal notices. Our free consultation will assess your situation immediately.",
               },
               {
                 q: "Will ICICI Bank settle for less than the outstanding?",

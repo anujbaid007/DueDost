@@ -7,31 +7,31 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "SBI Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "Yes Bank Credit Card Settlement | Settle at 30-65% Less | Due Dost",
   description:
-    "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation with State Bank of India. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your Yes Bank credit card outstanding dues at 30-65% less. Expert negotiation with Yes Bank collections team. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
-    "SBI credit card settlement",
-    "SBI card settlement",
-    "State Bank of India credit card dues",
-    "SBI OTS",
-    "SBI credit card settlement process",
+    "Yes Bank credit card settlement",
+    "Yes Bank settlement India",
+    "Yes Bank credit card dues",
+    "Yes Bank OTS",
+    "Yes Bank credit card defaulter",
+    "Yes First credit card settlement",
     "credit card settlement India",
     "debt settlement company India",
-    "credit card defaulter India",
   ],
   alternates: {
-    canonical: `${SITE_URL}/sbi-credit-card-settlement`,
+    canonical: `${SITE_URL}/yes-bank-credit-card-settlement`,
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: `${SITE_URL}/sbi-credit-card-settlement`,
+    url: `${SITE_URL}/yes-bank-credit-card-settlement`,
     siteName: "Due Dost",
-    title: "SBI Credit Card Settlement | Due Dost",
+    title: "Yes Bank Credit Card Settlement | Due Dost",
     description:
-      "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost SBI Credit Card Settlement" }],
+      "Settle your Yes Bank credit card outstanding dues at 30-65% less. Expert negotiation. Free consultation.",
+    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost Yes Bank Credit Card Settlement" }],
   },
   robots: { index: true, follow: true },
 };
@@ -41,7 +41,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      name: "SBI Credit Card Settlement",
+      name: "Yes Bank Credit Card Settlement",
       provider: {
         "@type": "FinancialService",
         name: "Due Dost",
@@ -57,16 +57,16 @@ const jsonLd = {
         },
       },
       description:
-        "Expert SBI credit card settlement service. Negotiate outstanding dues at 40-70% less.",
+        "Expert Yes Bank credit card settlement service. Negotiate outstanding dues at 30-65% less.",
       areaServed: { "@type": "Country", name: "India" },
-      url: `${SITE_URL}/sbi-credit-card-settlement`,
+      url: `${SITE_URL}/yes-bank-credit-card-settlement`,
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
         { "@type": "ListItem", position: 2, name: "Credit Card Settlement", item: `${SITE_URL}/credit-card-settlement` },
-        { "@type": "ListItem", position: 3, name: "SBI Credit Card Settlement", item: `${SITE_URL}/sbi-credit-card-settlement` },
+        { "@type": "ListItem", position: 3, name: "Yes Bank Settlement", item: `${SITE_URL}/yes-bank-credit-card-settlement` },
       ],
     },
     {
@@ -74,42 +74,42 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "How do I know if my SBI account is eligible for settlement?",
+          name: "How do I know if my Yes Bank account is eligible for settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every Yes Bank account individually, from early missed payments to long-standing defaults. Our free consultation will assess your situation immediately.",
           },
         },
         {
           "@type": "Question",
-          name: "What percentage does SBI settle credit card debt for?",
+          name: "Yes Bank went through a crisis in 2020 — what does that mean for credit card defaulters?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+            text: "Yes Bank's 2020 RBI moratorium and subsequent restructuring left the bank with a significantly stressed credit card portfolio. Post-restructuring, Yes Bank has been actively working to clean up its NPA book through One Time Settlements. This means the bank is more open to negotiated settlements than many other lenders — creating a genuine opportunity to resolve your dues at a substantially reduced amount.",
           },
         },
         {
           "@type": "Question",
-          name: "How long does SBI credit card settlement take?",
+          name: "What percentage does Yes Bank settle credit card debt for?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+            text: "Yes Bank typically settles credit card accounts at 35-70% of the total outstanding, waiving a significant portion of interest, late fees, and penalties. The stressed nature of their credit card book means they are motivated to recover what they can through OTS rather than pursuing costly legal proceedings.",
           },
         },
         {
           "@type": "Question",
-          name: "Does SBI credit card settlement affect my CIBIL score?",
+          name: "How long does Yes Bank credit card settlement take?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+            text: "Yes Bank credit card settlements typically take 30-90 days once we initiate the OTS process. Accounts that have been delinquent for a longer period or have escalated to legal proceedings may take up to 4-6 months. Our team manages the entire process and keeps you informed at every stage.",
           },
         },
         {
           "@type": "Question",
-          name: "What is the minimum settlement amount SBI accepts?",
+          name: "Does Yes Bank credit card settlement affect my CIBIL score?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+            text: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your Yes Bank account is already in default or NPA status, your credit score has already taken a hit. Settlement stops further damage and puts you on the path to rebuilding. Most clients see meaningful CIBIL improvement within 12–18 months of settlement.",
           },
         },
       ],
@@ -117,7 +117,7 @@ const jsonLd = {
   ],
 };
 
-export default function SBICreditCardSettlementPage() {
+export default function YesBankCreditCardSettlementPage() {
   return (
     <main className="relative overflow-x-clip">
       <script
@@ -140,7 +140,7 @@ export default function SBICreditCardSettlementPage() {
             Credit Card Settlement
           </Link>
           <span>/</span>
-          <span className="text-foreground font-medium">SBI Settlement</span>
+          <span className="text-foreground font-medium">Yes Bank Settlement</span>
         </nav>
       </div>
 
@@ -148,7 +148,7 @@ export default function SBICreditCardSettlementPage() {
       <section className="py-20 md:py-28 bg-gradient-to-b from-blue-50/50 to-background dark:from-blue-950/20">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-semibold tracking-widest uppercase text-duedost-blue dark:text-duedost-green mb-4">
-            SBI Credit Card Settlement
+            Yes Bank Credit Card Settlement
           </p>
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
@@ -156,13 +156,14 @@ export default function SBICreditCardSettlementPage() {
           >
             Settle Your{" "}
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
-              SBI Credit Card
+              Yes Bank Credit Card
             </span>{" "}
-            Dues at Up to 70% Less
+            Dues at Up to 65% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
-            Struggling with SBI credit card outstanding? Our expert legal team has helped thousands
-            negotiate settlements directly with State Bank of India&apos;s collections department.
+            Struggling with Yes Bank credit card outstanding? Our expert legal team has helped
+            thousands negotiate settlements directly with Yes Bank&apos;s collections department —
+            taking full advantage of the bank&apos;s post-restructuring settlement window.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
@@ -186,32 +187,37 @@ export default function SBICreditCardSettlementPage() {
         </div>
       </section>
 
-      {/* Why SBI Settlement Is Possible */}
+      {/* Why Yes Bank Settlement Is Possible */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-6">
           <h2
             className="text-3xl md:text-4xl font-bold mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Why SBI Credit Card Settlement is Possible
+            Why Yes Bank Credit Card Settlement is Possible
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground space-y-4">
             <p>
-              State Bank of India (SBI), as a public sector bank, is subject to strict RBI
-              guidelines on NPA resolution. SBI Credit Cards — operated through SBI Cards and
-              Payment Services — classify overdue accounts as Non-Performing Assets (NPAs) after 90
-              days of default.
+              Yes Bank&apos;s 2020 collapse and subsequent RBI-led restructuring was one of the most
+              significant banking events in India&apos;s recent history. During the moratorium, millions
+              of account holders were affected, and the bank&apos;s credit card portfolio — including
+              premium products like the Yes First Exclusive, Yes Prosperity Cashback, and Yes Premia
+              cards — accumulated significant stress that continues to shape the bank&apos;s approach to
+              NPAs today.
             </p>
             <p>
-              The RBI actively mandates public sector banks like SBI to pursue settlement of NPAs
-              to clean up their books. SBI has a formal OTS (One Time Settlement) policy that is
-              periodically reviewed and allows eligible borrowers to settle for a fraction of the
-              total outstanding by waiving accumulated interest and penalties.
+              Post-restructuring, Yes Bank has been under constant pressure to clean up its balance
+              sheet and reduce its NPA ratio. This has made the bank more open than most to One Time
+              Settlements (OTS) — particularly for credit card accounts that have been delinquent for
+              90 days or more. RBI guidelines further encourage banks to prefer negotiated resolution
+              over prolonged court proceedings, creating a real window to settle for substantially
+              less than the full outstanding.
             </p>
             <p>
-              Due Dost has navigated the SBI OTS process for numerous clients. We understand SBI
-              Cards&apos; approval process, documentation requirements, and negotiation timelines
-              — giving you the best chance of a maximum waiver.
+              Due Dost has direct experience with Yes Bank&apos;s collections and recovery processes.
+              We know how to structure an OTS proposal that the bank will accept, and we manage all
+              communication from start to finish so you never have to deal with the collections
+              department alone.
             </p>
           </div>
         </div>
@@ -224,29 +230,29 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Our SBI Settlement Process
+            Our Yes Bank Settlement Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 step: "01",
                 title: "Free Case Review",
-                desc: "We analyze your SBI credit card account status, outstanding amount, and NPA classification to build your settlement strategy.",
+                desc: "We analyze your Yes Bank credit card account status, outstanding balance, and NPA classification to build a tailored settlement strategy.",
               },
               {
                 step: "02",
-                title: "Contact SBI Collections",
-                desc: "We initiate an OTS (One Time Settlement) request directly with SBI Cards&apos; collections department using established channels.",
+                title: "Initiate OTS with Yes Bank",
+                desc: "We submit a formal One Time Settlement (OTS) request directly to Yes Bank's collections or recovery department through established legal channels.",
               },
               {
                 step: "03",
                 title: "Negotiate Settlement Amount",
-                desc: "Our experts work to minimize the lump-sum amount SBI accepts — typically 30-70% less than the total outstanding.",
+                desc: "Our experts push to reduce the lump-sum amount Yes Bank accepts — targeting 35-70% less than the total outstanding including interest and penalties.",
               },
               {
                 step: "04",
                 title: "Settlement Letter & NOC",
-                desc: "Once agreed, you pay the negotiated amount once and SBI issues a settlement letter and No Objection Certificate (NOC). Debt closed.",
+                desc: "Once agreed, you pay the negotiated amount once and Yes Bank issues a settlement letter and No Objection Certificate (NOC). Your debt is closed.",
               },
             ].map((item) => (
               <div
@@ -258,10 +264,7 @@ export default function SBICreditCardSettlementPage() {
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p
-                    className="text-muted-foreground text-sm"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -280,9 +283,9 @@ export default function SBICreditCardSettlementPage() {
           </h2>
           <ul className="space-y-4">
             {[
-              "Last SBI credit card statement showing outstanding balance",
+              "Last Yes Bank credit card statement showing outstanding balance",
               "Outstanding amount details (principal, interest, penalties)",
-              "Any communication from SBI collections team or legal notices",
+              "Any communication from Yes Bank collections team or legal notices",
               "Your ID proof (Aadhaar / PAN card)",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -315,29 +318,29 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            SBI Credit Card Settlement — FAQs
+            Yes Bank Credit Card Settlement — FAQs
           </h2>
           <div className="space-y-6">
             {[
               {
-                q: "How do I know if my SBI account is eligible for settlement?",
-                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+                q: "How do I know if my Yes Bank account is eligible for settlement?",
+                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every Yes Bank account individually, from early missed payments to long-standing defaults. Our free consultation will assess your situation immediately.",
               },
               {
-                q: "Will SBI settle for less than the outstanding?",
-                a: "Yes. SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+                q: "Yes Bank went through a crisis in 2020 — what does that mean for credit card defaulters?",
+                a: "Yes Bank's 2020 RBI moratorium and subsequent restructuring left the bank with a significantly stressed credit card portfolio. Post-restructuring, Yes Bank has been actively working to clean up its NPA book through One Time Settlements. This means the bank is more open to negotiated settlements than many other lenders — creating a genuine opportunity to resolve your dues at a substantially reduced amount.",
               },
               {
-                q: "How long does SBI credit card settlement take?",
-                a: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+                q: "What percentage does Yes Bank settle credit card debt for?",
+                a: "Yes Bank typically settles credit card accounts at 35-70% of the total outstanding, waiving a significant portion of interest, late fees, and penalties. The stressed nature of their credit card book means they are motivated to recover what they can through OTS rather than pursuing costly legal proceedings.",
               },
               {
-                q: "What is the minimum settlement amount SBI accepts?",
-                a: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+                q: "How long does Yes Bank credit card settlement take?",
+                a: "Yes Bank credit card settlements typically take 30-90 days once we initiate the OTS process. Accounts that have been delinquent for a longer period or have escalated to legal proceedings may take up to 4-6 months. Our team manages the entire process and keeps you informed at every stage.",
               },
               {
-                q: "Does SBI credit card settlement affect my CIBIL score?",
-                a: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+                q: "Does Yes Bank credit card settlement affect my CIBIL score?",
+                a: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your Yes Bank account is already in default or NPA status, your credit score has already taken a hit. Settlement stops further damage and puts you on the path to rebuilding. Most clients see meaningful CIBIL improvement within 12–18 months of settlement.",
               },
             ].map((faq) => (
               <div key={faq.q} className="bg-background rounded-2xl p-6 border border-border">
@@ -357,11 +360,11 @@ export default function SBICreditCardSettlementPage() {
               className="text-3xl md:text-4xl font-bold mb-4"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Ready to Settle Your SBI Credit Card Dues?
+              Ready to Settle Your Yes Bank Credit Card Dues?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Get a free, no-obligation consultation. Our experts will review your SBI account and
-              tell you exactly how much you can save.
+              Get a free, no-obligation consultation. Our experts will review your Yes Bank account
+              and tell you exactly how much you can save — and guide you every step of the way.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

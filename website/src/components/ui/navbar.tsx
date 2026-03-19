@@ -8,11 +8,11 @@ import { ThemeToggle } from "./theme-toggle";
 import Image from "next/image";
 
 const navItems = [
-  { label: "Home", href: "#" },
-  { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/#services" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
@@ -39,7 +39,7 @@ export function Navbar() {
             : "bg-background/50 backdrop-blur-sm"
         }`}
       >
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <Image
             src="/logo.webp"
             alt="Due Dost"

@@ -1,22 +1,23 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 const services = [
-  "Credit Card Settlement",
-  "Personal Loan Settlement",
-  "App Loan Settlement",
-  "Anti-Harassment Service",
-  "Loan Consolidation",
-  "Debt Closure & NOC",
+  { label: "Credit Card Settlement", href: "/credit-card-settlement" },
+  { label: "Personal Loan Settlement", href: "/personal-loan-settlement" },
+  { label: "App Loan Settlement", href: "/#contact" },
+  { label: "Anti-Harassment Service", href: "/recovery-agent-harassment" },
+  { label: "Loan Consolidation", href: "/#contact" },
+  { label: "Debt Closure & NOC", href: "/#contact" },
 ];
 
 const legal = [
-  "Terms & Conditions",
-  "Privacy Policy",
-  "Refund Policy",
-  "Disclaimer",
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Refund Policy", href: "/refund-policy" },
+  { label: "Disclaimer", href: "/disclaimer" },
 ];
 
 export function Footer() {
@@ -50,13 +51,13 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5">
               {services.map((service) => (
-                <li key={service}>
-                  <a
-                    href="#services"
+                <li key={service.href + service.label}>
+                  <Link
+                    href={service.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {service}
-                  </a>
+                    {service.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -69,13 +70,13 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5">
               {legal.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>

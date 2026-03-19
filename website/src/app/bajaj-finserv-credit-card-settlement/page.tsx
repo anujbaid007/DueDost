@@ -7,31 +7,31 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "SBI Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "Bajaj Finserv EMI Card & Loan Settlement | Settle at 40-70% Less | Due Dost",
   description:
-    "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation with State Bank of India. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your Bajaj Finserv EMI Network Card or personal loan dues at 40-70% less. Expert negotiation with Bajaj Finance collections team. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
-    "SBI credit card settlement",
-    "SBI card settlement",
-    "State Bank of India credit card dues",
-    "SBI OTS",
-    "SBI credit card settlement process",
-    "credit card settlement India",
+    "Bajaj Finserv settlement",
+    "Bajaj Finance EMI card settlement",
+    "Bajaj Finserv personal loan settlement",
+    "Bajaj Finance OTS",
+    "Bajaj Finance recovery agent harassment",
+    "Bajaj loan settlement India",
+    "Bajaj Finance NPA settlement",
     "debt settlement company India",
-    "credit card defaulter India",
   ],
   alternates: {
-    canonical: `${SITE_URL}/sbi-credit-card-settlement`,
+    canonical: `${SITE_URL}/bajaj-finserv-credit-card-settlement`,
   },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: `${SITE_URL}/sbi-credit-card-settlement`,
+    url: `${SITE_URL}/bajaj-finserv-credit-card-settlement`,
     siteName: "Due Dost",
-    title: "SBI Credit Card Settlement | Due Dost",
+    title: "Bajaj Finserv EMI Card & Loan Settlement | Due Dost",
     description:
-      "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost SBI Credit Card Settlement" }],
+      "Settle your Bajaj Finserv EMI Network Card or personal loan dues at 40-70% less. Expert negotiation. Free consultation.",
+    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost Bajaj Finserv Settlement" }],
   },
   robots: { index: true, follow: true },
 };
@@ -41,7 +41,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      name: "SBI Credit Card Settlement",
+      name: "Bajaj Finserv EMI Card & Loan Settlement",
       provider: {
         "@type": "FinancialService",
         name: "Due Dost",
@@ -57,16 +57,16 @@ const jsonLd = {
         },
       },
       description:
-        "Expert SBI credit card settlement service. Negotiate outstanding dues at 40-70% less.",
+        "Expert Bajaj Finserv EMI Network Card and personal loan settlement service. Negotiate outstanding dues at 40-70% less.",
       areaServed: { "@type": "Country", name: "India" },
-      url: `${SITE_URL}/sbi-credit-card-settlement`,
+      url: `${SITE_URL}/bajaj-finserv-credit-card-settlement`,
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
         { "@type": "ListItem", position: 2, name: "Credit Card Settlement", item: `${SITE_URL}/credit-card-settlement` },
-        { "@type": "ListItem", position: 3, name: "SBI Credit Card Settlement", item: `${SITE_URL}/sbi-credit-card-settlement` },
+        { "@type": "ListItem", position: 3, name: "Bajaj Finserv Settlement", item: `${SITE_URL}/bajaj-finserv-credit-card-settlement` },
       ],
     },
     {
@@ -74,42 +74,42 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "How do I know if my SBI account is eligible for settlement?",
+          name: "Is the Bajaj Finserv EMI Network Card a credit card?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+            text: "No. The Bajaj Finserv EMI Network Card is not a traditional credit card. It is a pre-approved limit facility issued by Bajaj Finance Limited (an NBFC) that allows you to purchase products on no-cost or low-cost EMIs at partner stores. When you use this card and miss EMIs, you are effectively defaulting on a loan product — and settlement is handled the same way as any Bajaj Finance personal loan OTS.",
           },
         },
         {
           "@type": "Question",
-          name: "What percentage does SBI settle credit card debt for?",
+          name: "How do I know if my Bajaj Finance account is eligible for settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every Bajaj Finance account individually, from early missed payments to accounts facing aggressive recovery. Our free consultation will tell you exactly where you stand.",
           },
         },
         {
           "@type": "Question",
-          name: "How long does SBI credit card settlement take?",
+          name: "What percentage does Bajaj Finance settle loans and EMI card dues for?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+            text: "Bajaj Finance settles defaulted accounts — including EMI Network Card dues, personal loans, consumer durable loans, and Flexi Loans — typically at 35-70% of the total outstanding, depending on the account age, outstanding amount, and your repayment capacity. Interest and penalty waivers are the primary components of the reduction.",
           },
         },
         {
           "@type": "Question",
-          name: "Does SBI credit card settlement affect my CIBIL score?",
+          name: "Does Bajaj Finance send recovery agents and make excessive calls?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+            text: "Yes, Bajaj Finance is known for aggressive recovery practices — including frequent calls from collection agents, field visits, and notices. However, this behaviour is regulated by RBI guidelines applicable to all NBFCs. Once Due Dost initiates the settlement process on your behalf, all direct contact must route through us, and recovery harassment typically stops. If you are facing unlawful harassment, we can escalate to the RBI Ombudsman.",
           },
         },
         {
           "@type": "Question",
-          name: "What is the minimum settlement amount SBI accepts?",
+          name: "How long does a Bajaj Finance OTS (One Time Settlement) take?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+            text: "Bajaj Finance OTS timelines typically range from 30 to 90 days once the settlement request is formally initiated. Simple personal loan accounts at an early NPA stage tend to settle faster. EMI Network Card or Flexi Loan cases with larger outstanding amounts or extended delinquency may take 3–5 months. Our team follows up at every stage to keep the process moving.",
           },
         },
       ],
@@ -117,7 +117,7 @@ const jsonLd = {
   ],
 };
 
-export default function SBICreditCardSettlementPage() {
+export default function BajajFinservSettlementPage() {
   return (
     <main className="relative overflow-x-clip">
       <script
@@ -140,7 +140,7 @@ export default function SBICreditCardSettlementPage() {
             Credit Card Settlement
           </Link>
           <span>/</span>
-          <span className="text-foreground font-medium">SBI Settlement</span>
+          <span className="text-foreground font-medium">Bajaj Finserv Settlement</span>
         </nav>
       </div>
 
@@ -148,7 +148,7 @@ export default function SBICreditCardSettlementPage() {
       <section className="py-20 md:py-28 bg-gradient-to-b from-blue-50/50 to-background dark:from-blue-950/20">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-semibold tracking-widest uppercase text-duedost-blue dark:text-duedost-green mb-4">
-            SBI Credit Card Settlement
+            Bajaj Finserv EMI Card &amp; Loan Settlement
           </p>
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
@@ -156,13 +156,14 @@ export default function SBICreditCardSettlementPage() {
           >
             Settle Your{" "}
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
-              SBI Credit Card
+              Bajaj Finance Dues
             </span>{" "}
-            Dues at Up to 70% Less
+            at Up to 70% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
-            Struggling with SBI credit card outstanding? Our expert legal team has helped thousands
-            negotiate settlements directly with State Bank of India&apos;s collections department.
+            Struggling with Bajaj Finserv EMI Network Card dues, personal loan, or Flexi Loan
+            outstanding? Our expert team has helped thousands settle directly with Bajaj
+            Finance&apos;s collections department — and stop recovery agent harassment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
@@ -186,32 +187,37 @@ export default function SBICreditCardSettlementPage() {
         </div>
       </section>
 
-      {/* Why SBI Settlement Is Possible */}
+      {/* Why Bajaj Finance Settlement Is Possible */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-6">
           <h2
             className="text-3xl md:text-4xl font-bold mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Why SBI Credit Card Settlement is Possible
+            Why Bajaj Finance Settlement is Possible
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground space-y-4">
             <p>
-              State Bank of India (SBI), as a public sector bank, is subject to strict RBI
-              guidelines on NPA resolution. SBI Credit Cards — operated through SBI Cards and
-              Payment Services — classify overdue accounts as Non-Performing Assets (NPAs) after 90
-              days of default.
+              Bajaj Finance Limited is India&apos;s largest Non-Banking Financial Company (NBFC),
+              with millions of active borrowers across EMI Network Cards, personal loans, consumer
+              durable loans, and Flexi Loans. Like banks, NBFCs are required to classify overdue
+              accounts as Non-Performing Assets (NPAs) when EMIs go unpaid beyond 90 days — and
+              NPAs on their books directly hurt their capital adequacy and profitability.
             </p>
             <p>
-              The RBI actively mandates public sector banks like SBI to pursue settlement of NPAs
-              to clean up their books. SBI has a formal OTS (One Time Settlement) policy that is
-              periodically reviewed and allows eligible borrowers to settle for a fraction of the
-              total outstanding by waiving accumulated interest and penalties.
+              RBI guidelines that govern NPA resolution apply equally to all NBFCs, including Bajaj
+              Finance. These guidelines actively encourage lenders to resolve NPAs through One Time
+              Settlement (OTS) programs rather than prolonged and costly legal recovery. Bajaj
+              Finance runs internal OTS programs for defaulted accounts — covering both personal
+              loans and EMI Network Card outstanding — but most borrowers do not know how to
+              approach or negotiate these settlements effectively.
             </p>
             <p>
-              Due Dost has navigated the SBI OTS process for numerous clients. We understand SBI
-              Cards&apos; approval process, documentation requirements, and negotiation timelines
-              — giving you the best chance of a maximum waiver.
+              Due Dost has direct experience navigating Bajaj Finance&apos;s OTS process, including
+              the right escalation channels and documentation requirements. We take over all
+              communication with Bajaj Finance&apos;s collections team, ensuring you are no longer
+              subject to high-frequency recovery calls or field agent visits while the settlement
+              is being negotiated.
             </p>
           </div>
         </div>
@@ -224,29 +230,29 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Our SBI Settlement Process
+            Our Bajaj Finance Settlement Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 step: "01",
                 title: "Free Case Review",
-                desc: "We analyze your SBI credit card account status, outstanding amount, and NPA classification to build your settlement strategy.",
+                desc: "We review your Bajaj Finance account details — whether it is an EMI Network Card, personal loan, consumer durable loan, or Flexi Loan — and assess the NPA status, outstanding amount, and best settlement approach.",
               },
               {
                 step: "02",
-                title: "Contact SBI Collections",
-                desc: "We initiate an OTS (One Time Settlement) request directly with SBI Cards&apos; collections department using established channels.",
+                title: "Initiate OTS with Bajaj Finance",
+                desc: "We formally submit an OTS (One Time Settlement) application to Bajaj Finance's collections and NPA resolution team using established channels, taking over all communication on your behalf.",
               },
               {
                 step: "03",
-                title: "Negotiate Settlement Amount",
-                desc: "Our experts work to minimize the lump-sum amount SBI accepts — typically 30-70% less than the total outstanding.",
+                title: "Negotiate the Settlement Amount",
+                desc: "Our experts negotiate to minimise the lump-sum Bajaj Finance accepts — typically 30-65% of the total outstanding — by pushing for maximum waivers on accrued interest, late payment charges, and penalties.",
               },
               {
                 step: "04",
                 title: "Settlement Letter & NOC",
-                desc: "Once agreed, you pay the negotiated amount once and SBI issues a settlement letter and No Objection Certificate (NOC). Debt closed.",
+                desc: "Once the settlement is approved, you pay the agreed amount in one go. Bajaj Finance issues an official settlement letter and No Objection Certificate (NOC), and the account is closed.",
               },
             ].map((item) => (
               <div
@@ -258,10 +264,7 @@ export default function SBICreditCardSettlementPage() {
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p
-                    className="text-muted-foreground text-sm"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -280,9 +283,10 @@ export default function SBICreditCardSettlementPage() {
           </h2>
           <ul className="space-y-4">
             {[
-              "Last SBI credit card statement showing outstanding balance",
-              "Outstanding amount details (principal, interest, penalties)",
-              "Any communication from SBI collections team or legal notices",
+              "Latest Bajaj Finance statement or loan summary showing outstanding balance",
+              "Loan account number or EMI Network Card number",
+              "Outstanding amount details (principal, accrued interest, penalties)",
+              "Any communication from Bajaj Finance collections team, recovery agents, or legal notices",
               "Your ID proof (Aadhaar / PAN card)",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -315,29 +319,29 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            SBI Credit Card Settlement — FAQs
+            Bajaj Finserv Settlement — FAQs
           </h2>
           <div className="space-y-6">
             {[
               {
-                q: "How do I know if my SBI account is eligible for settlement?",
-                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+                q: "Is the Bajaj Finserv EMI Network Card a credit card?",
+                a: "No. The Bajaj Finserv EMI Network Card is not a traditional credit card. It is a pre-approved limit facility issued by Bajaj Finance Limited (an NBFC) that allows you to purchase products on no-cost or low-cost EMIs at partner stores. When you use this card and miss EMIs, you are effectively defaulting on a loan product — and settlement is handled the same way as any Bajaj Finance personal loan OTS.",
               },
               {
-                q: "Will SBI settle for less than the outstanding?",
-                a: "Yes. SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+                q: "How do I know if my Bajaj Finance account is eligible for settlement?",
+                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every Bajaj Finance account individually, from early missed payments to accounts facing aggressive recovery. Our free consultation will tell you exactly where you stand.",
               },
               {
-                q: "How long does SBI credit card settlement take?",
-                a: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+                q: "What percentage does Bajaj Finance settle loans and EMI card dues for?",
+                a: "Bajaj Finance settles defaulted accounts — including EMI Network Card dues, personal loans, consumer durable loans, and Flexi Loans — typically at 35-70% of the total outstanding, depending on the account age, outstanding amount, and your repayment capacity. Interest and penalty waivers are the primary components of the reduction.",
               },
               {
-                q: "What is the minimum settlement amount SBI accepts?",
-                a: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+                q: "Does Bajaj Finance send recovery agents and make excessive calls?",
+                a: "Yes, Bajaj Finance is known for aggressive recovery practices — including frequent calls from collection agents, field visits, and notices. However, this behaviour is regulated by RBI guidelines applicable to all NBFCs. Once Due Dost initiates the settlement process on your behalf, all direct contact must route through us, and recovery harassment typically stops. If you are facing unlawful harassment, we can escalate to the RBI Ombudsman.",
               },
               {
-                q: "Does SBI credit card settlement affect my CIBIL score?",
-                a: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+                q: "How long does a Bajaj Finance OTS take?",
+                a: "Bajaj Finance OTS timelines typically range from 30 to 90 days once the settlement request is formally initiated. Simple personal loan accounts at an early NPA stage tend to settle faster. EMI Network Card or Flexi Loan cases with larger outstanding amounts or extended delinquency may take 3–5 months. Our team follows up at every stage to keep the process moving.",
               },
             ].map((faq) => (
               <div key={faq.q} className="bg-background rounded-2xl p-6 border border-border">
@@ -357,11 +361,11 @@ export default function SBICreditCardSettlementPage() {
               className="text-3xl md:text-4xl font-bold mb-4"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Ready to Settle Your SBI Credit Card Dues?
+              Ready to Settle Your Bajaj Finance Dues?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Get a free, no-obligation consultation. Our experts will review your SBI account and
-              tell you exactly how much you can save.
+              Get a free, no-obligation consultation. Our experts will review your Bajaj Finance
+              account and tell you exactly how much you can save — and put an end to recovery calls.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

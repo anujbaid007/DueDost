@@ -77,7 +77,7 @@ const jsonLd = {
           name: "How do I know if my HDFC account is eligible for settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "HDFC accounts that are 90+ days overdue (classified as NPA) are generally eligible for OTS. Even accounts in legal proceedings can often be settled. Our team will review your account status in the free consultation and tell you exactly where you stand.",
+            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every HDFC account individually, from early missed payments to long-standing defaults and accounts in legal proceedings. Our free consultation will tell you exactly where you stand.",
           },
         },
         {
@@ -236,7 +236,7 @@ export default function HDFCCreditCardSettlementPage() {
               {
                 step: "02",
                 title: "Contact HDFC Collections",
-                desc: "We initiate an OTS (One Time Settlement) request directly with HDFC Bank&apos;s collections department using established channels.",
+                desc: "We initiate an OTS (One Time Settlement) request directly with HDFC Bank's collections department using established channels.",
               },
               {
                 step: "03",
@@ -321,7 +321,7 @@ export default function HDFCCreditCardSettlementPage() {
             {[
               {
                 q: "How do I know if my HDFC account is eligible for settlement?",
-                a: "HDFC accounts that are 90+ days overdue (classified as NPA) are generally eligible for OTS. Even accounts in legal proceedings can often be settled. Our team will review your account status in the free consultation and tell you exactly where you stand.",
+                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every HDFC account individually, from early missed payments to long-standing defaults and accounts in legal proceedings. Our free consultation will tell you exactly where you stand.",
               },
               {
                 q: "Will HDFC Bank settle for less than the outstanding?",

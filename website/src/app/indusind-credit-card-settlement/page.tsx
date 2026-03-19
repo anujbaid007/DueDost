@@ -7,31 +7,36 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "SBI Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "IndusInd Credit Card Settlement | Settle at 40-70% Less | Due Dost",
   description:
-    "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation with State Bank of India. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your IndusInd Bank credit card outstanding dues at 40-70% less. Expert negotiation with IndusInd's collections team. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
-    "SBI credit card settlement",
-    "SBI card settlement",
-    "State Bank of India credit card dues",
-    "SBI OTS",
-    "SBI credit card settlement process",
+    "IndusInd credit card settlement",
+    "IndusInd bank settlement India",
+    "IndusInd credit card dues",
+    "IndusInd OTS",
+    "IndusInd Bank credit card defaulter",
+    "IndusInd credit card settlement process India",
     "credit card settlement India",
     "debt settlement company India",
-    "credit card defaulter India",
   ],
-  alternates: {
-    canonical: `${SITE_URL}/sbi-credit-card-settlement`,
-  },
+  alternates: { canonical: `${SITE_URL}/indusind-credit-card-settlement` },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: `${SITE_URL}/sbi-credit-card-settlement`,
+    url: `${SITE_URL}/indusind-credit-card-settlement`,
     siteName: "Due Dost",
-    title: "SBI Credit Card Settlement | Due Dost",
+    title: "IndusInd Bank Credit Card Settlement | Due Dost",
     description:
-      "Settle your SBI credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost SBI Credit Card Settlement" }],
+      "Settle your IndusInd Bank credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Due Dost IndusInd Bank Credit Card Settlement",
+      },
+    ],
   },
   robots: { index: true, follow: true },
 };
@@ -41,7 +46,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      name: "SBI Credit Card Settlement",
+      name: "IndusInd Bank Credit Card Settlement",
       provider: {
         "@type": "FinancialService",
         name: "Due Dost",
@@ -57,16 +62,26 @@ const jsonLd = {
         },
       },
       description:
-        "Expert SBI credit card settlement service. Negotiate outstanding dues at 40-70% less.",
+        "Expert IndusInd Bank credit card settlement service. Negotiate outstanding dues at 40-70% less.",
       areaServed: { "@type": "Country", name: "India" },
-      url: `${SITE_URL}/sbi-credit-card-settlement`,
+      url: `${SITE_URL}/indusind-credit-card-settlement`,
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-        { "@type": "ListItem", position: 2, name: "Credit Card Settlement", item: `${SITE_URL}/credit-card-settlement` },
-        { "@type": "ListItem", position: 3, name: "SBI Credit Card Settlement", item: `${SITE_URL}/sbi-credit-card-settlement` },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Credit Card Settlement",
+          item: `${SITE_URL}/credit-card-settlement`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "IndusInd Bank Settlement",
+          item: `${SITE_URL}/indusind-credit-card-settlement`,
+        },
       ],
     },
     {
@@ -74,42 +89,42 @@ const jsonLd = {
       mainEntity: [
         {
           "@type": "Question",
-          name: "How do I know if my SBI account is eligible for settlement?",
+          name: "How do I know if my IndusInd credit card account is eligible for settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every IndusInd account individually, from early missed payments to accounts with legal notices. Our free consultation will assess your situation immediately.",
           },
         },
         {
           "@type": "Question",
-          name: "What percentage does SBI settle credit card debt for?",
+          name: "What percentage does IndusInd Bank settle credit card debt for?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+            text: "IndusInd Bank settles NPA credit card accounts at significantly reduced amounts — typically accepting 35-65% of the principal outstanding, with a large portion of interest and penalty charges waived.",
           },
         },
         {
           "@type": "Question",
-          name: "How long does SBI credit card settlement take?",
+          name: "How long does IndusInd credit card settlement take?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+            text: "IndusInd Bank credit card settlements typically take 30-90 days once we initiate the OTS process. Accounts in early NPA stages may settle faster, while accounts that have received legal notices may take up to 4-6 months.",
           },
         },
         {
           "@type": "Question",
-          name: "Does SBI credit card settlement affect my CIBIL score?",
+          name: "Does IndusInd Bank settle credit card debt despite aggressive collections?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+            text: "Yes. IndusInd Bank is known for an assertive collections approach, but they still have structured OTS programs for eligible NPA accounts under RBI guidelines. Due Dost understands how to engage IndusInd's collections hierarchy effectively and redirect the process toward a formal settlement rather than continued recovery pressure.",
           },
         },
         {
           "@type": "Question",
-          name: "What is the minimum settlement amount SBI accepts?",
+          name: "Does IndusInd credit card settlement affect my CIBIL score?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+            text: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your IndusInd account is already in default or under legal proceedings, settling stops further damage. Most clients see meaningful CIBIL improvement within 12–18 months of settlement.",
           },
         },
       ],
@@ -117,7 +132,7 @@ const jsonLd = {
   ],
 };
 
-export default function SBICreditCardSettlementPage() {
+export default function IndusIndCreditCardSettlementPage() {
   return (
     <main className="relative overflow-x-clip">
       <script
@@ -128,7 +143,10 @@ export default function SBICreditCardSettlementPage() {
 
       {/* Breadcrumb */}
       <div className="max-w-5xl mx-auto px-6 pt-24 pb-2">
-        <nav aria-label="breadcrumb" className="flex items-center gap-2 text-sm text-muted-foreground">
+        <nav
+          aria-label="breadcrumb"
+          className="flex items-center gap-2 text-sm text-muted-foreground"
+        >
           <Link href="/" className="hover:text-duedost-blue transition-colors">
             Home
           </Link>
@@ -140,7 +158,9 @@ export default function SBICreditCardSettlementPage() {
             Credit Card Settlement
           </Link>
           <span>/</span>
-          <span className="text-foreground font-medium">SBI Settlement</span>
+          <span className="text-foreground font-medium">
+            IndusInd Bank Settlement
+          </span>
         </nav>
       </div>
 
@@ -148,7 +168,7 @@ export default function SBICreditCardSettlementPage() {
       <section className="py-20 md:py-28 bg-gradient-to-b from-blue-50/50 to-background dark:from-blue-950/20">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <p className="text-sm font-semibold tracking-widest uppercase text-duedost-blue dark:text-duedost-green mb-4">
-            SBI Credit Card Settlement
+            IndusInd Bank Credit Card Settlement
           </p>
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
@@ -156,13 +176,15 @@ export default function SBICreditCardSettlementPage() {
           >
             Settle Your{" "}
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
-              SBI Credit Card
+              IndusInd Credit Card
             </span>{" "}
             Dues at Up to 70% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
-            Struggling with SBI credit card outstanding? Our expert legal team has helped thousands
-            negotiate settlements directly with State Bank of India&apos;s collections department.
+            Struggling with IndusInd Bank credit card outstanding? Our expert
+            legal team has helped thousands navigate IndusInd&apos;s collections
+            process and secure formal settlements at a fraction of the
+            outstanding.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
@@ -181,72 +203,81 @@ export default function SBICreditCardSettlementPage() {
             </a>
           </div>
           <p className="text-sm text-muted-foreground font-medium">
-            10,000+ Cases Settled &nbsp;|&nbsp; RBI Compliant &nbsp;|&nbsp; 100% Legal
+            10,000+ Cases Settled &nbsp;|&nbsp; RBI Compliant &nbsp;|&nbsp;
+            100% Legal
           </p>
         </div>
       </section>
 
-      {/* Why SBI Settlement Is Possible */}
+      {/* Why Settlement Is Possible */}
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-6">
           <h2
             className="text-3xl md:text-4xl font-bold mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Why SBI Credit Card Settlement is Possible
+            Why IndusInd Bank Credit Card Settlement is Possible
           </h2>
           <div className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground space-y-4">
             <p>
-              State Bank of India (SBI), as a public sector bank, is subject to strict RBI
-              guidelines on NPA resolution. SBI Credit Cards — operated through SBI Cards and
-              Payment Services — classify overdue accounts as Non-Performing Assets (NPAs) after 90
-              days of default.
+              IndusInd Bank is a private sector bank known for its premium
+              credit card offerings — including IndusInd Platinum, IndusInd
+              Pinnacle, IndusInd Legend, and a range of co-branded cards. Like
+              all RBI-regulated lenders, IndusInd classifies credit card
+              accounts as Non-Performing Assets (NPAs) once they are overdue
+              beyond 90 days.
             </p>
             <p>
-              The RBI actively mandates public sector banks like SBI to pursue settlement of NPAs
-              to clean up their books. SBI has a formal OTS (One Time Settlement) policy that is
-              periodically reviewed and allows eligible borrowers to settle for a fraction of the
-              total outstanding by waiving accumulated interest and penalties.
+              IndusInd Bank is known to take an assertive approach to
+              collections — which can feel overwhelming if you are already
+              struggling financially. However, this same urgency means IndusInd
+              is also highly motivated to close NPA accounts through structured
+              One Time Settlements (OTS) rather than pursue prolonged and
+              expensive legal recovery. RBI guidelines support and encourage
+              this approach.
             </p>
             <p>
-              Due Dost has navigated the SBI OTS process for numerous clients. We understand SBI
-              Cards&apos; approval process, documentation requirements, and negotiation timelines
-              — giving you the best chance of a maximum waiver.
+              Due Dost understands IndusInd&apos;s collections hierarchy and
+              OTS eligibility criteria in depth. We know how to redirect the
+              pressure of collections into a productive negotiation — securing
+              you a settlement at 35-65% of the total outstanding, while
+              ensuring the process is fully RBI compliant and legally documented
+              with a proper settlement letter and NOC.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Settlement Process */}
+      {/* Process Steps */}
       <section className="py-16 bg-blue-50/40 dark:bg-blue-950/10">
         <div className="max-w-5xl mx-auto px-6">
           <h2
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Our SBI Settlement Process
+            Our IndusInd Settlement Process
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 step: "01",
                 title: "Free Case Review",
-                desc: "We analyze your SBI credit card account status, outstanding amount, and NPA classification to build your settlement strategy.",
+                desc: "We analyse your IndusInd credit card account status, outstanding amount, NPA classification, and any legal notices received to build your settlement strategy.",
               },
               {
                 step: "02",
-                title: "Contact SBI Collections",
-                desc: "We initiate an OTS (One Time Settlement) request directly with SBI Cards&apos; collections department using established channels.",
+                title: "Engage IndusInd Collections",
+                desc: "We initiate a formal OTS (One Time Settlement) request with IndusInd Bank's collections team, using established channels to move your case into the settlement pipeline.",
               },
               {
                 step: "03",
                 title: "Negotiate Settlement Amount",
-                desc: "Our experts work to minimize the lump-sum amount SBI accepts — typically 30-70% less than the total outstanding.",
+                desc: "Our experts negotiate hard to reduce the lump-sum amount IndusInd accepts — typically achieving settlements at 35-65% of the total outstanding.",
               },
               {
                 step: "04",
                 title: "Settlement Letter & NOC",
-                desc: "Once agreed, you pay the negotiated amount once and SBI issues a settlement letter and No Objection Certificate (NOC). Debt closed.",
+                desc: "Once agreed, you make a single negotiated payment and IndusInd issues a settlement letter and No Objection Certificate (NOC). Debt fully closed.",
               },
             ].map((item) => (
               <div
@@ -258,10 +289,7 @@ export default function SBICreditCardSettlementPage() {
                 </span>
                 <div>
                   <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p
-                    className="text-muted-foreground text-sm"
-                    dangerouslySetInnerHTML={{ __html: item.desc }}
-                  />
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -280,9 +308,9 @@ export default function SBICreditCardSettlementPage() {
           </h2>
           <ul className="space-y-4">
             {[
-              "Last SBI credit card statement showing outstanding balance",
+              "Last IndusInd credit card statement showing outstanding balance",
               "Outstanding amount details (principal, interest, penalties)",
-              "Any communication from SBI collections team or legal notices",
+              "Any communication from IndusInd collections team or legal notices",
               "Your ID proof (Aadhaar / PAN card)",
             ].map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -315,32 +343,35 @@ export default function SBICreditCardSettlementPage() {
             className="text-3xl md:text-4xl font-bold mb-10 text-center"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            SBI Credit Card Settlement — FAQs
+            IndusInd Credit Card Settlement — FAQs
           </h2>
           <div className="space-y-6">
             {[
               {
-                q: "How do I know if my SBI account is eligible for settlement?",
-                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every SBI account individually, from early missed payments to long-standing NPAs and those eligible for SBI's periodic OTS schemes. Our free consultation will tell you exactly where you stand.",
+                q: "How do I know if my IndusInd credit card account is eligible for settlement?",
+                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every IndusInd account individually, from early missed payments to accounts with legal notices. Our free consultation will assess your situation immediately.",
               },
               {
-                q: "Will SBI settle for less than the outstanding?",
-                a: "Yes. SBI regularly settles NPA credit card accounts — particularly SBI Cards accounts — at amounts significantly lower than the total outstanding. The settlement typically covers the principal with major waivers on interest and penalties.",
+                q: "Will IndusInd Bank settle for less than the outstanding?",
+                a: "Yes. IndusInd Bank settles NPA credit card accounts at significantly reduced amounts — typically accepting 35-65% of the principal outstanding, with a large portion of accumulated interest and penalties waived.",
               },
               {
-                q: "How long does SBI credit card settlement take?",
-                a: "SBI credit card settlements typically take 60-120 days. As a public sector bank, SBI follows a structured internal approval process. Our team manages all documentation and follow-ups to keep the process moving efficiently.",
+                q: "IndusInd's recovery team has been calling me constantly — can you help?",
+                a: "Yes. IndusInd Bank is known for an assertive collections approach. Due Dost steps in as your formal representative, handling all communications with IndusInd's collections team and redirecting the process toward a structured OTS negotiation. Harassment from recovery agents stops once we are engaged.",
               },
               {
-                q: "What is the minimum settlement amount SBI accepts?",
-                a: "SBI evaluates settlement amounts based on RBI NPA resolution guidelines and the specific account details. Public sector banks often have structured OTS policies that determine the minimum acceptable amount. Our experts negotiate within these frameworks to minimize what you pay.",
+                q: "How long does IndusInd credit card settlement take?",
+                a: "IndusInd Bank credit card settlements typically take 30-90 days once we initiate the OTS process. Accounts in early NPA stages may settle faster, while accounts that have received legal notices may take up to 4-6 months.",
               },
               {
-                q: "Does SBI credit card settlement affect my CIBIL score?",
-                a: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your SBI account is already in default or NPA status, your CIBIL score has already been impacted. Settlement stops further damage and allows you to begin rebuilding your credit. Most clients see meaningful improvement within 12–18 months.",
+                q: "Does IndusInd credit card settlement affect my CIBIL score?",
+                a: "Yes, the account will be marked 'Settled' rather than 'Closed' on your CIBIL report. However, if your IndusInd account is already in default or under legal proceedings, settlement stops further damage. Most clients see meaningful CIBIL improvement within 12–18 months of settlement.",
               },
             ].map((faq) => (
-              <div key={faq.q} className="bg-background rounded-2xl p-6 border border-border">
+              <div
+                key={faq.q}
+                className="bg-background rounded-2xl p-6 border border-border"
+              >
                 <h3 className="font-semibold text-lg mb-3">{faq.q}</h3>
                 <p className="text-muted-foreground">{faq.a}</p>
               </div>
@@ -357,11 +388,11 @@ export default function SBICreditCardSettlementPage() {
               className="text-3xl md:text-4xl font-bold mb-4"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Ready to Settle Your SBI Credit Card Dues?
+              Ready to Settle Your IndusInd Credit Card Dues?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Get a free, no-obligation consultation. Our experts will review your SBI account and
-              tell you exactly how much you can save.
+              Get a free, no-obligation consultation. Our experts will review
+              your IndusInd account and tell you exactly how much you can save.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

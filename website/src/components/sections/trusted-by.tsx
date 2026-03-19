@@ -3,28 +3,32 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useRef } from "react";
+import Link from "next/link";
 
-type Logo = { src: string; alt: string; className?: string };
+type Logo = { src: string; alt: string; className?: string; href?: string };
 
 const logos: Logo[] = [
-  { alt: "HDFC Bank",      src: "/logos/hdfc.svg" },
-  { alt: "ICICI Bank",     src: "/logos/icici.svg" },
-  { alt: "SBI",            src: "/logos/sbi.svg",      className: "h-7 max-w-[78px]" },
-  { alt: "Axis Bank",      src: "/logos/axis.svg" },
-  { alt: "Kotak Mahindra", src: "/logos/kotak.svg" },
-  { alt: "IndusInd Bank",  src: "/logos/indusind.svg" },
-  { alt: "RBL Bank",       src: "/logos/rbl.svg" },
-  { alt: "Yes Bank",       src: "/logos/yes.svg",      className: "h-5 max-w-[76px]" },
-  { alt: "Bajaj Finserv",  src: "/logos/bajaj.svg" },
-  { alt: "Tata Neu",       src: "/logos/tata_neu.svg", className: "h-10 max-w-[128px]" },
+  { alt: "HDFC Bank",      src: "/logos/hdfc.svg",      href: "/hdfc-credit-card-settlement" },
+  { alt: "ICICI Bank",     src: "/logos/icici.svg",     href: "/icici-credit-card-settlement" },
+  { alt: "SBI",            src: "/logos/sbi.svg",       href: "/sbi-credit-card-settlement",  className: "h-7 max-w-[78px]" },
+  { alt: "Axis Bank",      src: "/logos/axis.svg",      href: "/axis-bank-credit-card-settlement" },
+  { alt: "Kotak Mahindra", src: "/logos/kotak.svg",     href: "/kotak-credit-card-settlement" },
+  { alt: "IndusInd Bank",  src: "/logos/indusind.svg",  href: "/indusind-credit-card-settlement" },
+  { alt: "RBL Bank",       src: "/logos/rbl.svg",       href: "/rbl-credit-card-settlement" },
+  { alt: "Yes Bank",       src: "/logos/yes.svg",       href: "/yes-bank-credit-card-settlement", className: "h-5 max-w-[76px]" },
+  { alt: "Bajaj Finserv",  src: "/logos/bajaj.svg",     href: "/bajaj-finserv-credit-card-settlement" },
+  { alt: "Tata Neu",       src: "/logos/tata_neu.svg",  href: "/tata-neu-credit-card-settlement", className: "h-10 max-w-[128px]" },
 ];
 
 // Offset second row for visual variety
 const row2 = [...logos.slice(5), ...logos.slice(0, 5)];
 
 function LogoCard({ logo }: { logo: Logo }) {
-  return (
-    <div className="flex-shrink-0 flex items-center justify-center w-[132px] h-[78px] md:w-[152px] md:h-[88px] bg-white rounded-2xl border border-black/[0.07] shadow-[0_2px_14px_rgba(0,0,0,0.07)] mx-2.5 px-4 hover:shadow-[0_6px_22px_rgba(27,93,170,0.14)] hover:-translate-y-0.5 transition-all duration-200 cursor-default">
+  const inner = (
+    <div className={cn(
+      "flex-shrink-0 flex items-center justify-center w-[132px] h-[78px] md:w-[152px] md:h-[88px] bg-white rounded-2xl border border-black/[0.07] shadow-[0_2px_14px_rgba(0,0,0,0.07)] mx-2.5 px-4 hover:shadow-[0_6px_22px_rgba(27,93,170,0.14)] hover:-translate-y-0.5 transition-all duration-200",
+      logo.href ? "cursor-pointer" : "cursor-default"
+    )}>
       <img
         src={logo.src}
         alt={logo.alt}
@@ -35,6 +39,8 @@ function LogoCard({ logo }: { logo: Logo }) {
       />
     </div>
   );
+  if (logo.href) return <Link href={logo.href}>{inner}</Link>;
+  return inner;
 }
 
 function MarqueeRow({ items, reverse }: { items: Logo[]; reverse?: boolean }) {

@@ -77,7 +77,7 @@ const jsonLd = {
           name: "How do I know if my Axis Bank account is eligible for settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Axis Bank credit card accounts that are 90+ days overdue (classified as NPA) are generally eligible for OTS. Accounts referred to collections agencies or with legal notices may also qualify. Our team will assess your specific eligibility during the free consultation.",
+            text: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every Axis Bank account individually, from early missed payments to accounts referred to collection agencies or with legal notices. Our free consultation will assess your situation immediately.",
           },
         },
         {
@@ -322,7 +322,7 @@ export default function AxisBankCreditCardSettlementPage() {
             {[
               {
                 q: "How do I know if my Axis Bank account is eligible for settlement?",
-                a: "Axis Bank credit card accounts that are 90+ days overdue (classified as NPA) are generally eligible for OTS. Accounts referred to collections agencies or with legal notices may also qualify. Our team will assess your specific eligibility during the free consultation.",
+                a: "You don't need to be 90 days overdue — even if you've missed a single EMI, we can help. We assess every Axis Bank account individually, from early missed payments to accounts referred to collection agencies or with legal notices. Our free consultation will assess your situation immediately.",
               },
               {
                 q: "Will Axis Bank settle for less than the outstanding?",
