@@ -237,8 +237,11 @@ export function IndiaMap() {
               <text
                 x={pt.x + 10} y={pt.y - 10}
                 fill="currentColor"
-                className="text-[12px] font-medium opacity-70 select-none pointer-events-none"
-                style={{ fontFamily: "Inter, sans-serif" }}
+                stroke={isDark ? "#0d0d14" : "#ffffff"}
+                strokeWidth="5"
+                strokeLinejoin="round"
+                className="text-[12px] font-medium select-none pointer-events-none"
+                style={{ fontFamily: "Inter, sans-serif", paintOrder: "stroke" }}
               >
                 {city.name}
               </text>
