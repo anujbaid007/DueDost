@@ -84,7 +84,7 @@ export function IndiaMap() {
         ctx.translate(0, -VIEWPORT_TOP);
         ctx.clip(p2d);
         const step = 14;
-        ctx.fillStyle = isDark ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.80)";
+        ctx.fillStyle = isDark ? "rgba(240,240,235,1)" : "rgba(0,0,0,1)";
         for (let x = 0; x <= SVG_W; x += step) {
           for (let y = VIEWPORT_TOP; y <= SVG_H; y += step) {
             ctx.beginPath();
@@ -130,7 +130,7 @@ export function IndiaMap() {
           src="/india-map.svg"
           alt=""
           aria-hidden="true"
-          className="w-full h-full absolute inset-0 object-fill opacity-60 dark:invert dark:opacity-30"
+          className="w-full h-full absolute inset-0 object-fill dark:invert"
         />
       )}
 
@@ -138,7 +138,7 @@ export function IndiaMap() {
       {isDesktop && (
         <canvas
           ref={canvasRef}
-          className="w-full h-full absolute inset-0 opacity-60"
+          className="w-full h-full absolute inset-0"
           style={{ imageRendering: "crisp-edges" }}
         />
       )}
