@@ -240,7 +240,7 @@ export function IndiaMap() {
                 stroke="var(--map-label-halo)"
                 strokeWidth="5"
                 strokeLinejoin="round"
-                className="text-[15px] font-medium select-none pointer-events-none"
+                className="text-[19px] font-medium select-none pointer-events-none"
                 style={{ fontFamily: "Inter, sans-serif", paintOrder: "stroke" }}
               >
                 {city.name}
