@@ -7,9 +7,9 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Kotak Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "Kotak Credit Card Settlement | Settle at 40-75% Less | Due Dost",
   description:
-    "Settle your Kotak Mahindra Bank credit card outstanding dues at 40-70% less. Expert negotiation with Kotak's recovery team. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your Kotak Mahindra Bank credit card outstanding dues at 40-75% less. Expert negotiation with Kotak's recovery team. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
     "Kotak credit card settlement",
     "Kotak Mahindra bank settlement",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Due Dost",
     title: "Kotak Mahindra Credit Card Settlement | Due Dost",
     description:
-      "Settle your Kotak Mahindra Bank credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
+      "Settle your Kotak Mahindra Bank credit card outstanding dues at 40-75% less. Expert negotiation. Free consultation.",
     images: [
       {
         url: "/og-image.webp",
@@ -62,7 +62,7 @@ const jsonLd = {
         },
       },
       description:
-        "Expert Kotak Mahindra credit card settlement service. Negotiate outstanding dues at 40-70% less.",
+        "Expert Kotak Mahindra credit card settlement service. Negotiate outstanding dues at 40-75% less.",
       areaServed: { "@type": "Country", name: "India" },
       url: `${SITE_URL}/kotak-credit-card-settlement`,
     },
@@ -178,11 +178,11 @@ export default function KotakCreditCardSettlementPage() {
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
               Kotak Credit Card
             </span>{" "}
-            Dues at Up to 70% Less
+            Dues at Up to 75% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
             Struggling with Kotak Mahindra Bank credit card outstanding? Our
-            expert legal team has helped thousands negotiate settlements directly
+            expert legal team has helped 1,000+ clients negotiate settlements directly
             with Kotak&apos;s internal recovery department.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">

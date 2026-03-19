@@ -967,7 +967,7 @@ export default function RecoveryAgentHarassmentPage() {
                 Credit Card Settlement
               </h3>
               <p className="text-sm text-muted-foreground">
-                Resolve your credit card dues permanently at 40–70% less so the calls stop for good.
+                Resolve your credit card dues permanently at 40–75% less so the calls stop for good.
               </p>
             </Link>
             <Link

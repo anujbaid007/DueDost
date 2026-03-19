@@ -30,7 +30,7 @@ const servicesMenu = [
   {
     icon: CreditCard,
     label: "Credit Card Settlement",
-    desc: "Settle dues at 40–70% less",
+    desc: "Settle dues at 40–75% less",
     href: "/credit-card-settlement",
   },
   {

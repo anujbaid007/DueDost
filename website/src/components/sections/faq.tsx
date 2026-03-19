@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "What is debt settlement?",
     answer:
-      "Debt settlement is a legal process where we negotiate with your lenders to reduce the total amount you owe. Instead of paying the full outstanding balance (including inflated interest and penalties), you pay a mutually agreed-upon lump sum that is significantly lower — often 30-70% less than the original amount.",
+      "Debt settlement is a legal process where we negotiate with your lenders to reduce the total amount you owe. Instead of paying the full outstanding balance (including inflated interest and penalties), you pay a mutually agreed-upon lump sum that is significantly lower — often 30-75% less than the original amount.",
   },
   {
     question: "Is debt settlement legal in India?",

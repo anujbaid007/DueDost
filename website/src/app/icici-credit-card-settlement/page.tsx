@@ -7,9 +7,9 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "ICICI Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "ICICI Credit Card Settlement | Settle at 40-75% Less | Due Dost",
   description:
-    "Settle your ICICI Bank credit card outstanding dues at 40-70% less. Expert negotiation with ICICI collections. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your ICICI Bank credit card outstanding dues at 40-75% less. Expert negotiation with ICICI collections. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
     "ICICI credit card settlement",
     "ICICI bank credit card dues",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Due Dost",
     title: "ICICI Credit Card Settlement | Due Dost",
     description:
-      "Settle your ICICI Bank credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
+      "Settle your ICICI Bank credit card outstanding dues at 40-75% less. Expert negotiation. Free consultation.",
     images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost ICICI Credit Card Settlement" }],
   },
   robots: { index: true, follow: true },
@@ -57,7 +57,7 @@ const jsonLd = {
         },
       },
       description:
-        "Expert ICICI credit card settlement service. Negotiate outstanding dues at 40-70% less.",
+        "Expert ICICI credit card settlement service. Negotiate outstanding dues at 40-75% less.",
       areaServed: { "@type": "Country", name: "India" },
       url: `${SITE_URL}/icici-credit-card-settlement`,
     },
@@ -158,10 +158,10 @@ export default function ICICICreditCardSettlementPage() {
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
               ICICI Credit Card
             </span>{" "}
-            Dues at Up to 70% Less
+            Dues at Up to 75% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
-            Struggling with ICICI credit card outstanding? Our expert legal team has helped thousands
+            Struggling with ICICI credit card outstanding? Our expert legal team has helped 1,000+ clients
             negotiate settlements directly with ICICI Bank&apos;s collections department.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">

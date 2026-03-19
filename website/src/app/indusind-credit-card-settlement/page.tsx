@@ -7,9 +7,9 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "IndusInd Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "IndusInd Credit Card Settlement | Settle at 40-75% Less | Due Dost",
   description:
-    "Settle your IndusInd Bank credit card outstanding dues at 40-70% less. Expert negotiation with IndusInd's collections team. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your IndusInd Bank credit card outstanding dues at 40-75% less. Expert negotiation with IndusInd's collections team. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
     "IndusInd credit card settlement",
     "IndusInd bank settlement India",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Due Dost",
     title: "IndusInd Bank Credit Card Settlement | Due Dost",
     description:
-      "Settle your IndusInd Bank credit card outstanding dues at 40-70% less. Expert negotiation. Free consultation.",
+      "Settle your IndusInd Bank credit card outstanding dues at 40-75% less. Expert negotiation. Free consultation.",
     images: [
       {
         url: "/og-image.webp",
@@ -62,7 +62,7 @@ const jsonLd = {
         },
       },
       description:
-        "Expert IndusInd Bank credit card settlement service. Negotiate outstanding dues at 40-70% less.",
+        "Expert IndusInd Bank credit card settlement service. Negotiate outstanding dues at 40-75% less.",
       areaServed: { "@type": "Country", name: "India" },
       url: `${SITE_URL}/indusind-credit-card-settlement`,
     },
@@ -178,11 +178,11 @@ export default function IndusIndCreditCardSettlementPage() {
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
               IndusInd Credit Card
             </span>{" "}
-            Dues at Up to 70% Less
+            Dues at Up to 75% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
             Struggling with IndusInd Bank credit card outstanding? Our expert
-            legal team has helped thousands navigate IndusInd&apos;s collections
+            legal team has helped 1,000+ clients navigate IndusInd&apos;s collections
             process and secure formal settlements at a fraction of the
             outstanding.
           </p>

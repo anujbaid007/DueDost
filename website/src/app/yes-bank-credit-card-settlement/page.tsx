@@ -162,7 +162,7 @@ export default function YesBankCreditCardSettlementPage() {
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
             Struggling with Yes Bank credit card outstanding? Our expert legal team has helped
-            thousands negotiate settlements directly with Yes Bank&apos;s collections department —
+            1,000+ clients negotiate settlements directly with Yes Bank&apos;s collections department —
             taking full advantage of the bank&apos;s post-restructuring settlement window.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">

@@ -7,9 +7,9 @@ const SITE_URL = "https://duedost.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Tata Neu Credit Card Settlement | Settle at 40-70% Less | Due Dost",
+  title: "Tata Neu Credit Card Settlement | Settle at 40-75% Less | Due Dost",
   description:
-    "Settle your Tata Neu HDFC or Tata Neu SBI credit card outstanding dues at 40-70% less. Expert negotiation with HDFC Bank and SBI Card collections teams. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your Tata Neu HDFC or Tata Neu SBI credit card outstanding dues at 40-75% less. Expert negotiation with HDFC Bank and SBI Card collections teams. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
     "Tata Neu credit card settlement",
     "Tata Neu HDFC credit card settlement",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "Due Dost",
     title: "Tata Neu Credit Card Settlement | Due Dost",
     description:
-      "Settle your Tata Neu credit card outstanding dues at 40-70% less. Expert negotiation with HDFC Bank or SBI Card. Free consultation.",
+      "Settle your Tata Neu credit card outstanding dues at 40-75% less. Expert negotiation with HDFC Bank or SBI Card. Free consultation.",
     images: [{ url: "/og-image.webp", width: 1200, height: 630, alt: "Due Dost Tata Neu Credit Card Settlement" }],
   },
   robots: { index: true, follow: true },
@@ -57,7 +57,7 @@ const jsonLd = {
         },
       },
       description:
-        "Expert Tata Neu credit card settlement service. Negotiate outstanding dues with HDFC Bank or SBI Card at 40-70% less.",
+        "Expert Tata Neu credit card settlement service. Negotiate outstanding dues with HDFC Bank or SBI Card at 40-75% less.",
       areaServed: { "@type": "Country", name: "India" },
       url: `${SITE_URL}/tata-neu-credit-card-settlement`,
     },
@@ -158,7 +158,7 @@ export default function TataNeuCreditCardSettlementPage() {
             <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
               Tata Neu Credit Card
             </span>{" "}
-            Dues at Up to 70% Less
+            Dues at Up to 75% Less
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
             Struggling with Tata Neu credit card outstanding? Whether your card is issued by HDFC

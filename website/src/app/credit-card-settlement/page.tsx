@@ -8,9 +8,9 @@ const SITE_URL = "https://duedost.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title:
-    "Credit Card Settlement in India | Settle Dues at 40-70% Less | Due Dost",
+    "Credit Card Settlement in India | Settle Dues at 40-75% Less | Due Dost",
   description:
-    "Settle your credit card outstanding dues legally at 40-70% less than what you owe. Expert negotiation with HDFC, ICICI, SBI, Axis Bank. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your credit card outstanding dues legally at 40-75% less than what you owe. Expert negotiation with HDFC, ICICI, SBI, Axis Bank. RBI compliant. Free consultation. Call +91 96014 43663.",
   keywords: [
     "credit card settlement India",
     "credit card dues settlement",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Due Dost",
     title: "Credit Card Settlement in India | Due Dost",
     description:
-      "Settle your credit card outstanding dues at 40-70% less. Expert legal team negotiates directly with banks. Free consultation.",
+      "Settle your credit card outstanding dues at 40-75% less. Expert legal team negotiates directly with banks. Free consultation.",
     images: [
       {
         url: "/og-image.webp",
@@ -64,7 +64,7 @@ const jsonLd = {
         },
       },
       description:
-        "Legal credit card debt settlement service. Negotiate outstanding dues at 40-70% less with expert legal team.",
+        "Legal credit card debt settlement service. Negotiate outstanding dues at 40-75% less with expert legal team.",
       areaServed: { "@type": "Country", name: "India" },
       url: `${SITE_URL}/credit-card-settlement`,
     },
@@ -157,7 +157,7 @@ const jsonLd = {
           name: "How much can I save through credit card settlement?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Depending on your outstanding balance, overdue tenure, and the bank's internal OTS (One Time Settlement) policy, clients typically save between 40% to 70% of the total amount owed. This includes waiver on accumulated interest, late payment charges, and penalties. Our legal team negotiates the best possible terms for your specific case.",
+            text: "Depending on your outstanding balance, overdue tenure, and the bank's internal OTS (One Time Settlement) policy, clients typically save between 40% to 75% of the total amount owed. This includes waiver on accumulated interest, late payment charges, and penalties. Our legal team negotiates the best possible terms for your specific case.",
           },
         },
         {
@@ -292,7 +292,7 @@ export default function CreditCardSettlementPage() {
     {
       question: "How much can I save through credit card settlement?",
       answer:
-        "Depending on your outstanding balance, overdue tenure, and the bank's internal OTS (One Time Settlement) policy, clients typically save between 40% to 70% of the total amount owed. This includes waiver on accumulated interest, late payment charges, and penalties. Our legal team negotiates the best possible terms for your specific case.",
+        "Depending on your outstanding balance, overdue tenure, and the bank's internal OTS (One Time Settlement) policy, clients typically save between 40% to 75% of the total amount owed. This includes waiver on accumulated interest, late payment charges, and penalties. Our legal team negotiates the best possible terms for your specific case.",
     },
     {
       question: "Is credit card settlement legal in India?",
@@ -392,7 +392,7 @@ export default function CreditCardSettlementPage() {
             >
               Settle Your Credit Card Dues at{" "}
               <span className="bg-gradient-to-r from-duedost-blue to-duedost-green bg-clip-text text-transparent">
-                Up to 70% Less
+                Up to 75% Less
               </span>
             </h1>
 
@@ -515,7 +515,7 @@ export default function CreditCardSettlementPage() {
                   },
                   {
                     icon: "✓",
-                    title: "Save 40–70% on your dues",
+                    title: "Save 40–75% on your dues",
                     desc: "Interest, penalties, and late fees can often be waived entirely or reduced substantially.",
                   },
                   {

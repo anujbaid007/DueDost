@@ -817,7 +817,7 @@ export default function PersonalLoanSettlementPage() {
                 Credit Card Settlement
               </h3>
               <p className="text-sm text-muted-foreground">
-                Settle credit card outstanding dues at 40–70% less. Expert negotiation with all major banks.
+                Settle credit card outstanding dues at 40–75% less. Expert negotiation with all major banks.
               </p>
             </Link>
             <Link

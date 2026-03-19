@@ -66,7 +66,7 @@ export function HeroSection() {
           className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
         >
           Settle credit card bills, personal loans & EMI dues at up to{" "}
-          <span className="font-semibold text-duedost-green">70% less</span>.
+          <span className="font-semibold text-duedost-green">75% less</span>.
           Expert legal team. RBI compliant. Zero harassment.
         </motion.p>
 

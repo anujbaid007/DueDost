@@ -18,7 +18,7 @@ const services = [
     icon: <CreditCard className="h-5 w-5" />,
     title: "Credit Card Settlement",
     description:
-      "Settle outstanding credit card dues at 40-70% less than what you owe. Stop paying 42% interest rates.",
+      "Settle outstanding credit card dues at 40-75% less than what you owe. Stop paying 42% interest rates.",
     href: "/credit-card-settlement",
   },
   {
