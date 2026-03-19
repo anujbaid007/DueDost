@@ -203,7 +203,7 @@ export default function IndusIndCreditCardSettlementPage() {
             </a>
           </div>
           <p className="text-sm text-muted-foreground font-medium">
-            10,000+ Cases Settled &nbsp;|&nbsp; RBI Compliant &nbsp;|&nbsp;
+            1,000+ Cases Settled &nbsp;|&nbsp; RBI Compliant &nbsp;|&nbsp;
             100% Legal
           </p>
         </div>

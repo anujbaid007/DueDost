@@ -41,7 +41,7 @@ export function CTASection() {
             Starts With One Call
           </h2>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Join 10,000+ Indians who chose Due Dost and reclaimed their financial
+            Join 1,000+ Indians who chose Due Dost and reclaimed their financial
             freedom. Free, no-obligation consultation. Your details are 100%
             confidential.
           </p>

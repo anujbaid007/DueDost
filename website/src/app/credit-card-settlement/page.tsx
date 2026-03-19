@@ -444,7 +444,7 @@ export default function CreditCardSettlementPage() {
 
             {/* Trust Badges */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <TrustBadge label="10,000+ Cases Settled" />
+              <TrustBadge label="1,000+ Cases Settled" />
               <TrustBadge label="RBI Compliant" />
               <TrustBadge label="100% Legal" />
             </div>
@@ -826,7 +826,7 @@ export default function CreditCardSettlementPage() {
               Settle Your Credit Card Debt Today.
             </h2>
             <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto leading-relaxed">
-              Join 10,000+ Indians who trusted Due Dost to negotiate their
+              Join 1,000+ Indians who trusted Due Dost to negotiate their
               credit card settlement. Free, no-obligation consultation. Your
               details are 100% confidential.
             </p>

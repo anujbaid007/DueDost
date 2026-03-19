@@ -33,7 +33,7 @@ const sections: TextSection[] = [
     leave: 0.6,
     label: "003 / The Solution",
     heading: "Save Up To 70% On Your Dues",
-    body: "Our experts have settled 10,000+ cases nationwide, negotiating directly with banks and NBFCs so you pay only a fraction of what you owe.",
+    body: "Our experts have settled 1,000+ cases nationwide, negotiating directly with banks and NBFCs so you pay only a fraction of what you owe.",
   },
   {
     enter: 0.6,

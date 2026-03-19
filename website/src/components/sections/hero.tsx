@@ -106,7 +106,7 @@ export function HeroSection() {
         >
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-duedost-green" />
-            <span>10,000+ Settled</span>
+            <span>1,000+ Settled</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 rounded-full bg-duedost-blue" />

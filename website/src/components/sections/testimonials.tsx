@@ -88,7 +88,7 @@ export function TestimonialsSection() {
             </span>
           </h2>
           <p className="text-center mt-4 text-muted-foreground">
-            10,000+ Indians have reclaimed their financial peace with Due Dost.
+            1,000+ Indians have reclaimed their financial peace with Due Dost.
           </p>
         </motion.div>
 
