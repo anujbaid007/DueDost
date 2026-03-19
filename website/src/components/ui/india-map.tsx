@@ -122,7 +122,19 @@ export function IndiaMap() {
       className="w-full max-w-[700px] mx-auto relative font-sans"
       style={{ aspectRatio: `${SVG_W} / ${SVG_H - VIEWPORT_TOP}` }}
     >
-      {/* Canvas dot grid — desktop only, never rendered on mobile */}
+      {/* Mobile: pre-baked static SVG image — browser renders natively, zero JS cost.
+           dark:invert flips black dots → white in dark mode. */}
+      {!isDesktop && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src="/india-map.svg"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full absolute inset-0 object-fill opacity-60 dark:invert dark:opacity-30"
+        />
+      )}
+
+      {/* Desktop: canvas dot grid — GPU-accelerated via Path2D */}
       {isDesktop && (
         <canvas
           ref={canvasRef}
