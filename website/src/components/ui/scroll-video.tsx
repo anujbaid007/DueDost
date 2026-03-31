@@ -3,6 +3,9 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const TOTAL_FRAMES = 192;
+const KEYFRAME_STEP = 8; // Phase 1: load every 8th frame → ~24 keyframes for full coverage
+const LOADER_TIMEOUT = 15_000; // Force-open after 15s on very slow connections
+const EXIT_MS = 900; // Loader exit animation duration
 
 interface TextSection {
   enter: number;
@@ -52,78 +55,187 @@ const sections: TextSection[] = [
   },
 ];
 
+// SVG progress ring constants
+const RING_RADIUS = 40;
+const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
+
 export function ScrollVideo() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const framesRef = useRef<HTMLImageElement[]>([]);
+  const framesRef = useRef<(HTMLImageElement | null)[]>(
+    new Array(TOTAL_FRAMES).fill(null)
+  );
   const currentFrameRef = useRef(0);
-  const [loaded, setLoaded] = useState(false);
-  const [firstFrameReady, setFirstFrameReady] = useState(false);
+  const readyFired = useRef(false);
+
+  const [ready, setReady] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
+  const [exiting, setExiting] = useState(false);
   const [progress, setProgress] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const drawFrame = useCallback((index: number) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const img = framesRef.current[index];
-    if (!img) return;
-
-    const dpr = window.devicePixelRatio || 1;
-    const cw = canvas.width / dpr;
-    const ch = canvas.height / dpr;
-    const iw = img.naturalWidth;
-    const ih = img.naturalHeight;
-
-    // Cover fill — no padding, fills the entire canvas
-    const scale = Math.max(cw / iw, ch / ih);
-    const dw = iw * scale;
-    const dh = ih * scale;
-    const dx = (cw - dw) / 2;
-    const dy = (ch - dh) / 2;
-
-    ctx.save();
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, cw, ch);
-    ctx.drawImage(img, dx, dy, dw, dh);
-    ctx.restore();
+  // ── Nearest loaded frame fallback ──
+  // When a frame isn't loaded yet, find the closest one that IS loaded.
+  // This prevents blank canvas frames — user sees a "lower fps" version
+  // instead of a frozen/static page on slow connections.
+  const nearestFrame = useCallback((idx: number): number => {
+    if (framesRef.current[idx]) return idx;
+    for (let d = 1; d < TOTAL_FRAMES; d++) {
+      if (idx - d >= 0 && framesRef.current[idx - d]) return idx - d;
+      if (idx + d < TOTAL_FRAMES && framesRef.current[idx + d]) return idx + d;
+    }
+    return 0;
   }, []);
 
-  // Load frames — frame 1 loads first so the canvas shows immediately,
-  // remaining frames load in the background without blocking the page.
-  useEffect(() => {
-    let loadedCount = 0;
-    const images: HTMLImageElement[] = new Array(TOTAL_FRAMES);
+  // ── Draw frame to canvas ──
+  const drawFrame = useCallback(
+    (index: number) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
 
-    const loadFrame = (i: number) => {
-      const img = new window.Image();
-      img.src = `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
-      img.onload = () => {
-        images[i - 1] = img;
-        loadedCount++;
-        setProgress(Math.floor((loadedCount / TOTAL_FRAMES) * 100));
-        if (i === 1) {
-          // Show first frame immediately — unblocks the canvas
-          framesRef.current = images;
-          setFirstFrameReady(true);
-        }
-        if (loadedCount === TOTAL_FRAMES) {
-          framesRef.current = images;
-          setLoaded(true);
-        }
-      };
+      const actual = nearestFrame(index);
+      const img = framesRef.current[actual];
+      if (!img) return;
+
+      const dpr = window.devicePixelRatio || 1;
+      const cw = canvas.width / dpr;
+      const ch = canvas.height / dpr;
+      const iw = img.naturalWidth;
+      const ih = img.naturalHeight;
+
+      // Cover fill — no padding, fills the entire canvas
+      const scale = Math.max(cw / iw, ch / ih);
+      const dw = iw * scale;
+      const dh = ih * scale;
+      const dx = (cw - dw) / 2;
+      const dy = (ch - dh) / 2;
+
+      ctx.save();
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, dx, dy, dw, dh);
+      ctx.restore();
+    },
+    [nearestFrame]
+  );
+
+  // ── Body scroll lock while loading ──
+  // Prevents user from scrolling into the frame-animation section
+  // before keyframes are ready. Uses both overflow + touchmove prevention
+  // for reliable iOS support.
+  useEffect(() => {
+    if (ready) return;
+
+    document.documentElement.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
+
+    const preventTouch = (e: TouchEvent) => e.preventDefault();
+    document.addEventListener("touchmove", preventTouch, { passive: false });
+
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+      document.removeEventListener("touchmove", preventTouch);
+      window.scrollTo(0, 0);
+    };
+  }, [ready]);
+
+  // ── Loader exit animation ──
+  // Brief delay so canvas can render frame 0 behind the loader
+  // before the fade-out begins.
+  useEffect(() => {
+    if (!ready || exiting) return;
+    const t = setTimeout(() => setExiting(true), 100);
+    return () => clearTimeout(t);
+  }, [ready, exiting]);
+
+  // Remove loader from DOM after exit animation completes
+  useEffect(() => {
+    if (!exiting) return;
+    const t = setTimeout(() => setShowLoader(false), EXIT_MS);
+    return () => clearTimeout(t);
+  }, [exiting]);
+
+  // ── Two-phase frame loading ──
+  // Phase 1: Load every 8th frame (keyframes) for full scroll-range coverage.
+  //          Browser gets 24 images (~6MB) instead of 192 (~47MB) — loads fast.
+  // Phase 2: Fill remaining 168 frames in background after keyframes are ready.
+  //          Animation gets progressively smoother as more frames arrive.
+  useEffect(() => {
+    let cancelled = false;
+    let keyframeCount = 0;
+    let phase2Started = false;
+
+    // Build keyframe indices: 1, 9, 17, 25, …
+    const keyframeIndices: number[] = [];
+    for (let i = 1; i <= TOTAL_FRAMES; i += KEYFRAME_STEP)
+      keyframeIndices.push(i);
+    const totalKeyframes = keyframeIndices.length;
+    const keyframeSet = new Set(keyframeIndices);
+
+    const markReady = () => {
+      if (!readyFired.current && !cancelled) {
+        readyFired.current = true;
+        setReady(true);
+      }
     };
 
-    // Load frame 1 first, then the rest
-    loadFrame(1);
-    for (let i = 2; i <= TOTAL_FRAMES; i++) {
-      loadFrame(i);
-    }
+    const startPhase2 = () => {
+      if (phase2Started) return;
+      phase2Started = true;
+      for (let i = 1; i <= TOTAL_FRAMES; i++) {
+        if (!keyframeSet.has(i)) {
+          const img = new window.Image();
+          img.src = `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
+          img.onload = () => {
+            if (!cancelled) framesRef.current[i - 1] = img;
+          };
+        }
+      }
+    };
+
+    // Phase 1: load keyframes
+    keyframeIndices.forEach((frameNum) => {
+      const img = new window.Image();
+      img.src = `/frames/frame_${String(frameNum).padStart(4, "0")}.jpg`;
+      img.onload = () => {
+        if (cancelled) return;
+        framesRef.current[frameNum - 1] = img;
+        keyframeCount++;
+        setProgress(Math.floor((keyframeCount / totalKeyframes) * 100));
+
+        if (keyframeCount >= totalKeyframes) {
+          markReady();
+          startPhase2();
+        }
+      };
+      img.onerror = () => {
+        if (cancelled) return;
+        // Count failed frames to prevent infinite wait
+        keyframeCount++;
+        setProgress(Math.floor((keyframeCount / totalKeyframes) * 100));
+        if (keyframeCount >= totalKeyframes) {
+          markReady();
+          startPhase2();
+        }
+      };
+    });
+
+    // Timeout: force-open after LOADER_TIMEOUT on very slow connections
+    const timeout = setTimeout(() => {
+      markReady();
+      startPhase2();
+    }, LOADER_TIMEOUT);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timeout);
+    };
   }, []);
 
-  // Canvas resize
+  // ── Canvas sizing ──
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -137,22 +249,22 @@ export function ScrollVideo() {
       canvas.height = rect.height * dpr;
       canvas.style.width = `${rect.width}px`;
       canvas.style.height = `${rect.height}px`;
-      if (firstFrameReady) drawFrame(currentFrameRef.current);
+      if (ready) drawFrame(currentFrameRef.current);
     };
 
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [firstFrameReady, drawFrame]);
+  }, [ready, drawFrame]);
 
-  // Draw first frame as soon as it's ready
+  // ── Draw frame 0 as soon as keyframes are ready ──
   useEffect(() => {
-    if (firstFrameReady) drawFrame(0);
-  }, [firstFrameReady, drawFrame]);
+    if (ready) drawFrame(0);
+  }, [ready, drawFrame]);
 
-  // Scroll handler — works as soon as first frame is ready
+  // ── Scroll handler — enabled once keyframes are loaded ──
   useEffect(() => {
-    if (!firstFrameReady) return;
+    if (!ready) return;
 
     const handleScroll = () => {
       const container = containerRef.current;
@@ -181,7 +293,7 @@ export function ScrollVideo() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [firstFrameReady, drawFrame]);
+  }, [ready, drawFrame]);
 
   // Active section index
   const activeIdx = sections.findIndex(
@@ -190,29 +302,88 @@ export function ScrollVideo() {
 
   return (
     <div ref={containerRef} className="relative" style={{ height: "400vh" }}>
-      {/* Local loading indicator — only covers this section, never blocks the page */}
-      {!firstFrameReady && (
-        <div className="sticky top-0 w-full h-screen flex flex-col items-center justify-center bg-[#0a0a0a] z-10">
-          <div className="relative w-12 h-12 mb-4">
-            <svg className="w-full h-full animate-spin" viewBox="0 0 64 64">
-              <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="4" />
-              <circle cx="32" cy="32" r="28" fill="none" stroke="url(#loader-grad)" strokeWidth="4" strokeLinecap="round" strokeDasharray={`${progress * 1.76} 176`} />
+      {/* ═══ Full-page preloader ═══ */}
+      {showLoader && (
+        <div
+          className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0a0a0a] ${
+            exiting
+              ? "opacity-0 scale-[1.02] pointer-events-none"
+              : "opacity-100 scale-100"
+          }`}
+          style={{
+            transitionProperty: "opacity, transform",
+            transitionDuration: `${EXIT_MS}ms`,
+            transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+            willChange: "opacity, transform",
+          }}
+        >
+          {/* Background glow */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-duedost-blue/[0.06] blur-[120px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[300px] h-[300px] rounded-full bg-duedost-green/[0.04] blur-[80px]" />
+          </div>
+
+          {/* Progress ring */}
+          <div className="relative w-24 h-24 mb-8">
+            <svg className="w-full h-full -rotate-90" viewBox="0 0 96 96">
+              {/* Track */}
+              <circle
+                cx="48"
+                cy="48"
+                r={RING_RADIUS}
+                fill="none"
+                stroke="rgba(255,255,255,0.06)"
+                strokeWidth="3"
+              />
+              {/* Progress arc */}
+              <circle
+                cx="48"
+                cy="48"
+                r={RING_RADIUS}
+                fill="none"
+                stroke="url(#preloader-grad)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeDasharray={RING_CIRCUMFERENCE}
+                strokeDashoffset={
+                  RING_CIRCUMFERENCE - (progress / 100) * RING_CIRCUMFERENCE
+                }
+                className="transition-all duration-300"
+              />
               <defs>
-                <linearGradient id="loader-grad" x1="0" y1="0" x2="1" y2="1">
+                <linearGradient
+                  id="preloader-grad"
+                  x1="0"
+                  y1="0"
+                  x2="1"
+                  y2="1"
+                >
                   <stop offset="0%" stopColor="#1B5DAA" />
                   <stop offset="100%" stopColor="#3BAA35" />
                 </linearGradient>
               </defs>
             </svg>
-            <span className="absolute inset-0 flex items-center justify-center text-white/80 text-xs font-semibold">
-              {progress}%
+            {/* Percentage inside ring */}
+            <span className="absolute inset-0 flex items-center justify-center text-white/90 text-lg font-semibold tabular-nums">
+              {progress}
+              <span className="text-white/40 text-sm ml-0.5">%</span>
             </span>
           </div>
-          <p className="text-white/40 text-xs tracking-[0.3em] uppercase">Loading Experience</p>
+
+          {/* Brand */}
+          <h1
+            className="text-2xl font-bold tracking-tight bg-gradient-to-r from-[#1B5DAA] to-[#3BAA35] bg-clip-text text-transparent"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Due Dost
+          </h1>
+          <p className="mt-2 text-white/30 text-xs tracking-[0.2em] uppercase">
+            Loading Experience
+          </p>
         </div>
       )}
 
-      {/* Sticky viewport */}
+      {/* ═══ Sticky viewport ═══ */}
       <div className="sticky top-0 w-full h-screen flex items-center justify-center bg-[#0a0a0a]">
         {/* Glassmorphism background orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -224,10 +395,7 @@ export function ScrollVideo() {
         <div className="flex w-full h-full relative">
           {/* Left 1/3 — Video */}
           <div className="relative w-full lg:w-[35%] h-full bg-[#0a0a0a] overflow-hidden">
-            <canvas
-              ref={canvasRef}
-              className="w-full h-full"
-            />
+            <canvas ref={canvasRef} className="w-full h-full" />
             {/* Subtle gradient overlay on right edge to blend into glass panel */}
             <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/60 to-transparent" />
 
@@ -248,10 +416,7 @@ export function ScrollVideo() {
             {/* Progress indicator dots — glassy pill */}
             <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col gap-4 px-2 py-3 rounded-full backdrop-blur-sm bg-white/[0.04] border border-white/[0.08]">
               {sections.map((_, i) => (
-                <div
-                  key={i}
-                  className="relative flex items-center"
-                >
+                <div key={i} className="relative flex items-center">
                   <div
                     className={`w-2 h-2 rounded-full transition-all duration-500 ${
                       i === activeIdx
@@ -361,11 +526,16 @@ function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
           !isLast &&
           scrollProgress >= section.leave - 0.04 &&
           scrollProgress < section.leave;
-        const show = fadeIn || visible || fadeOut || (isLast && scrollProgress >= section.enter + 0.04);
+        const show =
+          fadeIn ||
+          visible ||
+          fadeOut ||
+          (isLast && scrollProgress >= section.enter + 0.04);
 
         let opacity = 0;
         if (fadeIn) opacity = (scrollProgress - section.enter) / 0.04;
-        else if (visible || (isLast && scrollProgress >= section.enter + 0.04)) opacity = 1;
+        else if (visible || (isLast && scrollProgress >= section.enter + 0.04))
+          opacity = 1;
         else if (fadeOut)
           opacity = 1 - (scrollProgress - (section.leave - 0.04)) / 0.04;
 
@@ -383,34 +553,36 @@ function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
             }}
           >
             <div className="px-6 pb-10">
-            {section.label && (
-              <span className="inline-flex items-center px-2.5 py-0.5 mb-3 rounded-full bg-duedost-green/15 border border-duedost-green/30 text-[10px] font-semibold uppercase tracking-[0.25em] text-duedost-green block w-fit">
-                {section.label}
-              </span>
-            )}
-            <h2
-              className="text-2xl md:text-3xl font-bold text-white leading-tight"
-              style={{
-                fontFamily: "var(--font-display)",
-                textShadow: "0 2px 12px rgba(0,0,0,0.8)",
-              }}
-            >
-              {section.heading}
-            </h2>
-            {section.body && (
-              <p className="mt-2 text-white/75 text-sm leading-relaxed max-w-xs"
-                style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}>
-                {section.body}
-              </p>
-            )}
-            {section.isCTA && (
-              <a
-                href="#contact"
-                className="pointer-events-auto inline-flex items-center gap-2 mt-4 px-6 py-3 text-sm font-bold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-xl"
+              {section.label && (
+                <span className="inline-flex items-center px-2.5 py-0.5 mb-3 rounded-full bg-duedost-green/15 border border-duedost-green/30 text-[10px] font-semibold uppercase tracking-[0.25em] text-duedost-green block w-fit">
+                  {section.label}
+                </span>
+              )}
+              <h2
+                className="text-2xl md:text-3xl font-bold text-white leading-tight"
+                style={{
+                  fontFamily: "var(--font-display)",
+                  textShadow: "0 2px 12px rgba(0,0,0,0.8)",
+                }}
               >
-                Start Your Free Consultation
-              </a>
-            )}
+                {section.heading}
+              </h2>
+              {section.body && (
+                <p
+                  className="mt-2 text-white/75 text-sm leading-relaxed max-w-xs"
+                  style={{ textShadow: "0 1px 6px rgba(0,0,0,0.9)" }}
+                >
+                  {section.body}
+                </p>
+              )}
+              {section.isCTA && (
+                <a
+                  href="#contact"
+                  className="pointer-events-auto inline-flex items-center gap-2 mt-4 px-6 py-3 text-sm font-bold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-xl"
+                >
+                  Start Your Free Consultation
+                </a>
+              )}
             </div>
           </div>
         );

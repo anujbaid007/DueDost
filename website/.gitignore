@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# original uncompressed frames backup
+/public/frames-original
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
