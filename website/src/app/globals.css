@@ -196,6 +196,16 @@
   will-change: transform;
 }
 
+@keyframes marquee-vertical {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical 10s linear infinite;
+  will-change: transform;
+}
+
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
 }

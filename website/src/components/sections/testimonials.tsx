@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns";
 
 const testimonials = [
@@ -68,13 +67,7 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-16 md:py-20 relative bg-muted/20">
       <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="flex flex-col items-center justify-center max-w-xl mx-auto text-center"
-        >
+        <div className="flex flex-col items-center justify-center max-w-xl mx-auto text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-duedost-green">
             Testimonials
           </span>
@@ -90,7 +83,7 @@ export function TestimonialsSection() {
           <p className="text-center mt-4 text-muted-foreground">
             1,000+ Indians have reclaimed their financial peace with Due Dost.
           </p>
-        </motion.div>
+        </div>
 
         <div className="flex justify-center gap-6 mt-12 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
