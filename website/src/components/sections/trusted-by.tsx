@@ -67,7 +67,6 @@ export function TrustedBySection() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
   const opacity  = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.1, 1, 1, 0.1]);
-  const scale    = useTransform(scrollYProgress, [0, 0.5, 1], [0.94, 1, 0.94]);
 
   return (
     <section ref={ref} className="py-16 md:py-20 overflow-hidden">
@@ -91,7 +90,7 @@ export function TrustedBySection() {
       </motion.div>
 
       <div>
-        <motion.div style={{ scale, willChange: "transform" }} className="flex flex-col gap-0">
+        <div className="flex flex-col gap-0">
           <MarqueeRow items={logos} />
 
           {/* Flowing separator line */}
@@ -112,7 +111,7 @@ export function TrustedBySection() {
           </div>
 
           <MarqueeRow items={row2} reverse />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
