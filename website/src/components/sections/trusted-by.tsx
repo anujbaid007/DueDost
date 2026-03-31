@@ -52,7 +52,7 @@ function MarqueeRow({ items, reverse }: { items: Logo[]; reverse?: boolean }) {
         className="flex"
         animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }}
         transition={{ duration: 45, ease: "linear", repeat: Infinity }}
-        style={{ width: "max-content" }}
+        style={{ width: "max-content", willChange: "transform" }}
       >
         {quadrupled.map((logo, i) => (
           <LogoCard key={`${logo.alt}-${i}`} logo={logo} />
@@ -67,8 +67,7 @@ export function TrustedBySection() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
   const opacity  = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.1, 1, 1, 0.1]);
-  const scale    = useTransform(scrollYProgress, [0, 0.5, 1], [0.80, 1.04, 0.80]);
-  const rotateX  = useTransform(scrollYProgress, [0, 0.5, 1], [12, 0, -12]);
+  const scale    = useTransform(scrollYProgress, [0, 0.5, 1], [0.94, 1, 0.94]);
 
   return (
     <section ref={ref} className="py-16 md:py-20 overflow-hidden">
@@ -91,8 +90,8 @@ export function TrustedBySection() {
         </p>
       </motion.div>
 
-      <div style={{ perspective: "1200px" }}>
-        <motion.div style={{ scale, rotateX, transformOrigin: "center center" }} className="flex flex-col gap-0">
+      <div>
+        <motion.div style={{ scale, willChange: "transform" }} className="flex flex-col gap-0">
           <MarqueeRow items={logos} />
 
           {/* Flowing separator line */}
