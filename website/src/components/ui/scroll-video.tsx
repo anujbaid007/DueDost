@@ -295,64 +295,6 @@ export function ScrollVideo() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [ready, drawFrame]);
 
-  // ── Scroll snap to section checkpoints ──
-  // After the user stops scrolling, smoothly correct to the nearest
-  // section boundary so the text overlay is always fully visible.
-  // Prevents: stopping between sections, jumping past sections.
-  useEffect(() => {
-    if (!ready) return;
-
-    let timer: ReturnType<typeof setTimeout>;
-    let snapping = false;
-
-    const snap = () => {
-      const container = containerRef.current;
-      if (!container) return;
-
-      const rect = container.getBoundingClientRect();
-      const ch = container.scrollHeight - window.innerHeight;
-      const sp = Math.max(0, Math.min(1, -rect.top / ch));
-
-      // Don't snap at edges — let user enter/leave the section naturally
-      if (sp < 0.03 || sp > 0.97) return;
-
-      // Find nearest section enter point
-      let nearest = 0;
-      let minDist = Infinity;
-      for (const s of sections) {
-        const d = Math.abs(sp - s.enter);
-        if (d < minDist) {
-          minDist = d;
-          nearest = s.enter;
-        }
-      }
-
-      // Already at a checkpoint — no correction needed
-      if (minDist < 0.01) return;
-
-      snapping = true;
-      window.scrollTo({
-        top: window.scrollY + (nearest - sp) * ch,
-        behavior: "smooth",
-      });
-      setTimeout(() => {
-        snapping = false;
-      }, 800);
-    };
-
-    const onScroll = () => {
-      if (snapping) return;
-      clearTimeout(timer);
-      timer = setTimeout(snap, 200);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(timer);
-    };
-  }, [ready]);
-
   // Active section index
   const activeIdx = sections.findIndex(
     (s) => scrollProgress >= s.enter && scrollProgress < s.leave
