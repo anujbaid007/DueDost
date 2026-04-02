@@ -498,7 +498,7 @@ const sections = [
             },
             {
               label: "Address",
-              value: "Sector 2, Noida, Uttar Pradesh 201301, India",
+              value: "WeWork, Two Horizon Center, Gurugram, Haryana 122002, India",
               href: null,
             },
             {

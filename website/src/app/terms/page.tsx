@@ -180,7 +180,7 @@ export function TermsPage() {
             (&ldquo;Due Dost&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or
             &ldquo;our&rdquo;). Due Dost LLC is a professional debt settlement
             and financial advisory firm incorporated in India, with its principal
-            place of business at Sector 2, Noida, Uttar Pradesh 201301, India.
+            place of business at WeWork, Two Horizon Center, Gurugram, Haryana 122002, India.
           </p>
           <p className="mt-4 text-muted-foreground leading-relaxed">
             These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your
@@ -634,7 +634,7 @@ export function TermsPage() {
                   Registered Address
                 </p>
                 <p className="mt-0.5 text-sm text-muted-foreground">
-                  Due Dost LLC, Sector 2, Noida, Uttar Pradesh 201301, India
+                  Due Dost LLC, WeWork, Two Horizon Center, Gurugram, Haryana 122002, India
                 </p>
               </div>
             </div>

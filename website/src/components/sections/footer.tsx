@@ -112,9 +112,9 @@ export function Footer() {
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 text-duedost-blue flex-shrink-0 mt-0.5" />
                 <span>
-                  Sector 2, Noida,
+                  WeWork, Two Horizon Center,
                   <br />
-                  Uttar Pradesh 201301
+                  Gurugram, Haryana 122002
                 </span>
               </div>
             </div>

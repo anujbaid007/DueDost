@@ -59,10 +59,10 @@ const jsonLd = {
         telephone: "+919289493265",
         address: {
           "@type": "PostalAddress",
-          streetAddress: "Sector 2",
-          addressLocality: "Noida",
-          addressRegion: "Uttar Pradesh",
-          postalCode: "201301",
+          streetAddress: "WeWork, Two Horizon Center",
+          addressLocality: "Gurugram",
+          addressRegion: "Haryana",
+          postalCode: "122002",
           addressCountry: "IN",
         },
       },
@@ -794,7 +794,7 @@ export default function PersonalLoanSettlementPage() {
             </div>
             <p className="text-white/70 text-sm mt-8">
               Mon – Sat, 9 AM – 7 PM &nbsp;|&nbsp; support@duedost.com
-              &nbsp;|&nbsp; Sector 2, Noida, Uttar Pradesh 201301
+              &nbsp;|&nbsp; WeWork, Two Horizon Center, Gurugram, Haryana 122002
             </p>
           </div>
         </section>

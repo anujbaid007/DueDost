@@ -150,10 +150,10 @@ const jsonLd = {
       email: "support@duedost.com",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Sector 2",
-        addressLocality: "Noida",
-        addressRegion: "Uttar Pradesh",
-        postalCode: "201301",
+        streetAddress: "WeWork, Two Horizon Center",
+        addressLocality: "Gurugram",
+        addressRegion: "Haryana",
+        postalCode: "122002",
         addressCountry: "IN",
       },
       geo: {
