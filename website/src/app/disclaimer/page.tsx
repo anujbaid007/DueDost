@@ -59,7 +59,7 @@ const sections = [
   {
     title: "Contact Us",
     content:
-      "If you have questions about this disclaimer or our services, please contact us at support@duedost.com or call +91 96014 43663. Our office is located at Sector 2, Noida, Uttar Pradesh 201301, India.",
+      "If you have questions about this disclaimer or our services, please contact us at support@duedost.com or call +91 92894 93265. Our office is located at Sector 2, Noida, Uttar Pradesh 201301, India.",
   },
 ];
 

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   title:
     "Recovery Agent Harassment India | Know Your Rights | Stop Harassment | Due Dost",
   description:
-    "Recovery agents cannot threaten, abuse or harass you. Know your RBI rights. Due Dost provides legal protection against illegal recovery agent harassment. Free consultation. Call +91 96014 43663.",
+    "Recovery agents cannot threaten, abuse or harass you. Know your RBI rights. Due Dost provides legal protection against illegal recovery agent harassment. Free consultation. Call +91 92894 93265.",
   keywords: [
     "recovery agent harassment India",
     "recovery agent rights India",
@@ -67,7 +67,7 @@ const jsonLd = {
         "@type": "FinancialService",
         name: "Due Dost",
         url: SITE_URL,
-        telephone: "+919601443663",
+        telephone: "+919289493265",
         address: {
           "@type": "PostalAddress",
           streetAddress: "Sector 2",
@@ -462,14 +462,14 @@ export default function RecoveryAgentHarassmentPage() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="tel:+919601443663"
+                href="tel:+919289493265"
                 className="inline-flex items-center gap-2.5 px-7 py-4 text-base font-semibold text-white bg-gradient-to-r from-duedost-blue to-[#1B5DAA]/80 rounded-2xl hover:shadow-xl hover:shadow-duedost-blue/25 transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto justify-center"
               >
                 <Phone className="h-4 w-4" />
                 Get Legal Protection Now
               </a>
               <a
-                href="https://wa.me/919601443663?text=Hi%2C%20I%20need%20help%20with%20recovery%20agent%20harassment"
+                href="https://wa.me/919289493265?text=Hi%2C%20I%20need%20help%20with%20recovery%20agent%20harassment"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-7 py-4 text-base font-semibold text-duedost-green bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800/40 rounded-2xl hover:bg-green-100 dark:hover:bg-green-950/50 transition-all duration-300 w-full sm:w-auto justify-center"
@@ -685,7 +685,7 @@ export default function RecoveryAgentHarassmentPage() {
 
             <div className="mt-10 text-center">
               <a
-                href="tel:+919601443663"
+                href="tel:+919289493265"
                 className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-2xl hover:shadow-xl hover:shadow-duedost-green/25 transition-all duration-300 hover:-translate-y-0.5"
               >
                 <Phone className="h-4 w-4" />
@@ -899,14 +899,14 @@ export default function RecoveryAgentHarassmentPage() {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                   <a
-                    href="tel:+919601443663"
+                    href="tel:+919289493265"
                     className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-2xl hover:shadow-xl hover:shadow-duedost-green/30 transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto justify-center"
                   >
                     <Phone className="h-4 w-4" />
-                    +91 96014 43663
+                    +91 92894 93265
                   </a>
                   <a
-                    href="https://wa.me/919601443663?text=Hi%2C%20I%20need%20help%20with%20recovery%20agent%20harassment"
+                    href="https://wa.me/919289493265?text=Hi%2C%20I%20need%20help%20with%20recovery%20agent%20harassment"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white bg-[#25D366] hover:bg-[#22c05d] rounded-2xl hover:shadow-xl hover:shadow-[#25D366]/30 transition-all duration-300 hover:-translate-y-0.5 w-full sm:w-auto justify-center"

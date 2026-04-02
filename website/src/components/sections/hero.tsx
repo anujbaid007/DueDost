@@ -78,7 +78,7 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
         >
           <motion.a
-            href="tel:+919601443663"
+            href="tel:+919289493265"
             className="group relative inline-flex items-center gap-3 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-duedost-green/25"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}

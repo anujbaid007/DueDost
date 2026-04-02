@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "RBL Credit Card Settlement | Settle at 35-75% Less | Due Dost",
   description:
-    "Settle your RBL Bank credit card outstanding dues at 35-75% less. Expert negotiation with RBL collections team. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your RBL Bank credit card outstanding dues at 35-75% less. Expert negotiation with RBL collections team. RBI compliant. Free consultation. Call +91 92894 93265.",
   keywords: [
     "RBL credit card settlement",
     "RBL Bank settlement India",
@@ -46,7 +46,7 @@ const jsonLd = {
         "@type": "FinancialService",
         name: "Due Dost",
         url: SITE_URL,
-        telephone: "+919601443663",
+        telephone: "+919289493265",
         address: {
           "@type": "PostalAddress",
           streetAddress: "Sector 2",
@@ -167,13 +167,13 @@ export default function RBLCreditCardSettlementPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
             <a
-              href="tel:+919601443663"
+              href="tel:+919289493265"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-duedost-blue to-duedost-green text-white font-semibold text-lg shadow-lg hover:opacity-90 transition-opacity"
             >
               Get Free Consultation
             </a>
             <a
-              href="https://wa.me/919601443663"
+              href="https://wa.me/919289493265"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-duedost-green text-duedost-green font-semibold text-lg hover:bg-duedost-green hover:text-white transition-colors"
@@ -366,13 +366,13 @@ export default function RBLCreditCardSettlementPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:+919601443663"
+                href="tel:+919289493265"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-duedost-blue font-bold text-lg hover:bg-white/90 transition-colors"
               >
-                Call +91 96014 43663
+                Call +91 92894 93265
               </a>
               <a
-                href="https://wa.me/919601443663"
+                href="https://wa.me/919289493265"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-white text-white font-bold text-lg hover:bg-white/10 transition-colors"

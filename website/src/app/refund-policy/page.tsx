@@ -155,7 +155,7 @@ export default function RefundPolicyPage() {
               Questions about refunds? Contact us at{" "}
               <a href="mailto:support@duedost.com" className="text-duedost-blue hover:underline">support@duedost.com</a>{" "}
               or call{" "}
-              <a href="tel:+919601443663" className="text-duedost-blue hover:underline">+91 96014 43663</a>.
+              <a href="tel:+919289493265" className="text-duedost-blue hover:underline">+91 92894 93265</a>.
               Also see our{" "}
               <Link href="/terms" className="text-duedost-blue hover:underline">Terms & Conditions</Link> and{" "}
               <Link href="/disclaimer" className="text-duedost-blue hover:underline">Disclaimer</Link>.

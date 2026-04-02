@@ -89,11 +89,11 @@ export function Footer() {
             </h4>
             <div className="space-y-4">
               <a
-                href="tel:+919601443663"
+                href="tel:+919289493265"
                 className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Phone className="h-4 w-4 text-duedost-green flex-shrink-0" />
-                +91 96014 43663
+                +91 92894 93265
               </a>
               <a
                 href="tel:01204894731"

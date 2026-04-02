@@ -55,18 +55,18 @@ export function CTASection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
         >
           <motion.a
-            href="tel:+919601443663"
+            href="tel:+919289493265"
             className="group inline-flex items-center gap-3 px-8 py-4 text-base font-bold text-duedost-blue bg-white rounded-2xl hover:bg-white/90 transition-all duration-300 shadow-2xl shadow-black/20 whitespace-nowrap"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
             <Phone className="h-5 w-5" />
-            Call Now: +91 96014 43663
+            Call Now: +91 92894 93265
             <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </motion.a>
 
           <motion.a
-            href="https://wa.me/919601443663"
+            href="https://wa.me/919289493265"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-2xl hover:bg-white/10 transition-all duration-300"

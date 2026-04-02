@@ -493,8 +493,8 @@ const sections = [
             },
             {
               label: "Phone",
-              value: "+91 96014 43663",
-              href: "tel:+919601443663",
+              value: "+91 92894 93265",
+              href: "tel:+919289493265",
             },
             {
               label: "Address",
@@ -741,7 +741,7 @@ export default function PrivacyPolicyPage() {
                 Email Us
               </a>
               <a
-                href="tel:+919601443663"
+                href="tel:+919289493265"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-duedost-blue dark:text-duedost-green border border-duedost-blue/40 dark:border-duedost-green/40 rounded-xl hover:bg-duedost-blue/5 dark:hover:bg-duedost-green/5 transition-colors"
               >
                 <svg
@@ -756,7 +756,7 @@ export default function PrivacyPolicyPage() {
                     clipRule="evenodd"
                   />
                 </svg>
-                +91 96014 43663
+                +91 92894 93265
               </a>
             </div>
           </div>

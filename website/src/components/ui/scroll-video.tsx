@@ -4,8 +4,6 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 const TOTAL_FRAMES = 192;
 const KEYFRAME_STEP = 8; // Phase 1: load every 8th frame → ~24 keyframes for full coverage
-const LOADER_TIMEOUT = 15_000; // Force-open after 15s on very slow connections
-const EXIT_MS = 900; // Loader exit animation duration
 
 interface TextSection {
   enter: number;
@@ -55,10 +53,6 @@ const sections: TextSection[] = [
   },
 ];
 
-// SVG progress ring constants
-const RING_RADIUS = 40;
-const RING_CIRCUMFERENCE = 2 * Math.PI * RING_RADIUS;
-
 export function ScrollVideo() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -66,18 +60,11 @@ export function ScrollVideo() {
     new Array(TOTAL_FRAMES).fill(null)
   );
   const currentFrameRef = useRef(0);
-  const readyFired = useRef(false);
+  const drawFrameRef = useRef<(index: number) => void>();
 
-  const [ready, setReady] = useState(false);
-  const [showLoader, setShowLoader] = useState(true);
-  const [exiting, setExiting] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   // ── Nearest loaded frame fallback ──
-  // When a frame isn't loaded yet, find the closest one that IS loaded.
-  // This prevents blank canvas frames — user sees a "lower fps" version
-  // instead of a frozen/static page on slow connections.
   const nearestFrame = useCallback((idx: number): number => {
     if (framesRef.current[idx]) return idx;
     for (let d = 1; d < TOTAL_FRAMES; d++) {
@@ -105,7 +92,6 @@ export function ScrollVideo() {
       const iw = img.naturalWidth;
       const ih = img.naturalHeight;
 
-      // Cover fill — no padding, fills the entire canvas
       const scale = Math.max(cw / iw, ch / ih);
       const dw = iw * scale;
       const dh = ih * scale;
@@ -121,66 +107,20 @@ export function ScrollVideo() {
     [nearestFrame]
   );
 
-  // ── Body scroll lock while loading ──
-  // Prevents user from scrolling into the frame-animation section
-  // before keyframes are ready. Uses both overflow + touchmove prevention
-  // for reliable iOS support.
-  useEffect(() => {
-    if (ready) return;
-
-    document.documentElement.style.overflow = "hidden";
-    document.body.style.overflow = "hidden";
-
-    const preventTouch = (e: TouchEvent) => e.preventDefault();
-    document.addEventListener("touchmove", preventTouch, { passive: false });
-
-    return () => {
-      document.documentElement.style.overflow = "";
-      document.body.style.overflow = "";
-      document.removeEventListener("touchmove", preventTouch);
-      window.scrollTo(0, 0);
-    };
-  }, [ready]);
-
-  // ── Loader exit animation ──
-  // Brief delay so canvas can render frame 0 behind the loader
-  // before the fade-out begins.
-  useEffect(() => {
-    if (!ready || exiting) return;
-    const t = setTimeout(() => setExiting(true), 100);
-    return () => clearTimeout(t);
-  }, [ready, exiting]);
-
-  // Remove loader from DOM after exit animation completes
-  useEffect(() => {
-    if (!exiting) return;
-    const t = setTimeout(() => setShowLoader(false), EXIT_MS);
-    return () => clearTimeout(t);
-  }, [exiting]);
+  // Keep a ref to drawFrame so the loading effect can call it without re-running
+  drawFrameRef.current = drawFrame;
 
   // ── Two-phase frame loading ──
-  // Phase 1: Load every 8th frame (keyframes) for full scroll-range coverage.
-  //          Browser gets 24 images (~6MB) instead of 192 (~47MB) — loads fast.
-  // Phase 2: Fill remaining 168 frames in background after keyframes are ready.
-  //          Animation gets progressively smoother as more frames arrive.
   useEffect(() => {
     let cancelled = false;
     let keyframeCount = 0;
     let phase2Started = false;
 
-    // Build keyframe indices: 1, 9, 17, 25, …
     const keyframeIndices: number[] = [];
     for (let i = 1; i <= TOTAL_FRAMES; i += KEYFRAME_STEP)
       keyframeIndices.push(i);
     const totalKeyframes = keyframeIndices.length;
     const keyframeSet = new Set(keyframeIndices);
-
-    const markReady = () => {
-      if (!readyFired.current && !cancelled) {
-        readyFired.current = true;
-        setReady(true);
-      }
-    };
 
     const startPhase2 = () => {
       if (phase2Started) return;
@@ -196,7 +136,6 @@ export function ScrollVideo() {
       }
     };
 
-    // Phase 1: load keyframes
     keyframeIndices.forEach((frameNum) => {
       const img = new window.Image();
       img.src = `/frames/frame_${String(frameNum).padStart(4, "0")}.jpg`;
@@ -204,34 +143,27 @@ export function ScrollVideo() {
         if (cancelled) return;
         framesRef.current[frameNum - 1] = img;
         keyframeCount++;
-        setProgress(Math.floor((keyframeCount / totalKeyframes) * 100));
+
+        // Draw current frame as soon as any keyframe loads
+        if (keyframeCount === 1) {
+          drawFrameRef.current?.(currentFrameRef.current);
+        }
 
         if (keyframeCount >= totalKeyframes) {
-          markReady();
           startPhase2();
         }
       };
       img.onerror = () => {
         if (cancelled) return;
-        // Count failed frames to prevent infinite wait
         keyframeCount++;
-        setProgress(Math.floor((keyframeCount / totalKeyframes) * 100));
         if (keyframeCount >= totalKeyframes) {
-          markReady();
           startPhase2();
         }
       };
     });
 
-    // Timeout: force-open after LOADER_TIMEOUT on very slow connections
-    const timeout = setTimeout(() => {
-      markReady();
-      startPhase2();
-    }, LOADER_TIMEOUT);
-
     return () => {
       cancelled = true;
-      clearTimeout(timeout);
     };
   }, []);
 
@@ -249,23 +181,16 @@ export function ScrollVideo() {
       canvas.height = rect.height * dpr;
       canvas.style.width = `${rect.width}px`;
       canvas.style.height = `${rect.height}px`;
-      if (ready) drawFrame(currentFrameRef.current);
+      drawFrame(currentFrameRef.current);
     };
 
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
-  }, [ready, drawFrame]);
+  }, [drawFrame]);
 
-  // ── Draw frame 0 as soon as keyframes are ready ──
+  // ── Scroll handler ──
   useEffect(() => {
-    if (ready) drawFrame(0);
-  }, [ready, drawFrame]);
-
-  // ── Scroll handler — enabled once keyframes are loaded ──
-  useEffect(() => {
-    if (!ready) return;
-
     const handleScroll = () => {
       const container = containerRef.current;
       if (!container) return;
@@ -276,8 +201,6 @@ export function ScrollVideo() {
       const sp = Math.max(0, Math.min(1, containerTop / containerHeight));
       setScrollProgress(sp);
 
-      // Frame mapping — last frame hits at ~85% scroll so animation
-      // completes as the final CTA text section appears
       const FRAME_SPEED = 1.18;
       const accelerated = Math.min(sp * FRAME_SPEED, 1);
       const frameIndex = Math.min(
@@ -293,7 +216,7 @@ export function ScrollVideo() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [ready, drawFrame]);
+  }, [drawFrame]);
 
   // Active section index
   const activeIdx = sections.findIndex(
@@ -302,87 +225,6 @@ export function ScrollVideo() {
 
   return (
     <div ref={containerRef} className="relative" style={{ height: "400vh" }}>
-      {/* ═══ Full-page preloader ═══ */}
-      {showLoader && (
-        <div
-          className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0a0a0a] ${
-            exiting
-              ? "opacity-0 scale-[1.02] pointer-events-none"
-              : "opacity-100 scale-100"
-          }`}
-          style={{
-            transitionProperty: "opacity, transform",
-            transitionDuration: `${EXIT_MS}ms`,
-            transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-            willChange: "opacity, transform",
-          }}
-        >
-          {/* Background glow */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-duedost-blue/[0.06] blur-[120px]" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[300px] h-[300px] rounded-full bg-duedost-green/[0.04] blur-[80px]" />
-          </div>
-
-          {/* Progress ring */}
-          <div className="relative w-24 h-24 mb-8">
-            <svg className="w-full h-full -rotate-90" viewBox="0 0 96 96">
-              {/* Track */}
-              <circle
-                cx="48"
-                cy="48"
-                r={RING_RADIUS}
-                fill="none"
-                stroke="rgba(255,255,255,0.06)"
-                strokeWidth="3"
-              />
-              {/* Progress arc */}
-              <circle
-                cx="48"
-                cy="48"
-                r={RING_RADIUS}
-                fill="none"
-                stroke="url(#preloader-grad)"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeDasharray={RING_CIRCUMFERENCE}
-                strokeDashoffset={
-                  RING_CIRCUMFERENCE - (progress / 100) * RING_CIRCUMFERENCE
-                }
-                className="transition-all duration-300"
-              />
-              <defs>
-                <linearGradient
-                  id="preloader-grad"
-                  x1="0"
-                  y1="0"
-                  x2="1"
-                  y2="1"
-                >
-                  <stop offset="0%" stopColor="#1B5DAA" />
-                  <stop offset="100%" stopColor="#3BAA35" />
-                </linearGradient>
-              </defs>
-            </svg>
-            {/* Percentage inside ring */}
-            <span className="absolute inset-0 flex items-center justify-center text-white/90 text-lg font-semibold tabular-nums">
-              {progress}
-              <span className="text-white/40 text-sm ml-0.5">%</span>
-            </span>
-          </div>
-
-          {/* Brand */}
-          <h1
-            className="text-2xl font-bold tracking-tight bg-gradient-to-r from-[#1B5DAA] to-[#3BAA35] bg-clip-text text-transparent"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            Due Dost
-          </h1>
-          <p className="mt-2 text-white/30 text-xs tracking-[0.2em] uppercase">
-            Loading Experience
-          </p>
-        </div>
-      )}
-
       {/* ═══ Sticky viewport ═══ */}
       <div className="sticky top-0 w-full h-screen flex items-center justify-center bg-[#0a0a0a]">
         {/* Glassmorphism background orbs */}

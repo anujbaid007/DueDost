@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Due Dost",
   },
   description:
-    "India's most trusted debt settlement partner. Settle credit card dues, personal loans & EMI at up to 75% less. Expert legal team. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "India's most trusted debt settlement partner. Settle credit card dues, personal loans & EMI at up to 75% less. Expert legal team. RBI compliant. Free consultation. Call +91 92894 93265.",
   keywords: [
     // High-volume primary
     "credit card settlement",
@@ -146,7 +146,7 @@ const jsonLd = {
         height: 48,
       },
       image: `${SITE_URL}/og-image.webp`,
-      telephone: ["+919601443663", "+911204894731"],
+      telephone: ["+919289493265", "+911204894731"],
       email: "support@duedost.com",
       address: {
         "@type": "PostalAddress",

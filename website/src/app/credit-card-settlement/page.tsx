@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "Credit Card Settlement in India | Settle Dues at 40-75% Less | Due Dost",
   description:
-    "Settle your credit card outstanding dues legally at 40-75% less than what you owe. Expert negotiation with HDFC, ICICI, SBI, Axis Bank. RBI compliant. Free consultation. Call +91 96014 43663.",
+    "Settle your credit card outstanding dues legally at 40-75% less than what you owe. Expert negotiation with HDFC, ICICI, SBI, Axis Bank. RBI compliant. Free consultation. Call +91 92894 93265.",
   keywords: [
     "credit card settlement India",
     "credit card dues settlement",
@@ -52,7 +52,7 @@ const jsonLd = {
         "@type": "FinancialService",
         name: "Due Dost",
         url: SITE_URL,
-        telephone: "+919601443663",
+        telephone: "+919289493265",
         email: "support@duedost.com",
         address: {
           "@type": "PostalAddress",
@@ -406,7 +406,7 @@ export default function CreditCardSettlementPage() {
             {/* CTA Buttons */}
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="tel:+919601443663"
+                href="tel:+919289493265"
                 className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-2xl shadow-lg shadow-duedost-blue/20 hover:shadow-xl hover:shadow-duedost-blue/30 hover:opacity-95 transition-all duration-300"
               >
                 <svg
@@ -425,7 +425,7 @@ export default function CreditCardSettlementPage() {
               </a>
 
               <a
-                href="https://wa.me/919601443663"
+                href="https://wa.me/919289493265"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-duedost-green border-2 border-duedost-green rounded-2xl hover:bg-duedost-green/5 transition-all duration-300"
@@ -624,7 +624,7 @@ export default function CreditCardSettlementPage() {
             <p className="mt-8 text-sm text-muted-foreground">
               Don&apos;t see your bank listed?{" "}
               <a
-                href="tel:+919601443663"
+                href="tel:+919289493265"
                 className="text-duedost-blue hover:underline font-medium"
               >
                 Call us
@@ -833,7 +833,7 @@ export default function CreditCardSettlementPage() {
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="tel:+919601443663"
+                href="tel:+919289493265"
                 className="group inline-flex items-center gap-3 px-8 py-4 text-base font-bold text-duedost-blue bg-white rounded-2xl hover:bg-white/90 transition-all duration-300 shadow-2xl shadow-black/20 whitespace-nowrap"
               >
                 <svg
@@ -848,7 +848,7 @@ export default function CreditCardSettlementPage() {
                 >
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.26a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
                 </svg>
-                Call Now: +91 96014 43663
+                Call Now: +91 92894 93265
                 <svg
                   className="h-4 w-4 group-hover:translate-x-1 transition-transform"
                   viewBox="0 0 24 24"
@@ -864,7 +864,7 @@ export default function CreditCardSettlementPage() {
               </a>
 
               <a
-                href="https://wa.me/919601443663"
+                href="https://wa.me/919289493265"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-2xl hover:bg-white/10 transition-all duration-300"

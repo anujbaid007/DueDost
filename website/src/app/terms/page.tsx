@@ -585,7 +585,7 @@ export function TermsPage() {
 
             {/* Phone card */}
             <a
-              href="tel:+919601443663"
+              href="tel:+919289493265"
               className="group flex items-start gap-4 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue/40 hover:shadow-sm transition-all duration-200"
             >
               <span className="mt-0.5 flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-duedost-blue dark:text-duedost-green">
@@ -607,7 +607,7 @@ export function TermsPage() {
                   Phone / WhatsApp
                 </p>
                 <p className="mt-0.5 text-sm text-muted-foreground">
-                  +91 96014 43663
+                  +91 92894 93265
                 </p>
               </div>
             </a>

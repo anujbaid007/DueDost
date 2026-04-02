@@ -220,7 +220,7 @@ export function Navbar() {
           <ThemeToggle />
 
           <motion.a
-            href="tel:+919601443663"
+            href="tel:+919289493265"
             className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-xl hover:shadow-lg hover:shadow-duedost-green/25 transition-all duration-300"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
@@ -358,7 +358,7 @@ export function Navbar() {
                 className="pt-4"
               >
                 <a
-                  href="tel:+919601443663"
+                  href="tel:+919289493265"
                   className="inline-flex items-center justify-center gap-2 w-full px-5 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-xl"
                   onClick={toggleMenu}
                 >
