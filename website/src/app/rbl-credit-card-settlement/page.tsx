@@ -173,7 +173,7 @@ export default function RBLCreditCardSettlementPage() {
               Get Free Consultation
             </a>
             <a
-              href="https://wa.me/919289493265"
+              href="https://wa.me/919289493265?text=Hi%2C%20I%20want%20to%20settle%20my%20RBL%20credit%20card%20debt.%20Please%20help.
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-duedost-green text-duedost-green font-semibold text-lg hover:bg-duedost-green hover:text-white transition-colors"
@@ -372,7 +372,7 @@ export default function RBLCreditCardSettlementPage() {
                 Call +91 92894 93265
               </a>
               <a
-                href="https://wa.me/919289493265"
+                href="https://wa.me/919289493265?text=Hi%2C%20I%20want%20to%20settle%20my%20RBL%20credit%20card%20debt.%20Please%20help.
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-white text-white font-bold text-lg hover:bg-white/10 transition-colors"

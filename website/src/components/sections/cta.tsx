@@ -66,7 +66,7 @@ export function CTASection() {
           </motion.a>
 
           <motion.a
-            href="https://wa.me/919289493265"
+            href="https://wa.me/919289493265?text=Hi%2C%20I%20need%20help%20with%20debt%20settlement.%20Please%20guide%20me.
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-2xl hover:bg-white/10 transition-all duration-300"

@@ -324,7 +324,7 @@ export function ScrollVideo() {
 
                     {section.isCTA && (
                       <a
-                        href="https://wa.me/919289493265"
+                        href="https://wa.me/919289493265?text=Hi%2C%20I%20need%20help%20with%20debt%20settlement.%20Please%20guide%20me.
                         target="_blank"
                         rel="noopener noreferrer"
                         className="pointer-events-auto inline-flex items-center gap-2 mt-8 px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-2xl hover:shadow-2xl hover:shadow-duedost-green/20 transition-all duration-300 hover:scale-[1.03] w-fit"
@@ -422,7 +422,7 @@ function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
               )}
               {section.isCTA && (
                 <a
-                  href="https://wa.me/919289493265"
+                  href="https://wa.me/919289493265?text=Hi%2C%20I%20need%20help%20with%20debt%20settlement.%20Please%20guide%20me.
                   target="_blank"
                   rel="noopener noreferrer"
                   className="pointer-events-auto inline-flex items-center gap-2 mt-4 px-6 py-3 text-sm font-bold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-xl"

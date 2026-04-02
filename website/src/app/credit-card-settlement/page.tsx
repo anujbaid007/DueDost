@@ -425,7 +425,7 @@ export default function CreditCardSettlementPage() {
               </a>
 
               <a
-                href="https://wa.me/919289493265"
+                href="https://wa.me/919289493265?text=Hi%2C%20I%20want%20to%20settle%20my%20credit%20card%20debt.%20Please%20help.
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-duedost-green border-2 border-duedost-green rounded-2xl hover:bg-duedost-green/5 transition-all duration-300"
@@ -864,7 +864,7 @@ export default function CreditCardSettlementPage() {
               </a>
 
               <a
-                href="https://wa.me/919289493265"
+                href="https://wa.me/919289493265?text=Hi%2C%20I%20want%20to%20settle%20my%20credit%20card%20debt.%20Please%20help.
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-2xl hover:bg-white/10 transition-all duration-300"

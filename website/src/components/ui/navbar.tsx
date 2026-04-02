@@ -220,7 +220,7 @@ export function Navbar() {
           <ThemeToggle />
 
           <motion.a
-            href="https://wa.me/919289493265"
+            href="https://wa.me/919289493265?text=Hi%2C%20I%20need%20help%20with%20debt%20settlement.%20Please%20guide%20me.
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-semibold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-xl hover:shadow-lg hover:shadow-duedost-green/25 transition-all duration-300"
@@ -360,7 +360,7 @@ export function Navbar() {
                 className="pt-4"
               >
                 <a
-                  href="https://wa.me/919289493265"
+                  href="https://wa.me/919289493265?text=Hi%2C%20I%20need%20help%20with%20debt%20settlement.%20Please%20guide%20me.
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 w-full px-5 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-xl"
