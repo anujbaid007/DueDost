@@ -418,10 +418,10 @@ const sections = [
         <p className="mt-5">
           To exercise any of these rights, please contact us in writing at{" "}
           <a
-            href="mailto:support@duedost.com"
+            href="mailto:hello@duedost.com"
             className="text-duedost-blue dark:text-duedost-green underline underline-offset-2 hover:opacity-80 transition-opacity"
           >
-            support@duedost.com
+            hello@duedost.com
           </a>
           . We will acknowledge your request within 72 hours and respond fully
           within <strong>30 days</strong>.
@@ -488,8 +488,8 @@ const sections = [
           {[
             {
               label: "Email",
-              value: "support@duedost.com",
-              href: "mailto:support@duedost.com",
+              value: "hello@duedost.com",
+              href: "mailto:hello@duedost.com",
             },
             {
               label: "Phone",
@@ -726,7 +726,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href="mailto:support@duedost.com"
+                href="mailto:hello@duedost.com"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-duedost-blue to-duedost-green rounded-xl shadow-md hover:opacity-95 transition-opacity"
               >
                 <svg

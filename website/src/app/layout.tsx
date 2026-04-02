@@ -147,7 +147,7 @@ const jsonLd = {
       },
       image: `${SITE_URL}/og-image.webp`,
       telephone: ["+919289493265", "+911204894731"],
-      email: "support@duedost.com",
+      email: "hello@duedost.com",
       address: {
         "@type": "PostalAddress",
         streetAddress: "WeWork, Two Horizon Center",

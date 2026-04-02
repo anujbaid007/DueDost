@@ -938,10 +938,10 @@ export default function RecoveryAgentHarassmentPage() {
                 <p className="mt-6 text-xs text-muted-foreground">
                   Or email us at{" "}
                   <a
-                    href="mailto:support@duedost.com"
+                    href="mailto:hello@duedost.com"
                     className="text-duedost-blue hover:underline"
                   >
-                    support@duedost.com
+                    hello@duedost.com
                   </a>
                 </p>
               </div>

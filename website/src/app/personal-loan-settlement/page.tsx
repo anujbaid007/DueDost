@@ -793,7 +793,7 @@ export default function PersonalLoanSettlementPage() {
               </a>
             </div>
             <p className="text-white/70 text-sm mt-8">
-              Mon – Sat, 9 AM – 7 PM &nbsp;|&nbsp; support@duedost.com
+              Mon – Sat, 9 AM – 7 PM &nbsp;|&nbsp; hello@duedost.com
               &nbsp;|&nbsp; WeWork, Two Horizon Center, Gurugram, Haryana 122002
             </p>
           </div>

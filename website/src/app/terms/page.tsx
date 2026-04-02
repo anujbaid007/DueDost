@@ -534,10 +534,10 @@ export function TermsPage() {
             you do not agree to the amended Terms, you must cease using our
             Services and notify us at{" "}
             <a
-              href="mailto:support@duedost.com"
+              href="mailto:hello@duedost.com"
               className="text-duedost-blue dark:text-duedost-green hover:underline font-medium"
             >
-              support@duedost.com
+              hello@duedost.com
             </a>
             .
           </p>
@@ -555,7 +555,7 @@ export function TermsPage() {
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Email card */}
             <a
-              href="mailto:support@duedost.com"
+              href="mailto:hello@duedost.com"
               className="group flex items-start gap-4 p-5 rounded-2xl border border-border/60 bg-card hover:border-duedost-blue/40 hover:shadow-sm transition-all duration-200"
             >
               <span className="mt-0.5 flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/40 text-duedost-blue dark:text-duedost-green">
@@ -578,7 +578,7 @@ export function TermsPage() {
                   Email Support
                 </p>
                 <p className="mt-0.5 text-sm text-muted-foreground">
-                  support@duedost.com
+                  hello@duedost.com
                 </p>
               </div>
             </a>

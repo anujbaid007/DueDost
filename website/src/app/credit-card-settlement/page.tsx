@@ -53,7 +53,7 @@ const jsonLd = {
         name: "Due Dost",
         url: SITE_URL,
         telephone: "+919289493265",
-        email: "support@duedost.com",
+        email: "hello@duedost.com",
         address: {
           "@type": "PostalAddress",
           streetAddress: "WeWork, Two Horizon Center",

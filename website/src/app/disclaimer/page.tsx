@@ -59,7 +59,7 @@ const sections = [
   {
     title: "Contact Us",
     content:
-      "If you have questions about this disclaimer or our services, please contact us at support@duedost.com or call +91 92894 93265. Our office is located at WeWork, Two Horizon Center, Gurugram, Haryana 122002, India.",
+      "If you have questions about this disclaimer or our services, please contact us at hello@duedost.com or call +91 92894 93265. Our office is located at WeWork, Two Horizon Center, Gurugram, Haryana 122002, India.",
   },
 ];
 

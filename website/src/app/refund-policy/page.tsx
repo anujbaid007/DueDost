@@ -126,7 +126,7 @@ export default function RefundPolicyPage() {
             <h2 className="text-lg font-semibold text-foreground mb-3">How to Request a Refund</h2>
             <ol className="space-y-3 list-none">
               {[
-                "Email support@duedost.com with subject line: \"Refund Request — [Your Name]\"",
+                "Email hello@duedost.com with subject line: \"Refund Request — [Your Name]\"",
                 "Include your case reference number, the reason for your refund request, and payment details",
                 "We will respond within 5 business days with a decision",
                 "Approved refunds are processed within 7–10 business days to the original payment method",
@@ -145,7 +145,7 @@ export default function RefundPolicyPage() {
           <div className="bg-background rounded-2xl border border-border p-6 md:p-8">
             <h2 className="text-lg font-semibold text-foreground mb-3">Cancellation</h2>
             <p className="text-muted-foreground leading-relaxed">
-              You may cancel your engagement at any time by providing written notice to support@duedost.com. Cancellation does not automatically entitle you to a refund. Please refer to the eligibility sections above to determine whether a refund applies to your situation.
+              You may cancel your engagement at any time by providing written notice to hello@duedost.com. Cancellation does not automatically entitle you to a refund. Please refer to the eligibility sections above to determine whether a refund applies to your situation.
             </p>
           </div>
 
@@ -153,7 +153,7 @@ export default function RefundPolicyPage() {
           <div className="p-6 rounded-2xl bg-blue-50/60 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30">
             <p className="text-sm text-muted-foreground leading-relaxed">
               Questions about refunds? Contact us at{" "}
-              <a href="mailto:support@duedost.com" className="text-duedost-blue hover:underline">support@duedost.com</a>{" "}
+              <a href="mailto:hello@duedost.com" className="text-duedost-blue hover:underline">hello@duedost.com</a>{" "}
               or call{" "}
               <a href="tel:+919289493265" className="text-duedost-blue hover:underline">+91 92894 93265</a>.
               Also see our{" "}

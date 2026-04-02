@@ -96,18 +96,11 @@ export function Footer() {
                 +91 92894 93265
               </a>
               <a
-                href="tel:01204894731"
-                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Phone className="h-4 w-4 text-duedost-blue flex-shrink-0" />
-                0120-4894731
-              </a>
-              <a
-                href="mailto:support@duedost.com"
+                href="mailto:hello@duedost.com"
                 className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <Mail className="h-4 w-4 text-duedost-green flex-shrink-0" />
-                support@duedost.com
+                hello@duedost.com
               </a>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 text-duedost-blue flex-shrink-0 mt-0.5" />
