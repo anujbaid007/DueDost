@@ -60,7 +60,7 @@ export function ScrollVideo() {
     new Array(TOTAL_FRAMES).fill(null)
   );
   const currentFrameRef = useRef(0);
-  const drawFrameRef = useRef<(index: number) => void>();
+  const drawFrameRef = useRef<(index: number) => void>(undefined);
 
   const [scrollProgress, setScrollProgress] = useState(0);
 
