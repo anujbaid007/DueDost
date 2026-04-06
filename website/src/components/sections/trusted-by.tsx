@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -24,7 +22,7 @@ const row2 = [...logos.slice(5), ...logos.slice(0, 5)];
 function LogoCard({ logo }: { logo: Logo }) {
   const inner = (
     <div className={cn(
-      "flex-shrink-0 flex items-center justify-center w-[132px] h-[78px] md:w-[152px] md:h-[88px] bg-white rounded-2xl border border-black/[0.07] shadow-[0_2px_14px_rgba(0,0,0,0.07)] mx-2.5 px-4",
+      "flex-shrink-0 flex items-center justify-center w-[132px] h-[78px] md:w-[152px] md:h-[88px] bg-white rounded-2xl border border-black/[0.07] shadow-[0_2px_14px_rgba(0,0,0,0.07)] mx-2.5 md:mx-4 lg:mx-5 px-4 md:px-5",
       logo.href ? "cursor-pointer" : "cursor-default"
     )}>
       <img
@@ -43,7 +41,15 @@ function LogoCard({ logo }: { logo: Logo }) {
   return inner;
 }
 
-function MarqueeRow({ items, reverse }: { items: Logo[]; reverse?: boolean }) {
+function MarqueeRow({
+  items,
+  reverse,
+  duration,
+}: {
+  items: Logo[];
+  reverse?: boolean;
+  duration: string;
+}) {
   // 2 copies is enough for seamless loop (animation translates exactly -50%)
   const doubled = [...items, ...items];
   return (
@@ -53,6 +59,7 @@ function MarqueeRow({ items, reverse }: { items: Logo[]; reverse?: boolean }) {
           "flex w-max",
           reverse ? "animate-marquee-reverse" : "animate-marquee"
         )}
+        style={{ animationDuration: duration }}
       >
         {doubled.map((logo, i) => (
           <LogoCard key={`${logo.alt}-${i}`} logo={logo} />
@@ -84,15 +91,18 @@ export function TrustedBySection() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-0">
-        <MarqueeRow items={logos} />
+      <div className="md:hidden">
+        <MarqueeRow items={logos} duration="60s" />
+      </div>
 
-        {/* Separator line */}
-        <div className="relative h-px my-3.5">
+      <div className="hidden md:flex md:flex-col md:gap-0">
+        <MarqueeRow items={logos} duration="74s" />
+
+        <div className="relative h-px my-4 lg:my-5">
           <div className="absolute inset-0 bg-border/50" />
         </div>
 
-        <MarqueeRow items={row2} reverse />
+        <MarqueeRow items={row2} reverse duration="82s" />
       </div>
     </section>
   );

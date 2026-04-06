@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 
 const vertexShader = `
   attribute vec2 a_position;
@@ -57,16 +57,44 @@ const fragmentShader = `
   }
 `;
 
-export function ShaderBackground({ isDark }: { isDark: boolean }) {
+export function ShaderBackground({
+  isDark,
+  active,
+}: {
+  isDark: boolean;
+  active: boolean;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const animFrameRef = useRef<number>(0);
+  const sizeRef = useRef({ width: 0, height: 0, dpr: 1 });
+  const [isEnabled, setIsEnabled] = useState(false);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     mouseRef.current = { x: e.clientX, y: e.clientY };
   }, []);
 
   useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const desktop = window.matchMedia("(min-width: 1024px)");
+
+    const syncEnvironment = () => {
+      setIsEnabled(!reducedMotion.matches && desktop.matches);
+    };
+
+    syncEnvironment();
+    reducedMotion.addEventListener("change", syncEnvironment);
+    desktop.addEventListener("change", syncEnvironment);
+
+    return () => {
+      reducedMotion.removeEventListener("change", syncEnvironment);
+      desktop.removeEventListener("change", syncEnvironment);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!active || !isEnabled) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -104,8 +132,17 @@ export function ShaderBackground({ isDark }: { isDark: boolean }) {
     const darkLoc = gl.getUniformLocation(program, "u_dark");
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      sizeRef.current = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        dpr,
+      };
+
+      canvas.width = Math.floor(window.innerWidth * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
       gl.viewport(0, 0, canvas.width, canvas.height);
     };
 
@@ -114,13 +151,26 @@ export function ShaderBackground({ isDark }: { isDark: boolean }) {
     window.addEventListener("mousemove", handleMouseMove);
 
     const startTime = Date.now();
-    const render = () => {
+    mouseRef.current = {
+      x: sizeRef.current.width / 2,
+      y: sizeRef.current.height / 2,
+    };
+    let lastFrameTime = 0;
+    const render = (now: number) => {
+      if (now - lastFrameTime < 1000 / 24) {
+        animFrameRef.current = requestAnimationFrame(render);
+        return;
+      }
+
+      lastFrameTime = now;
       const time = (Date.now() - startTime) / 1000;
+      const { dpr } = sizeRef.current;
+
       gl.uniform2f(resLoc, canvas.width, canvas.height);
       gl.uniform2f(
         mouseLoc,
-        mouseRef.current.x,
-        canvas.height - mouseRef.current.y
+        mouseRef.current.x * dpr,
+        canvas.height - mouseRef.current.y * dpr
       );
       gl.uniform1f(timeLoc, time);
       gl.uniform1f(darkLoc, isDark ? 1.0 : 0.0);
@@ -128,14 +178,20 @@ export function ShaderBackground({ isDark }: { isDark: boolean }) {
       animFrameRef.current = requestAnimationFrame(render);
     };
 
-    render();
+    animFrameRef.current = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(animFrameRef.current);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [isDark, handleMouseMove]);
+  }, [active, handleMouseMove, isDark, isEnabled]);
+
+  if (!isEnabled) {
+    return (
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(27,93,170,0.18),_transparent_42%),radial-gradient(circle_at_bottom_right,_rgba(59,170,53,0.12),_transparent_36%)]" />
+    );
+  }
 
   return (
     <canvas

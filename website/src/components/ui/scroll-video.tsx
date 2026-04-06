@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 
-const TOTAL_FRAMES = 192;
-const KEYFRAME_STEP = 8; // Phase 1: load every 8th frame → ~24 keyframes for full coverage
+const TOTAL_FRAMES = 96;
+const KEYFRAME_STEP = 4; // Keep roughly the same initial keyframe density after halving the sequence
 
 interface TextSection {
   enter: number;
@@ -53,6 +53,11 @@ const sections: TextSection[] = [
   },
 ];
 
+function getFramePath(sequenceFrame: number) {
+  const actualFrame = sequenceFrame * 2 - 1;
+  return `/frames/frame_${String(actualFrame).padStart(4, "0")}.jpg`;
+}
+
 export function ScrollVideo() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -64,7 +69,6 @@ export function ScrollVideo() {
 
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // ── Nearest loaded frame fallback ──
   const nearestFrame = useCallback((idx: number): number => {
     if (framesRef.current[idx]) return idx;
     for (let d = 1; d < TOTAL_FRAMES; d++) {
@@ -74,7 +78,6 @@ export function ScrollVideo() {
     return 0;
   }, []);
 
-  // ── Draw frame to canvas ──
   const drawFrame = useCallback(
     (index: number) => {
       const canvas = canvasRef.current;
@@ -107,18 +110,17 @@ export function ScrollVideo() {
     [nearestFrame]
   );
 
-  // Keep a ref to drawFrame so the loading effect can call it without re-running
   drawFrameRef.current = drawFrame;
 
-  // ── Two-phase frame loading ──
   useEffect(() => {
     let cancelled = false;
     let keyframeCount = 0;
     let phase2Started = false;
 
     const keyframeIndices: number[] = [];
-    for (let i = 1; i <= TOTAL_FRAMES; i += KEYFRAME_STEP)
+    for (let i = 1; i <= TOTAL_FRAMES; i += KEYFRAME_STEP) {
       keyframeIndices.push(i);
+    }
     const totalKeyframes = keyframeIndices.length;
     const keyframeSet = new Set(keyframeIndices);
 
@@ -128,7 +130,7 @@ export function ScrollVideo() {
       for (let i = 1; i <= TOTAL_FRAMES; i++) {
         if (!keyframeSet.has(i)) {
           const img = new window.Image();
-          img.src = `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
+          img.src = getFramePath(i);
           img.onload = () => {
             if (!cancelled) framesRef.current[i - 1] = img;
           };
@@ -138,13 +140,12 @@ export function ScrollVideo() {
 
     keyframeIndices.forEach((frameNum) => {
       const img = new window.Image();
-      img.src = `/frames/frame_${String(frameNum).padStart(4, "0")}.jpg`;
+      img.src = getFramePath(frameNum);
       img.onload = () => {
         if (cancelled) return;
         framesRef.current[frameNum - 1] = img;
         keyframeCount++;
 
-        // Draw current frame as soon as any keyframe loads
         if (keyframeCount === 1) {
           drawFrameRef.current?.(currentFrameRef.current);
         }
@@ -167,7 +168,6 @@ export function ScrollVideo() {
     };
   }, []);
 
-  // ── Canvas sizing ──
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -189,7 +189,6 @@ export function ScrollVideo() {
     return () => window.removeEventListener("resize", resize);
   }, [drawFrame]);
 
-  // ── Scroll handler ──
   useEffect(() => {
     const handleScroll = () => {
       const container = containerRef.current;
@@ -201,8 +200,8 @@ export function ScrollVideo() {
       const sp = Math.max(0, Math.min(1, containerTop / containerHeight));
       setScrollProgress(sp);
 
-      const FRAME_SPEED = 1.18;
-      const accelerated = Math.min(sp * FRAME_SPEED, 1);
+      const frameSpeed = 1.18;
+      const accelerated = Math.min(sp * frameSpeed, 1);
       const frameIndex = Math.min(
         Math.floor(accelerated * TOTAL_FRAMES),
         TOTAL_FRAMES - 1
@@ -218,16 +217,13 @@ export function ScrollVideo() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [drawFrame]);
 
-  // Active section index
   const activeIdx = sections.findIndex(
-    (s) => scrollProgress >= s.enter && scrollProgress < s.leave
+    (section) => scrollProgress >= section.enter && scrollProgress < section.leave
   );
 
   return (
     <div ref={containerRef} className="relative" style={{ height: "400vh" }}>
-      {/* ═══ Sticky viewport ═══ */}
       <div className="sticky top-0 w-full h-screen flex items-center justify-center bg-[#0a0a0a]">
-        {/* Glassmorphism background orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-duedost-blue/20 rounded-full blur-[140px]" />
           <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-duedost-green/15 rounded-full blur-[120px]" />
@@ -235,53 +231,44 @@ export function ScrollVideo() {
         </div>
 
         <div className="flex w-full h-full relative">
-          {/* Left 1/3 — Video */}
           <div className="relative w-full lg:w-[35%] h-full bg-[#0a0a0a] overflow-hidden">
             <canvas ref={canvasRef} className="w-full h-full" />
-            {/* Subtle gradient overlay on right edge to blend into glass panel */}
             <div className="hidden lg:block absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/60 to-transparent" />
 
-            {/* Mobile text overlays — shown below lg */}
             <div className="lg:hidden absolute inset-0 pointer-events-none">
               <MobileOverlays scrollProgress={scrollProgress} />
             </div>
           </div>
 
-          {/* Right 2/3 — Glass text panel (desktop only) */}
           <div className="hidden lg:flex w-[65%] h-full backdrop-blur-2xl bg-white/[0.04] border-l border-white/[0.08] flex-col justify-center px-12 xl:px-20 relative">
-            {/* Decorative vertical line */}
             <div className="absolute left-0 top-[15%] bottom-[15%] w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
 
-            {/* Inner glass glow reflection at top */}
             <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-            {/* Progress indicator dots — glassy pill */}
             <div className="absolute left-5 top-1/2 -translate-y-1/2 flex flex-col gap-4 px-2 py-3 rounded-full backdrop-blur-sm bg-white/[0.04] border border-white/[0.08]">
-              {sections.map((_, i) => (
-                <div key={i} className="relative flex items-center">
+              {sections.map((_, index) => (
+                <div key={index} className="relative flex items-center">
                   <div
                     className={`w-2 h-2 rounded-full transition-all duration-500 ${
-                      i === activeIdx
+                      index === activeIdx
                         ? "bg-duedost-green scale-125 shadow-[0_0_10px_rgba(59,170,53,0.6)]"
-                        : i < activeIdx
+                        : index < activeIdx
                         ? "bg-white/40"
                         : "bg-white/10"
                     }`}
                   />
-                  {i === activeIdx && (
+                  {index === activeIdx && (
                     <div className="absolute left-0 w-2 h-2 rounded-full bg-duedost-green animate-ping opacity-50" />
                   )}
                 </div>
               ))}
             </div>
 
-            {/* Text content — needs explicit height for absolute children */}
             <div className="relative pl-8 flex-1">
               {sections.map((section, idx) => {
                 const isActive = idx === activeIdx;
                 const isPast = idx < activeIdx;
 
-                // Calculate local progress within this section
                 let localProgress = 0;
                 if (isActive) {
                   localProgress =
@@ -334,7 +321,6 @@ export function ScrollVideo() {
                       </a>
                     )}
 
-                    {/* Glass progress bar for active section */}
                     {isActive && !section.isCTA && (
                       <div className="mt-8 w-32 h-[3px] bg-white/[0.08] backdrop-blur-sm rounded-full overflow-hidden border border-white/[0.06]">
                         <div
@@ -354,7 +340,6 @@ export function ScrollVideo() {
   );
 }
 
-/** Mobile: text overlay on top of canvas */
 function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
   return (
     <>
@@ -365,7 +350,6 @@ function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
         const visible =
           scrollProgress >= section.enter + 0.04 &&
           scrollProgress < section.leave - 0.04;
-        // Last section (CTA) never fades out — there's no further scroll to trigger it
         const isLast = section.leave >= 1.0;
         const fadeOut =
           !isLast &&
@@ -379,10 +363,11 @@ function MobileOverlays({ scrollProgress }: { scrollProgress: number }) {
 
         let opacity = 0;
         if (fadeIn) opacity = (scrollProgress - section.enter) / 0.04;
-        else if (visible || (isLast && scrollProgress >= section.enter + 0.04))
+        else if (visible || (isLast && scrollProgress >= section.enter + 0.04)) {
           opacity = 1;
-        else if (fadeOut)
+        } else if (fadeOut) {
           opacity = 1 - (scrollProgress - (section.leave - 0.04)) / 0.04;
+        }
 
         const translateY = fadeIn ? (1 - opacity) * 30 : 0;
 

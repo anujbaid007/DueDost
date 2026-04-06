@@ -1,7 +1,7 @@
 "use client";
 
 import { useMotionValue, useMotionTemplate, motion } from "motion/react";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useMemo, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const EvervaultCard = ({
@@ -13,66 +13,34 @@ export const EvervaultCard = ({
 }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const isHoveredRef = useRef(false);
-  const rafRef = useRef<number>(0);
-
-  const [randomString, setRandomString] = useState("");
   const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    setRandomString(generateRandomString(1500));
-  }, []);
-
-  // Continuous slow orbital drift for ambient glow
-  useEffect(() => {
-    let angle = Math.random() * Math.PI * 2;
-    const speed = 0.006 + Math.random() * 0.004; // each card drifts at slightly different speed
-
-    const drift = () => {
-      if (!isHoveredRef.current && cardRef.current) {
-        const { width, height } = cardRef.current.getBoundingClientRect();
-        angle += speed;
-        mouseX.set(width / 2 + Math.cos(angle) * width * 0.32);
-        mouseY.set(height / 2 + Math.sin(angle * 0.65) * height * 0.32);
-      }
-      rafRef.current = requestAnimationFrame(drift);
-    };
-
-    rafRef.current = requestAnimationFrame(drift);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [mouseX, mouseY]);
-
-  // Slow character refresh for ambient shimmer
-  useEffect(() => {
-    if (isHovered) return;
-    const interval = setInterval(() => {
-      setRandomString(generateRandomString(1500));
-    }, 300);
-    return () => clearInterval(interval);
-  }, [isHovered]);
+  const [randomString, setRandomString] = useState(() => generateRandomString(900));
+  const idleString = useMemo(() => generateRandomString(900), []);
 
   function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    isHoveredRef.current = true;
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
-    setRandomString(generateRandomString(1500));
   }
 
-  function onMouseEnter() {
-    isHoveredRef.current = true;
+  function onMouseEnter(event: React.MouseEvent<HTMLDivElement>) {
+    const { width, height } = event.currentTarget.getBoundingClientRect();
+    mouseX.set(width / 2);
+    mouseY.set(height / 2);
     setIsHovered(true);
+    setRandomString(generateRandomString(900));
   }
 
-  function onMouseLeave() {
-    isHoveredRef.current = false;
+  function onMouseLeave(event: React.MouseEvent<HTMLDivElement>) {
+    const { width, height } = event.currentTarget.getBoundingClientRect();
+    mouseX.set(width / 2);
+    mouseY.set(height / 2);
     setIsHovered(false);
+    setRandomString(idleString);
   }
 
   return (
     <div
-      ref={cardRef}
       className={cn(
         "p-0.5 bg-transparent aspect-square flex items-center justify-center w-full h-full relative",
         className
@@ -121,10 +89,10 @@ export function CardPattern({
 
       {/* Ambient dim glow — always drifting at low opacity */}
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-duedost-green to-duedost-blue backdrop-blur-xl transition-opacity duration-700"
+        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-duedost-green/80 to-duedost-blue/80 transition-opacity duration-300"
         style={{
           ...style,
-          opacity: isHovered ? 1 : 0.33,
+          opacity: isHovered ? 0.92 : 0.26,
         }}
       />
       <motion.div

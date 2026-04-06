@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import { useRef } from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import {
@@ -76,76 +76,66 @@ function ConditionalLink({
 
 function ServiceCard({ service, i }: { service: typeof services[0]; i: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mouse, setMouse] = useState({ x: 50, y: 50 });
-  const [hovered, setHovered] = useState(false);
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMouse({
-      x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100,
-    });
-  }, []);
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "mouse") return;
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty("--spot-x", `${x}%`);
+    card.style.setProperty("--spot-y", `${y}%`);
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ once: true }}
-      className="group"
+      className="group transition-transform duration-300 md:hover:scale-[1.03]"
     >
       <ConditionalLink href={service.href} className="block h-full">
         <div
-          ref={cardRef}
-          onMouseMove={handleMouseMove}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          className="relative h-full rounded-2xl overflow-hidden transition-all duration-300"
-          style={{
-            border: hovered
-              ? "1.5px solid transparent"
-              : "1.5px solid hsl(var(--border))",
-            background: hovered
-              ? `linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
-                 linear-gradient(135deg, #1B5DAA, #3BAA35, #2E7DD6, #1B5DAA) border-box`
-              : "hsl(var(--background))",
-            boxShadow: hovered
-              ? "0 0 24px rgba(27,93,170,0.25), 0 8px 32px rgba(59,170,53,0.15)"
-              : "none",
-          }}
+          className="relative h-full overflow-hidden rounded-2xl bg-border p-[1.5px] transition-all duration-300 md:group-hover:bg-[linear-gradient(135deg,#1B5DAA,#3BAA35,#2E7DD6,#1B5DAA)] md:group-hover:shadow-[0_0_24px_rgba(27,93,170,0.25),0_8px_32px_rgba(59,170,53,0.15)]"
         >
-          {/* Mouse-tracked spotlight */}
           <div
-            className="absolute inset-0 pointer-events-none transition-opacity duration-300 rounded-2xl"
+            ref={cardRef}
+            onPointerMove={handlePointerMove}
+            className="relative h-full rounded-[calc(1rem-1.5px)] bg-background"
             style={{
-              opacity: hovered ? 1 : 0,
-              background: `radial-gradient(circle at ${mouse.x}% ${mouse.y}%, rgba(27,93,170,0.1) 0%, transparent 55%)`,
+              ["--spot-x" as string]: "50%",
+              ["--spot-y" as string]: "50%",
             }}
-          />
+          >
+            <div
+              className="pointer-events-none absolute inset-0 rounded-[calc(1rem-1.5px)] opacity-0 transition-opacity duration-300 md:group-hover:opacity-100"
+              style={{
+                background:
+                  "radial-gradient(circle at var(--spot-x) var(--spot-y), rgba(27,93,170,0.1) 0%, transparent 55%)",
+              }}
+            />
 
-          {/* Card content */}
-          <div className="relative flex h-full flex-col justify-between gap-6 p-6">
-            <div className="flex flex-1 flex-col justify-between gap-3">
-              <div className="w-fit rounded-lg border border-border bg-muted p-2.5 text-duedost-blue dark:text-duedost-green">
-                {service.icon}
+            <div className="relative flex h-full flex-col justify-between gap-6 p-6">
+              <div className="flex flex-1 flex-col justify-between gap-3">
+                <div className="w-fit rounded-lg border border-border bg-muted p-2.5 text-duedost-blue dark:text-duedost-green">
+                  {service.icon}
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-              <div className="space-y-2">
-                <h3 className="text-xl font-semibold tracking-tight text-foreground">
-                  {service.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2">
-                  {service.description}
-                </p>
-              </div>
-            </div>
 
-            {/* Learn more footer */}
-            <div className="flex items-center gap-1.5 text-sm font-medium text-duedost-blue dark:text-duedost-green pt-3 border-t border-border/50">
-              <span>{learnMoreLabel[service.href] ?? "Learn More"}</span>
-              <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+              <div className="flex items-center gap-1.5 text-sm font-medium text-duedost-blue dark:text-duedost-green pt-3 border-t border-border/50">
+                <span>{learnMoreLabel[service.href] ?? "Learn More"}</span>
+                <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 md:group-hover:translate-x-1" />
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,3 @@
-"use client";
-
 import { TestimonialsColumn } from "@/components/ui/testimonials-columns";
 
 const testimonials = [

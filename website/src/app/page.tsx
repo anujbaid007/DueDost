@@ -1,10 +1,12 @@
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/ui/navbar";
 import { HeroSection } from "@/components/sections/hero";
-import { ScrollVideoSection } from "@/components/sections/scroll-video-section";
 
 // Below-fold sections are dynamically imported — their JS is split into separate
 // chunks and only downloaded when needed, shrinking the initial bundle significantly.
+const ScrollVideoSection = dynamic(() =>
+  import("@/components/sections/scroll-video-section").then((m) => ({ default: m.ScrollVideoSection }))
+);
 const TrustedBySection = dynamic(() =>
   import("@/components/sections/trusted-by").then((m) => ({ default: m.TrustedBySection }))
 );

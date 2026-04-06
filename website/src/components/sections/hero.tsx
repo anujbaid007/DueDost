@@ -2,28 +2,42 @@
 
 import { motion } from "motion/react";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ShaderBackground } from "@/components/ui/shader-hero";
 import { Spotlight } from "@/components/ui/spotlight";
-import { Phone, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
 
 export function HeroSection() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const [isHeroActive, setIsHeroActive] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsHeroActive(entry.isIntersecting),
+      { threshold: 0.08 }
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Shader background */}
-      {mounted && <ShaderBackground isDark={resolvedTheme === "dark"} />}
+      <ShaderBackground isDark={resolvedTheme === "dark"} active={isHeroActive} />
 
       {/* Spotlight effect */}
-      {mounted && (
-        <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20"
-          fill={resolvedTheme === "dark" ? "#3BAA35" : "#1B5DAA"}
-        />
-      )}
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill={resolvedTheme === "dark" ? "#3BAA35" : "#1B5DAA"}
+      />
 
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background pointer-events-none z-[2]" />
